@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSTSI LPAW - CSS3 - Transitions - Exemplo 1</title>
+    <style>
+        /*LAYOUT*/
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            margin: 0 auto;
+            padding: 0px;
+        }
+
+        .row{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin: 0 2px;
+            padding: 5px;
+        }
+        /*LAYOUT end*/
+        
+        /*BUTTON*/
+        button {
+            width: 100px;
+            height: 40px;
+            background-color: #1e1e1e;
+            color: white;
+            border: 0px;
+            border-bottom: 0px;
+            padding-bottom: 10px;
+            transition: padding-top 0.5s ease;
+        }
+
+        button:active {
+            transform: scale(.95);
+            font-weight: bold;
+        }
+
+        button:hover {
+            box-shadow: 0px 0px 5px #1e1e1e;
+            background-color: #808080;
+            padding-top: 5px;
+            color: #1e1e1e;
+            border-bottom: 20px solid #808080;
+            transition: border-bottom 1s ease-out, background-color 1s ease;
+        }
+        /*BUTTON end*/
+
+        /*INPUT*/
+        label{
+            font-family: sans-serif;
+            color: #1e1e1e;
+            transform: translate(0px,20px);
+            visibility: hidden;
+            display: none;
+        }
+
+        input{
+            width:   100%;
+            margin:  0px 0px;
+            padding: 0px;
+        }
+
+        input::placeholder{
+            color:#1e1e1e;
+        }
+        /*end INPUT*/
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <label for="login">Username:</label>
+            <input id="login" type="text" name="login" placeholder="Type your username">
+        </div>
+        <div class="row">
+            <label for="password">Password:</label>
+            <input id="password" type="password" name="login" placeholder="Type your password">
+        </div>
+        <div class="row">
+            <button>Enter</button>
+        </div>
+    </div>
+</body>
+
+</html>
