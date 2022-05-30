@@ -25,7 +25,7 @@
             align-items: center;
             width: 100%;
             margin: 0 2px;
-            padding: 5px;
+            padding: 15px;
         }
         /*LAYOUT end*/
         
@@ -33,8 +33,8 @@
         button {
             width: 100px;
             height: 40px;
-            background-color: #1e1e1e;
-            color: white;
+            background-color: #808080;
+            color:  #1e1e1e;
             border: 0px;
             border-bottom: 0px;
             padding-bottom: 10px;
@@ -48,10 +48,10 @@
 
         button:hover {
             box-shadow: 0px 0px 5px #1e1e1e;
-            background-color: #808080;
+            background-color: #1e1e1e;
             padding-top: 5px;
-            color: #1e1e1e;
-            border-bottom: 20px solid #808080;
+            color:  white;
+            border-bottom: 20px solid #1e1e1e;
             transition: border-bottom 1s ease-out, background-color 1s ease;
         }
         /*BUTTON end*/
@@ -65,14 +65,27 @@
             display: none;
         }
 
-        input{
-            width:   100%;
-            margin:  0px 0px;
+        input
+        {
+            outline:0;
+            width: 100%;
+            margin: 0px 0px;
             padding: 0px;
+            border: none;
+            border-bottom: 2px #808080 solid;
+        }
+
+        input:focus
+        {
+            outline:0;
+            border: none;
+            border-bottom: 3px #1e1e1e solid;
+            transition: 1s;            
         }
 
         input::placeholder{
             color:#1e1e1e;
+            font-style: bold;
         }
         /*end INPUT*/
     </style>
