@@ -31,6 +31,7 @@
         
         /*BUTTON*/
         button {
+            outline:0;
             width: 100px;
             height: 40px;
             background-color: #808080;
@@ -38,21 +39,22 @@
             border: 0px;
             border-bottom: 0px;
             padding-bottom: 10px;
-            transition: padding-top 0.5s ease;
+            transition: padding-top 0.5s ease, box-shadow 1 s linear;
         }
 
         button:active {
             transform: scale(.95);
             font-weight: bold;
+            box-shadow: 0px 3px 10px #1e1e1e, 3px 0px 10px #808080;
         }
 
         button:hover {
-            box-shadow: 0px 0px 5px #1e1e1e;
+            box-shadow: 0px 0px 10px #1e1e1e;
             background-color: #1e1e1e;
             padding-top: 5px;
             color:  white;
             border-bottom: 20px solid #1e1e1e;
-            transition: border-bottom 1s ease-out, background-color 1s ease;
+            transition: border-bottom 1s ease-out, background-color 1s ease, box-shadow 1ms linear;
         }
         /*BUTTON end*/
 
@@ -68,12 +70,13 @@
         input
         {
             outline:0;
+            text-align: center;
             width: 100%;
             margin: 0px 0px;
             padding: 0px;
             border: none;
-            border-bottom: 2px #808080 solid;
-            transition: border-bottom 1s;            
+            border-bottom: 1px #808080 solid;
+            transition: border-bottom 1s,text-shadow 4s ease, box-shadow 1s linear;        
         }
 
         input:focus
@@ -81,11 +84,24 @@
             outline:0;
             border: none;
             border-bottom: 2px #1e1e1e solid;
+            box-shadow:0 2px 2px #1e1e1e inset, 0 0px transparent;
+            /* box-shadow: 0 10px black inset,0 -10px transparent inset, -10px 0 transparent inset, 10px 0 transparent inset; */
+        }
+
+        input:focus::placeholder
+        {
+            text-shadow: 0px 0px 2px #1e1e1e;
+            color:#808080;
         }
 
         input::placeholder{
+            text-shadow: 0px 0px 0px #1e1e1e;
+            text-decoration: solid;
+            font-style: bolder;
+            transition: text-shadow 4s ease;
             color:#1e1e1e;
             font-style: bold;
+            opacity: 1;
         }
         /*end INPUT*/
     </style>
