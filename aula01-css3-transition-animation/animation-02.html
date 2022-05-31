@@ -1,88 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LPAW - Animações CSS3 - Exemplo 2</title>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>CSTI-4SEM-LPAW-Aula 01 | CSS3 Animação: Exemplo 04</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        .loader{
-            display: flex;
-            flex-direction: row;
-            justify-items: center;
-            align-items: center;
-            width: 100px;
-            height: 100px;
-            border: 2px solid gray;
-        }
+            body{animation: grenal 2s linear infinite;}
 
-        .loader div{
-            width: 25px;
-            height: 25px;
-            background-color: lightgray;
-        }
-
-        .loader #bit1, .loader  #bit2 ,.loader   #bit3{
-            animation-play-state: paused;
-        }
-
-        .loader:hover #bit1, .loader:hover #bit2 ,.loader:hover #bit3{
-            animation-play-state: running;
-        }
-
-        /* .loader:left  #bit2 ,.loader:left   #bit3{
-            animation-play-state: initial;
-        } */
-
-        #bit1{
-            animation-name: b1;
-            animation-duration: 1s;
-            animation-delay: 0.9s;
-            animation-iteration-count: infinite;
-            transform: translate(31px,0px); 
-        }
-
-        #bit2{
-            width: 25px;
-            height: 25px;
-            background-color: gray;
-            animation: b2 1s linear 0.7s infinite;
-            transform: translate(6px,0px); 
-        }
-
-        #bit3{
-            width: 25px;
-            height: 25px;
-            background-color: black;
-            animation: b3 1s linear 0.5s infinite;  
-            transform: translate(-19px,0px); 
-        }
-
-       .loader:hover > div{
-            animation-play-state: running;
-        }
-
-        @keyframes b1 {
-            0%,100%{transform: translate(0px,0px);}
-            50%{transform: translate(50px,0px); opacity: 0.1; }
-        }
-
-        @keyframes b2 {
-            0%,100%{transform: translate(-25px,0px);}
-            50%{transform: translate(25px,0px);opacity: 0.5;}
-        }
-
-        @keyframes b3 {
-            0%,100%{transform: translate(-50px,0px);}
-            50%{transform: translate(0px,0px)}
-        }
-    </style>
-</head>
-<body>
-    <div class="loader">
-        <div id="bit1"></div>
-        <div id="bit2"></div>
-        <div id="bit3"></div>
-    </div>
-</body>
+            @keyframes grenal {
+                0%{ background-color: blue;}
+                100%{ background-color: red;}
+            }
+        </style>
+    </head>
+    <body>
+    </body>
 </html>
