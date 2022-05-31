@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LPAW - Animações CSS3 - Exemplo 1</title>
+    <style>
+        .loader{
+            display: flex;
+            flex-direction: column;
+            justify-items: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+        }
+
+        .loader div{
+            width: 25px;
+            height: 25px;
+            background-color: lightgray;
+        }
+
+        #bit1{
+            animation-name: b1;
+            animation-duration: 1s;
+            animation-delay: 0.9s;
+            animation-iteration-count: infinite;
+            animation-play-state: running;
+        }
+
+        #bit2{
+            transform: translate(0px,-25px);
+            width: 25px;
+            height: 25px;
+            background-color: gray;
+            animation: b2 1s linear 0.7s infinite;
+            animation-play-state: running;
+        }
+
+        #bit3{
+            transform: translate(0px,-50px);
+            width: 25px;
+            height: 25px;
+            background-color: black;
+            animation: b3 1s linear 0.5s infinite;
+        }
+
+        @keyframes b1 {
+            0%,100%{transform: translate(0px,0px);}
+            50%{transform: translate(0px,50px); opacity: 0.5;}
+        }
+
+        @keyframes b2 {
+            0%,100%{transform: translate(0px,-25px);}
+            50%{transform: translate(0px, 25px);opacity: 0.5;}
+        }
+
+        @keyframes b3 {
+            0%,100%{transform: translate(0px,-50px);}
+            50%{transform: translate(0px,0px)}
+        }
+    </style>
+</head>
+<body>
+    <div class="loader">
+        <div id="bit1"></div>
+        <div id="bit2"></div>
+        <div id="bit3"></div>
+    </div>
+</body>
+</html>
