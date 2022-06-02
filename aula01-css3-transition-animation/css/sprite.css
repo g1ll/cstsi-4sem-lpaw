@@ -1,8 +1,12 @@
 div{
-    background-image: url('../img/globin.png');
-    background-size: 48px 73px;
+    background-image: url('../img/globin_big.png');
+    /* background-size: 48px 73px;
     width:16px;
-    height: 18px;
+    height: 18px; */
+    background-size: 480px 730px;
+    width:160px;
+    height: 180px;
+
     background-repeat: no-repeat;
     background-clip: content-box;
     background-position: 0px 0px;
@@ -14,9 +18,9 @@ div{
 
 @keyframes div-sprite{
      0%,100%{background-position: 0px 0px;transform: translateY(0px);}
-     25%{background-position: -17px 0px;transform: translateY(2px);}
-     50%{background-position: -33px 0px;transform: translateY(4px);}
-     75%{background-position: -17px 0px;transform: translateY(8px);}
+     25%{background-position: -170px 0px;transform: translateY(2px);}
+     50%{background-position: -330px 0px;transform: translateY(4px);}
+     75%{background-position: -170px 0px;transform: translateY(8px);}
 }
 
 img {
