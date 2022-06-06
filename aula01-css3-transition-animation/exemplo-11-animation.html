@@ -25,68 +25,36 @@
         .loader div {
             width: 25px;
             height: 25px;
-            background-color: lightgray;
         }
 
         #bit1 {
-            animation-name: b1;
-            animation-duration: 1s;
-            animation-delay: 0.9s;
-            animation-iteration-count: infinite;
+            background-color: lightgray;
+            animation: b1 1s 0.9s infinite;
         }
 
         #bit2 {
             transform: translate(0px, -25px);
-            width: 25px;
-            height: 25px;
             background-color: gray;
             animation: b2 1s linear 0.7s infinite;
         }
 
         #bit3 {
             transform: translate(0px, -50px);
-            width: 25px;
-            height: 25px;
             background-color: black;
             animation: b3 1s linear 0.5s infinite;
         }
 
         @keyframes b1 {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(50px);
-                opacity: 0.5;
-            }
+            0%,100% {transform: translateY(0px);}
+            50% {transform: translateY(50px);opacity: 0.5;}
         }
-
         @keyframes b2 {
-
-            0%,
-            100% {
-                transform: translateY(-25px);
-            }
-
-            50% {
-                transform: translateY(25px);
-                opacity: 0.5;
-            }
+            0%,100% {transform: translateY(-25px);}
+            50% {transform: translateY(25px);opacity: 0.5;}
         }
-
         @keyframes b3 {
-
-            0%,
-            100% {
-                transform: translateY(-50px);
-            }
-
-            50% {
-                transform: translateY(00px)
-            }
+            0%,100% {transform: translateY(-50px);}
+            50% {transform: translateY(00px)}
         }
     </style>
 </head>
