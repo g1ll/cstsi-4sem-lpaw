@@ -6,7 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LPAW - Animações CSS3 - Exemplo 1</title>
     <style>
-        .loader{
+        body {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loader {
             display: flex;
             flex-direction: column;
             justify-items: center;
@@ -15,31 +22,29 @@
             height: 100px;
         }
 
-        .loader div{
+        .loader div {
             width: 25px;
             height: 25px;
             background-color: lightgray;
         }
 
-        #bit1{
+        #bit1 {
             animation-name: b1;
             animation-duration: 1s;
             animation-delay: 0.9s;
             animation-iteration-count: infinite;
-            animation-play-state: running;
         }
 
-        #bit2{
-            transform: translate(0px,-25px);
+        #bit2 {
+            transform: translate(0px, -25px);
             width: 25px;
             height: 25px;
             background-color: gray;
             animation: b2 1s linear 0.7s infinite;
-            animation-play-state: running;
         }
 
-        #bit3{
-            transform: translate(0px,-50px);
+        #bit3 {
+            transform: translate(0px, -50px);
             width: 25px;
             height: 25px;
             background-color: black;
@@ -47,21 +52,45 @@
         }
 
         @keyframes b1 {
-            0%,100%{transform: translate(0px,0px);}
-            50%{transform: translate(0px,50px); opacity: 0.5;}
+
+            0%,
+            100% {
+                transform: translate(0px, 0px);
+            }
+
+            50% {
+                transform: translate(0px, 50px);
+                opacity: 0.5;
+            }
         }
 
         @keyframes b2 {
-            0%,100%{transform: translate(0px,-25px);}
-            50%{transform: translate(0px, 25px);opacity: 0.5;}
+
+            0%,
+            100% {
+                transform: translate(0px, -25px);
+            }
+
+            50% {
+                transform: translate(0px, 25px);
+                opacity: 0.5;
+            }
         }
 
         @keyframes b3 {
-            0%,100%{transform: translate(0px,-50px);}
-            50%{transform: translate(0px,0px)}
+
+            0%,
+            100% {
+                transform: translate(0px, -50px);
+            }
+
+            50% {
+                transform: translate(0px, 0px)
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="loader">
         <div id="bit1"></div>
@@ -69,4 +98,5 @@
         <div id="bit3"></div>
     </div>
 </body>
+
 </html>
