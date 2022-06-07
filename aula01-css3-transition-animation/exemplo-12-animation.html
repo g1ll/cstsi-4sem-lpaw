@@ -19,46 +19,29 @@
         .loader div{
             width: 25px;
             height: 25px;
-            background-color: lightgray;
         }
-
-        .loader #bit1, .loader  #bit2 ,.loader   #bit3{
-            animation-play-state: paused;
-        }
-
-        .loader:hover #bit1, .loader:hover #bit2 ,.loader:hover #bit3{
-            animation-play-state: running;
-        }
-
-        /* .loader:left  #bit2 ,.loader:left   #bit3{
-            animation-play-state: initial;
-        } */
 
         #bit1{
-            animation-name: b1;
-            animation-duration: 1s;
-            animation-delay: 0.9s;
-            animation-iteration-count: infinite;
+            background-color: lightgray;
+            animation: b1 1s linear 0.9s infinite paused;
             transform: translate(31px,0px); 
         }
 
         #bit2{
-            width: 25px;
-            height: 25px;
             background-color: gray;
-            animation: b2 1s linear 0.7s infinite;
+            animation: b2 1s linear 0.7s infinite paused;
             transform: translate(6px,0px); 
         }
 
         #bit3{
-            width: 25px;
-            height: 25px;
             background-color: black;
-            animation: b3 1s linear 0.5s infinite;  
+            animation: b3 1s linear 0.5s infinite paused;  
             transform: translate(-19px,0px); 
         }
 
-       .loader:hover > div{
+        .loader:hover #bit1,
+        .loader:hover #bit2,
+        .loader:hover #bit3{
             animation-play-state: running;
         }
 
