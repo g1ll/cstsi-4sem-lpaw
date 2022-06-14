@@ -33,4 +33,6 @@ Use esta imagem: [big-goblin](https://i.ibb.co/rdb23sk/goblin-big.png) e esta es
 </div>
 ```
 
-5) 
+5) Modifique o  exemplo 12 da aula para que a animação se comporte como a imagem gif abaixo:
+
+![](img/atividade-01/exercicio-05.gif)
