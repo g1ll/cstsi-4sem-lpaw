@@ -14,3 +14,10 @@
 3) Use a pseudo-classe :hover e a propriedade animation para cria a animação de barra de carregamento (load bar) conforme a ilustração abaixo: 
 
 ![](img/atividade-01/exercicio-03.gif)
+
+
+4) Modifique o exemplo de sprites do duende (goblin) ajustando os valores para uma imagem dez vezes maior, como a figura abaixo:
+
+![](img/atividade-01/exercicio-04.gif)
+
+Use esta imagem: [big-goblin](https://i.ibb.co/rdb23sk/goblin-big.png)
