@@ -24,7 +24,7 @@ A animação não deverá estar em loop, até porque será preciso criar mais de
 
 Use esta imagem: [big-goblin](https://i.ibb.co/rdb23sk/goblin-big.png) e esta estrutura HTML:
 
-```html:
+```html
 <div class="container">
     <div class="goblin-down"></div>
     <div class="goblin-right"></div>
@@ -42,7 +42,7 @@ Use esta imagem: [big-goblin](https://i.ibb.co/rdb23sk/goblin-big.png) e esta es
 ![](img/atividade-01/exercicio-06.gif)
 
 Use a seguinte estrutura HTML:
-```html:
+```html
 <div class="container">
         <div class="input-group">
 			<label for="login">Username:</label>
