@@ -36,3 +36,23 @@ Use esta imagem: [big-goblin](https://i.ibb.co/rdb23sk/goblin-big.png) e esta es
 5) Modifique o  exemplo 12 da aula para que a animação se comporte como a imagem gif abaixo:
 
 ![](img/atividade-01/exercicio-05.gif)
+
+6) Aplique transições nos campos do formulário de login de acordo com os efeitos mostrados na figura abaixo:
+
+![](img/atividade-01/exercicio-06.gif)
+
+Use a seguinte estrutura HTML:
+```html:
+<div class="container">
+        <div class="input-group">
+			<label for="login">Username:</label>
+            <input id="login" type="text" name="login" placeholder="Username">
+        </div>
+        <div class="input-group">
+			<label for="password">Password:</label>
+            <input id="password" type="password" name="login" placeholder="Password">        </div>
+        <div class="button-group">
+            <button>Enter</button>
+        </div>
+    </div>
+```
