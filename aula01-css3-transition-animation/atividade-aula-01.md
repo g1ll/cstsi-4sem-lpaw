@@ -50,7 +50,8 @@ Use a seguinte estrutura HTML:
         </div>
         <div class="input-group">
 			<label for="password">Password:</label>
-            <input id="password" type="password" name="login" placeholder="Password">        </div>
+            <input id="password" type="password" name="login" placeholder="Password">    
+        </div>
         <div class="button-group">
             <button>Enter</button>
         </div>
