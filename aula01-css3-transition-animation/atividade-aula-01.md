@@ -2,7 +2,7 @@
 
 1) Desenvolva uma animação para carregamento (loader) baseada no gif abaixo:
 
-![](img/atividade-01/exercicio-01.gif)
+![](img/atividade-01/exercicio-01.gif =200x)
 
  Não há restrição quanto a tamanho, cores ou proporções, apens a ideia geral da animação, ou seja, um círculo animado com duas cores pelo menos.
 
