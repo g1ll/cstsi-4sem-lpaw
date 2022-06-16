@@ -1,4 +1,6 @@
 ## CSTSI - 4SEM - LPAW - Atividades Aula 01
+Exercícios sobre as propriedades de transição e animação do CSS3. Todos os exercícios devem ser feitos apenas com HTML e CSS, não utilize javascript.
+
 1) Aplique transições nos campos do formulário de login de acordo com os efeitos mostrados na figura abaixo:
 
 ![](img/atividade-01/exercicio-06.gif)
