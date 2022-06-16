@@ -16,13 +16,13 @@
 ![](img/atividade-01/exercicio-03.gif)
 
 
-4) Modifique o exemplo de sprites do duende (goblin) ajustando os valores para uma imagem dez vezes maior ([big-goblin](https://i.ibb.co/rdb23sk/goblin-big.png)), e reproduza a animação da figura abaixo:
+4) Modifique o exemplo de sprites do duende (goblin) ajustando os valores para uma imagem dez vezes maior ([big-goblin](img/goblin_big.png)), e reproduza a animação da figura abaixo:
 
 ![](img/atividade-01/exercicio-04.gif)
 
 A animação não deverá estar em loop, até porque será preciso criar mais de uma animação e sincronizá-las.
 
-Use esta imagem: [big-goblin](https://i.ibb.co/rdb23sk/goblin-big.png) e esta estrutura HTML:
+Use esta imagem: [big-goblin](img/goblin_big.png) e esta estrutura HTML:
 
 ```html
 <div class="container">
