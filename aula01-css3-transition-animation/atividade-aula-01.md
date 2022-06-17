@@ -33,13 +33,13 @@ Use a seguinte estrutura HTML:
 
  ![](img/atividade-01/exercicio-02.gif)
 
-4) Crie a animação de barra de carregamento (load bar) conforme a ilustração abaixo: 
-
-![](img/atividade-01/exercicio-03.gif)
-
-5) Modifique o  exemplo 12 da aula para que a animação se comporte como a imagem gif abaixo:
+4) Modifique o  exemplo 12 da aula para que a animação se comporte como a imagem gif abaixo:
 
 ![](img/atividade-01/exercicio-05.gif)
+
+5) Crie a animação de barra de carregamento (load bar) conforme a ilustração abaixo: 
+
+![](img/atividade-01/exercicio-03.gif)
 
 6) Modifique o exemplo de sprites do duende (goblin) ajustando os valores para uma imagem dez vezes maior ([big-goblin](img/goblin_big.png)), e reproduza a animação da figura abaixo:
 
