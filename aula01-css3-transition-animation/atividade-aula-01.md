@@ -30,7 +30,7 @@ Use a seguinte estrutura HTML:
  Não há restrição quanto a tempo, tamanho, cores ou proporções, apens a ideia geral da animação, ou seja, um círculo animado com duas cores pelo menos.
 
 
-3)  Use a pseudo-classe :hover e a propriedade animation para criar uma animação baseada na anterior, mas ela deve ser executada somente quando o mouse estiver na área interna ao quadrado pontilhado, como demonstra o gif abaixo:
+3)  Use a pseudo-classe :hover e a propriedade animation para criar uma animação baseada na anterior, mas que será executada somente quando o mouse estiver na área interna ao quadrado pontilhado, como mostra a figura abaixo:
 
  ![](img/atividade-01/exercicio-02.gif)
 
