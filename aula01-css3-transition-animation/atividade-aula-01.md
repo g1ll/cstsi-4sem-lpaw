@@ -1,7 +1,8 @@
 ## CSTSI - 4SEM - LPAW - Atividades Aula 01
+
 Exercícios sobre as propriedades de transição e animação do CSS3. Todos os exercícios devem ser feitos apenas com HTML e CSS, não utilize javascript.
 
-1) Aplique transições nos campos do formulário de login de acordo com os efeitos mostrados na figura abaixo:
+1) Utilize a pseudo-classe :hover e :focus para aplicar transições nos elementos do formulário de login de acordo com os efeitos mostrados na figura abaixo:
 
 ![](img/atividade-01/exercicio-06.gif)
 
@@ -26,14 +27,14 @@ Use a seguinte estrutura HTML:
 
 ![](img/atividade-01/exercicio-01.gif)
 
- Não há restrição quanto a tamanho, cores ou proporções, apens a ideia geral da animação, ou seja, um círculo animado com duas cores pelo menos.
+ Não há restrição quanto a tempo, tamanho, cores ou proporções, apens a ideia geral da animação, ou seja, um círculo animado com duas cores pelo menos.
 
 
-3)  Use a pseudo-classe :hover e a propriedade animation para criar uma animação baseada na anterior, mas ela deve ser executada somente quando o mouse estiver na área interna ao quadrado pontilhado, como demonstra o gif abaixo:
+3)  Use a pseudo-classe :hover e a propriedade animation para criar uma animação baseada na anterior, mas que será executada somente quando o mouse estiver na área interna ao quadrado pontilhado, como mostra a figura abaixo:
 
  ![](img/atividade-01/exercicio-02.gif)
 
-4) Modifique o  exemplo 12 da aula para que a animação se comporte como a imagem gif abaixo:
+4) Modifique o  *[exemplo 12](https://codepen.io/g1ll/pen/ExQMBgN)*, visto em aula, para que a animação se comporte como a imagem gif abaixo:
 
 ![](img/atividade-01/exercicio-05.gif)
 
