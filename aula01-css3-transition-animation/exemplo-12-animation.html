@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSTI-4SEM-LPAW-Aula 01 | CSS3 Animação: Exemplo 12</title>
     <style>
-        .loader{
+        .loader {
             display: flex;
             flex-direction: row;
             justify-items: center;
@@ -16,51 +17,73 @@
             border: 2px solid gray;
         }
 
-        .loader div{
+        .loader div {
             width: 25px;
             height: 25px;
         }
 
-        #bit1{
+        #bit1 {
             background-color: lightgray;
             animation: b1 1s linear 0.9s infinite paused;
-            transform: translate(31px,0px); 
+            transform: translate(31px, 0px);
         }
 
-        #bit2{
+        #bit2 {
             background-color: gray;
             animation: b2 1s linear 0.7s infinite paused;
-            transform: translate(6px,0px); 
+            transform: translate(6px, 0px);
         }
 
-        #bit3{
+        #bit3 {
             background-color: black;
-            animation: b3 1s linear 0.5s infinite paused;  
-            transform: translate(-19px,0px); 
+            animation: b3 1s linear 0.5s infinite paused;
+            transform: translate(-19px, 0px);
         }
 
         .loader:hover #bit1,
         .loader:hover #bit2,
-        .loader:hover #bit3{
+        .loader:hover #bit3 {
             animation-play-state: running;
         }
 
         @keyframes b1 {
-            0%,100%{transform: translate(0px,0px);}
-            50%{transform: translate(50px,0px); opacity: 0.1; }
+
+            0%,
+            100% {
+                transform: translate(0px, 0px);
+            }
+
+            50% {
+                transform: translate(50px, 0px);
+            }
         }
 
         @keyframes b2 {
-            0%,100%{transform: translate(-25px,0px);}
-            50%{transform: translate(25px,0px);opacity: 0.5;}
+
+            0%,
+            100% {
+                transform: translate(-25px, 0px);
+            }
+
+            50% {
+                transform: translate(25px, 0px);
+            }
         }
 
         @keyframes b3 {
-            0%,100%{transform: translate(-50px,0px);}
-            50%{transform: translate(0px,0px)}
+
+            0%,
+            100% {
+                transform: translate(-50px, 0px);
+            }
+
+            50% {
+                transform: translate(0px, 0px)
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="loader">
         <div id="bit1"></div>
@@ -68,4 +91,5 @@
         <div id="bit3"></div>
     </div>
 </body>
+
 </html>
