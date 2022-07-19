@@ -10,12 +10,13 @@
 		canvas{border: 1px solid black;}
 	</style>
 	<script>
-		const canvasApp=()=>{
+		window.addEventListener("load",canvasApp,false)
+		
+		function canvasApp(){
 			const canvas = document.querySelector('canvas')
 			const ctx = canvas.getContext('2d');
 			ctx.strokeRect(0,0,50,50);
 		}
-		window.addEventListener("load",canvasApp,false)
 	</script>
 </head>
 <body>
