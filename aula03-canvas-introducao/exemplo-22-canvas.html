@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Exemplo 18 - Canvas - Textos</title>
+	<style>
+		body {
+			display: flex;
+			justify-content: center;
+		}
+
+		canvas {
+			border: 1px solid black;
+		}
+	</style>
+	<script>
+		window.addEventListener("load", canvasApp, false)
+
+		function canvasApp() {
+			const canvas = document.querySelector('canvas')
+			const ctx = canvas.getContext('2d');
+
+			//exercício
+			// let fundo = ctx.createLinearGradient(0, canvas.height/2, canvas.width, canvas.height/2)
+			// fundo.addColorStop(0.1, "#f00")
+			// fundo.addColorStop(.3, "#fff")
+			// fundo.addColorStop(.7, "#fff")
+			// fundo.addColorStop(.9, "#000")
+			// ctx.fillStyle = fundo;
+			// ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+			let textSize = 24;
+			ctx.font = `bold ${textSize}px sans`;
+			ctx.textBaseline = "top";
+			let texto = "Xavante";
+			let textMetric = ctx.measureText(texto)
+
+			let x0 = canvas.width / 2 - textMetric.width / 2;
+			let y0 = canvas.height / 2 - textSize;
+			let x1 = canvas.width / 2 + textMetric.width / 2;
+			let y1 = y0;
+			let gradiente = ctx.createLinearGradient(x0, y0, x1, y1)
+			gradiente.addColorStop(0, "#000")
+			gradiente.addColorStop(.5, "#f00")
+			gradiente.addColorStop(1, "#000")
+			ctx.fillStyle = gradiente;
+
+			ctx.fillText(texto,
+				canvas.width / 2 - textMetric.width / 2,
+				canvas.height / 2 - textSize)
+		}
+	</script>
+</head>
+
+<body>
+	<canvas width="600" height="400">
+		Seu navegador não suporta a tag canvas!
+	</canvas>
+</body>
+
+</html>

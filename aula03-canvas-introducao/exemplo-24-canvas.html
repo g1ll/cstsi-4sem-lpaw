@@ -23,27 +23,24 @@
 			const canvas = document.querySelector('canvas')
 			const ctx = canvas.getContext('2d');
 
-			let y = 100
-			let x = 100
+			let x = canvas.width/2
+			let y = canvas.height/2
 
-			ctx.beginPath()
-			ctx.moveTo(x,y)
-			ctx.lineTo(x+400,y)
-			ctx.lineWidth = 3
-			ctx.strokeStyle = "magenta";
-			ctx.stroke()
+			ctx.globalAlpha = 0.5;
 
-			let textSize = 24;
-			ctx.fillStyle = "blue";
+			let textSize = 50;
 			ctx.font = `bold ${textSize}px sans`;
 			ctx.textBaseline = "top";
-			ctx.fillText("Top", x+5, y);
-			ctx.textBaseline = "bottom";
-			ctx.fillText("Bottom", x+50, y);
-			ctx.textBaseline = "middle";
-			ctx.fillText("Middle", x+150, y);
-			ctx.textBaseline = "alphabetic";
-			ctx.fillText("Alphabetic", x+250, y);
+
+			let tricolor = "GRE";
+			let textWidth = ctx.measureText(tricolor).width
+			ctx.fillStyle = "#00f";
+			ctx.fillText(tricolor,x-textWidth/2,y-textSize/2)
+
+			let colorado = "NAL";
+			ctx.fillStyle = "#f00";
+			ctx.fillText(colorado,x-textWidth/2,y-textSize/2)
+
 		}
 	</script>
 </head>

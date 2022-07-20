@@ -23,27 +23,26 @@
 			const canvas = document.querySelector('canvas')
 			const ctx = canvas.getContext('2d');
 
-			let y = 100
-			let x = 100
-
-			ctx.beginPath()
-			ctx.moveTo(x,y)
-			ctx.lineTo(x+400,y)
-			ctx.lineWidth = 3
-			ctx.strokeStyle = "magenta";
-			ctx.stroke()
+			let x = canvas.width/2
+			let y = canvas.height/2
+			let r1 = 400
+			let r2 = 4
+			let fundoRadial = ctx.createRadialGradient(x,y,r1,x,y,r2)
+			fundoRadial.addColorStop(.1, "yellow")
+			fundoRadial.addColorStop(.9, "blue")
+			ctx.fillStyle = fundoRadial;
+			ctx.fillRect(0, 0, canvas.width, canvas.height)
 
 			let textSize = 24;
-			ctx.fillStyle = "blue";
 			ctx.font = `bold ${textSize}px sans`;
 			ctx.textBaseline = "top";
-			ctx.fillText("Top", x+5, y);
-			ctx.textBaseline = "bottom";
-			ctx.fillText("Bottom", x+50, y);
-			ctx.textBaseline = "middle";
-			ctx.fillText("Middle", x+150, y);
-			ctx.textBaseline = "alphabetic";
-			ctx.fillText("Alphabetic", x+250, y);
+			let texto = "Pelotas";
+			let textMetric = ctx.measureText(texto)
+			ctx.fillStyle = "#fff";
+
+			ctx.fillText(texto,
+				canvas.width / 2 - textMetric.width / 2,
+				canvas.height / 2 - textSize)
 		}
 	</script>
 </head>
