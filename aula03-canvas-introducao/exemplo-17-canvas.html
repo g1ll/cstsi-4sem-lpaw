@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Exemplo 17 - Canvas - Retângulos</title>
+	<style>
+		body{display: flex; justify-content: center;}
+		canvas{border: 1px solid black;}
+	</style>
+	<script>
+		window.addEventListener("load",canvasApp,false)
+		
+		function canvasApp(){
+			const canvas = document.querySelector('canvas')
+			const ctx = canvas.getContext('2d');
+			ctx.lineWidth = 5;
+			ctx.strokeStyle = '#00f';
+			ctx.strokeRect(10,20,40,50);
+			ctx.fillStyle = 'green';
+			ctx.fillRect(10,20,40,50);
+		}
+	</script>
+</head>
+<body>
+	<canvas width="600" height="400">
+		Seu navegador não suporta a tag canvas!
+	</canvas>
+</body>
+</html>
