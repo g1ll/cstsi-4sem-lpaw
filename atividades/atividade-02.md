@@ -70,13 +70,13 @@ Efeito:
 
 4) Utilizando a função **triEqui**, crie uma função para desenhar uma estrela com a seguinte assinatura:
 
-<img src="img/atividade-02/func_star_assign.png" width=800>
+<img src="img/atividade-02/func_star_assign.png" width=400>
 
 Implemente a função **drawStar** de forma que o código abaixo mostre o gráfico da figura seguinte.
 
 Código:
 
-<img src="img/atividade-02/code04.png" width=600>
+<img src="img/atividade-02/code04.png" width=400>
 
 Gráfico:
 
