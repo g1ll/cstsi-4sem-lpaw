@@ -14,8 +14,10 @@ A função deverá imprimir um quadrado exato de acordo com os seguintes parâme
 * **l** -> largura da linha
 * **color** -> cor da linha
 * **fill** -> se houver definirá a cor de preenchimento, do contrário não haverá preenchimento.
+
+Implemente a função *quad* de forma que o código abaixo:
 <img src="img/atividade-02/code01.png" width=600>
 
-Tenha o seguinte efeito no canvas:
+tenha o seguinte efeito no canvas:
 
 !["Canvas 01"](img/atividade-02/task01.png)
