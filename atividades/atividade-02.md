@@ -39,7 +39,9 @@ Sendo seus parâmetros:
 Implemente a função **circ** de forma que o código abaixo tenha o efeito da figura seguinte.
 
 Código:
+
 <img src="img/atividade-02/code02.png" width=600>
 
 Efeito:
-<img src="img/atividade-02/task02.png" width=600>
+
+<img src="img/atividade-02/task02.png" width=100>
