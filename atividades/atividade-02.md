@@ -49,7 +49,7 @@ Efeito:
 
 3) Utilizando as funções moveTo e lineTo, crie uma função que desenha um triângulo equilátero com a seguinte assinatura:
 
-<img src="img/atividade-02/func_tri_assign.png" width=600>
+<img src="img/atividade-02/func_tri_assign.png" width=700>
 
 Sendo os parâmetros:
 * **ctx** -> objeto de desenho
@@ -70,7 +70,7 @@ Efeito:
 
 4) Utilizando a função **triEqui**, crie uma função para desenhar uma estrela com a seguinte assinatura:
 
-<img src="img/atividade-02/func_star_assign.png" width=400>
+<img src="img/atividade-02/func_star_assign.png" width=600>
 
 Implemente a função **drawStar** de forma que o código abaixo mostre o gráfico da figura seguinte.
 
