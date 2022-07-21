@@ -81,3 +81,19 @@ Código:
 Gráfico:
 
 <img src="img/atividade-02/task04.png" width=300>
+
+5) Reaproveitando as funções **circ** e **drawStar**, crie a função **shield** com a seguinte assinatura:
+
+```js
+function shield(ctx,x,y,size)
+```
+
+Implemente a função para que a mesma gere a figura a seguir:
+
+Código:
+
+<img src="img/atividade-02/code05.png" width=500>
+
+Figura:
+
+<img src="img/atividade-02/task05.png" width=400>
