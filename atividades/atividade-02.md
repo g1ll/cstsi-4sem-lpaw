@@ -5,7 +5,7 @@ Exercícios de introdução a tag canvas.
 1) Escreva uma função chamada **quad** com a assinatura conforme a figura abaixo:
 !["Figura 1"](img/atividade-02/func_quad_assign.png)
 
-<img src="img/atividade-02/func_quad_assign.png" width=400>
+<img src="img/atividade-02/func_quad_assign.png" width=600>
 
 A função deverá imprimir um quadrado exato de acordo com os seguintes parâmetros:
 
