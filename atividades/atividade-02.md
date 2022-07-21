@@ -18,6 +18,7 @@ A função deverá imprimir um quadrado exato de acordo com os seguintes parâme
 Implemente a função **quad** de forma que o código abaixo tenha o efeito no canvas mostrado na figura seguinte.
 
 Código:
+
 <img src="img/atividade-02/code01.png" width=600>
 
 Efeito:
@@ -45,3 +46,25 @@ Código:
 Efeito:
 
 <img src="img/atividade-02/task02.png" width=300>
+
+3) Utilizando as funções moveTo e lineTo, crie uma função que desenha um triângulo equilátero com a seguinte assinatura:
+
+<img src="img/atividade-02/func_tri_assign.png" width=800>
+
+Sendo os parâmetros:
+* **ctx** -> objeto de desenho
+* **x,y** -> coordenadas *x* e *y*
+* **l** -> tamanho do lado do triangulo
+* **color** -> cor de preenchimento
+* **rev** -> se verdadeiro, o triângulo deverá ser renderizado ao contrário, reverso.
+
+Implemente a função **triEqui** de forma que o código da figura abaixo gere a saída da figura seguinte.
+
+Código:
+
+<img src="img/atividade-02/code03.png" width=600>
+
+Efeito:
+
+<img src="img/atividade-02/task03.png" width=300>
+
