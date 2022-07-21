@@ -44,4 +44,4 @@ Código:
 
 Efeito:
 
-<img src="img/atividade-02/task02.png" width=100>
+<img src="img/atividade-02/task02.png" width=300>
