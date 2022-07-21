@@ -97,3 +97,38 @@ Código:
 Figura:
 
 <img src="img/atividade-02/task05.png" width=400>
+
+6) Reutilize a função **circ** para criar a função **smile** com a seguinte assinatura:
+
+```js
+function smile(ctx,x,y,size)
+```
+
+A função deverá desenhar um *smile* nas posições x e y e do tamanho definido pelo parâmetro *size*.
+
+<img src="img/atividade-02/task06.png" width=400>
+
+7) Crie uma função para imprimir um texto centralizado no canvas, para isto esta função deverá ter a seguinte assinatura:
+
+
+<img src="img/atividade-02/func_text_assign.png" width=600>
+
+Os únicos parâmetros obrigatórios da função deverão ser o objeto de desenho (*context*) as dimenssões do canvas (*cwidth*, *cheight*) e o próprio texto (*text*).
+
+Implemente a função de forma que o código abaixo gere a figura seguinte.
+
+Código:
+
+<img src="img/atividade-02/code07.png" width=500>
+
+Figura:
+
+<img src="img/atividade-02/task07.png" width=400>
+
+8) Utilizando a função writeCenterXY e gradientes lineares, crie uma figura semelhante a mostrada abaixo para o seu time de futebol, ou qualquer tema do seu interesse.
+
+<img src="img/atividade-02/task08.png" width=400>
+
+9) Use a sua criatividade a crie uma figura aplicando gradientes radiais.
+
+<img src="img/atividade-02/task09.png" width=600>
