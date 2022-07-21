@@ -49,7 +49,7 @@ Efeito:
 
 3) Utilizando as funções moveTo e lineTo, crie uma função que desenha um triângulo equilátero com a seguinte assinatura:
 
-<img src="img/atividade-02/func_tri_assign.png" width=800>
+<img src="img/atividade-02/func_tri_assign.png" width=600>
 
 Sendo os parâmetros:
 * **ctx** -> objeto de desenho
