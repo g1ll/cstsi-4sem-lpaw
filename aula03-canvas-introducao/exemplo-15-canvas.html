@@ -16,14 +16,14 @@
 			const canvas = document.querySelector('canvas')
 			const ctx = canvas.getContext('2d');
 			ctx.lineWidth = 5;
-			ctx.strokeStyle = '#00f';
+			ctx.fillStyle = 'green';
 			ctx.beginPath();
 			ctx.moveTo(10,20);
-			ctx.lineTo(50,20);//top line
-			ctx.lineTo(50,70);//right line
-			ctx.lineTo(10,70);//bottom line
+			ctx.lineTo(80,50);//top line
+			ctx.lineTo(70,100);//right line
+			ctx.lineTo(5,70);//bottom line
 			ctx.lineTo(10,20);//left line
-			ctx.stroke();
+			ctx.fill();
 		
 			// ctx.fillStyle = 'green';
 			// ctx.fill();
