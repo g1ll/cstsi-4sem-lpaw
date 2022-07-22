@@ -17,11 +17,17 @@
 			const ctx = canvas.getContext('2d');
 			ctx.lineWidth = 3;
 			ctx.beginPath();
-			ctx.arc(35,35,20,0,Math.PI/180*360)
-			ctx.fillStyle = 'red';
-			ctx.strokeStyle = '#00f';
+			ctx.arc(35,35,20,0,Math.PI*2)
+			ctx.fillStyle = '#fb0';
+			ctx.strokeStyle = 'orange';
 			ctx.fill();
 			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.arc(35,11,5,Math.PI/180*110,Math.PI/180*300)
+			ctx.fillStyle = '#080';
+			ctx.strokeStyle = 'orange';
+			ctx.fill();
 		}
 	</script>
 </head>
