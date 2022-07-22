@@ -22,10 +22,10 @@
 		function canvasApp() {
 			const canvas = document.querySelector('canvas')
 			const ctx = canvas.getContext('2d');
-			let textSize = 24;
+			let textSize = 32;
 			ctx.font = `bold ${textSize}px sans`;
 			ctx.textBaseline = "top";
-			let texto = "Olá Canvas!";
+			let texto = "Olá Canvas HTML5!";
 			let textMetric = ctx.measureText(texto)
 			console.log(textMetric);
 			ctx.fillStyle = "#00f";
