@@ -129,6 +129,9 @@ Figura:
 
 <img src="img/atividade-02/task08.png" width=400>
 
-9) Use a sua criatividade a crie uma figura aplicando gradientes radiais.
+9) Use a sua criatividade a crie uma figura aplicando gradientes radiais. 
+
+A figura abaixo, por exemplo, foi feita com dois gradientes radiais, no entanto, o segundo gradiente,
+que simula o reflexo, possui o centro dos círculos desencontrados, distorcendo o gradiente radial.
 
 <img src="img/atividade-02/task09.png" width=600>
