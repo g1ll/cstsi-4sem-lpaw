@@ -135,3 +135,5 @@ A figura abaixo, por exemplo, foi feita com dois gradientes radiais, no entanto,
 que simula o reflexo, possui o centro dos círculos desencontrados, distorcendo o gradiente radial.
 
 <img src="img/atividade-02/task09.png" width=600>
+
+Dica: Use transparência (rgba ou *transparent*) na composição do gradiente radial!
