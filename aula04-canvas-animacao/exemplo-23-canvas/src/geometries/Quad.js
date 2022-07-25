@@ -15,10 +15,9 @@ export default class Quad {
 		this.move = (limits) => {
 			if (this.x + this.size + this.speed < limits.width)
 				this.x += this.speed;
-
 			else
-				this.x = limits.width - this.size;
-				// this.x = 0;
+				// this.x = limits.width - this.size;
+				this.x = 0;
 		};
 	}
 }
