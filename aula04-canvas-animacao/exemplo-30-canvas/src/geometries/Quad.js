@@ -6,18 +6,19 @@ export default class Quad {
 		this.speed = speed;
 		this.color = color;
 
-		this.draw = (ctx) => {
+	}
+
+	draw(ctx){
 			ctx.lineWidth = 5;
 			ctx.fillStyle = this.color;
 			ctx.fillRect(this.x, this.y, this.size, this.size);
 		};
 
-		this.move = (limits) => {
+	move(limits){
 			if (this.x + this.size + this.speed < limits.width)
 				this.x += this.speed;
 			else
 				// this.x = limits.width - this.size;
 				this.x = 0;
 		};
-	}
 }
