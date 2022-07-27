@@ -3,9 +3,9 @@ import redCirc from "./geometries/redCirc"
 
 let CTX
 let CANVAS
-const FRAMES = 32
+const FRAMES = 15
 
-let quad = new Quad(0,0,10)
+let quad = new Quad(0,45,10)
 
 const init = () => {
 	console.log("Initialize Canvas")
