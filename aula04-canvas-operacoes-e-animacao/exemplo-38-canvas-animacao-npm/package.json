@@ -1,0 +1,19 @@
+{
+  "name": "exemplo-30-canvas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w  & npm run start",
+    "start": "npx live-server public --port=8088 --host=localhost",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "g1ll",
+  "license": "MIT",
+  "devDependencies": {
+    "rollup": "^2.77.0", 
+    "live-server": "^1.2.2",
+    "rollup-plugin-terser": "^7.0.2"
+  }
+}
