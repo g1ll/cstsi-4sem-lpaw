@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Exemplo 28 - Canvas - Animação - requestAnimationFrames</title>
+	<style>
+		body {
+			display: flex;
+			justify-content: center;
+		}
+
+		canvas {
+			border: 1px solid black;
+		}
+	</style>
+	<script>
+		window.addEventListener("load", canvasApp, false)
+
+		function canvasApp() {
+			const canvas = document.querySelector('canvas')
+			const ctx = canvas.getContext('2d');
+			
+			let x = -5
+			let y = canvas.height/2
+			let c_vel=10
+			let colors = Array.from(Array(10).keys())
+			colors = [...colors,'a','b','c','d','e','f']
+			let count = 0;
+			const loop = () => {
+				clearScreen(ctx)
+				let border = `#0${colors[count++]}0`
+				let fill = `#00${colors[count++]}`
+				if(count>colors.length-1) count = 0
+				if(x>canvas.width)x=-10
+				circ(ctx,x+=c_vel,y,25,5,border,fill)
+				requestAnimationFrame(loop)
+			}
+			loop()
+
+		}
+
+		function circ(ctx,x,y,r,l,color,fill=false){
+			ctx.lineWidth = l;
+			ctx.strokeStyle = color
+			ctx.beginPath();
+			ctx.arc(x,y,r,0,Math.PI/180*360);
+			ctx.stroke();
+			if(fill){
+				ctx.fillStyle = fill
+				ctx.fill()
+			}
+		}
+
+		function clearScreen(ctx){
+			ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height)
+		}
+
+	</script>
+</head>
+
+<body>
+	<canvas width="600" height="400">
+		Seu navegador não suporta a tag canvas!
+	</canvas>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Exemplo 13 - Canvas - Introdução ao Canvas</title>
+	<style>
+		body {
+			display: flex;
+			justify-content: center;
+		}
+
+		canvas {
+			border: 1px solid black;
+		}
+	</style>
+	<script>
+		window.addEventListener("load", canvasApp, false)
+
+		function canvasApp() {
+			const canvas = document.querySelector('canvas')
+			const ctx = canvas.getContext('2d');
+			
+			let x = 50
+			let y = 50
+			let width = 50
+			let height = width
+
+			quad(ctx,x,y,width,5,'black','blue')	
+			ctx.save()
+			quad(ctx,x+width*1.5,y,width,5,'blue','black')
+			ctx.restore()
+			quad(ctx,x+width*3,y,width,5,ctx.strokeStyle,ctx.fillStyle)
+	
+		}
+
+		function quad(ctx,x,y,s,l,color,fill=false)
+		{
+			ctx.lineWidth = l;
+			ctx.strokeStyle = color;
+			color && ctx.strokeRect(x,y,s,s)
+			ctx.fillStyle = fill?fill:null;
+			fill && ctx.fillRect(x,y,s,s)
+		}
+
+		function circ(ctx,x,y,r,l,color,fill=false){
+			ctx.lineWidth = l;
+			ctx.strokeStyle = color
+			ctx.beginPath();
+			ctx.arc(x,y,r,0,Math.PI/180*360);
+			ctx.stroke();
+			if(fill){
+				ctx.fillStyle = fill
+				ctx.fill()
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<canvas width="600" height="400">
+		Seu navegador não suporta a tag canvas!
+	</canvas>
+</body>
+
+</html>

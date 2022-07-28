@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Exemplo 27 - Canvas - Translate</title>
+	<style>
+		body {
+			display: flex;
+			justify-content: center;
+		}
+
+		canvas {
+			border: 1px solid black;
+		}
+	</style>
+	<script>
+		window.addEventListener("load", canvasApp, false)
+
+		function canvasApp() {
+			const canvas = document.querySelector('canvas')
+			const ctx = canvas.getContext('2d');
+
+			for (let i = 0; i < 6; i++)
+				for (let j = 0; j < 4; j++) {
+					ctx.save();
+					ctx.translate(15 + i * 75,15 + j * 75);
+					let color = `rgb(${45 * i}, 255, ${255 - 90 * i})`
+					circ(ctx,15,15,30,0,color,color)
+					ctx.restore();
+				}
+		}
+
+		function quad(ctx, x, y, s, l, color, fill = false) {
+			ctx.lineWidth = l;
+			ctx.strokeStyle = color;
+			color && ctx.strokeRect(x, y, s, s)
+			ctx.fillStyle = fill ? fill : null;
+			fill && ctx.fillRect(x, y, s, s)
+		}
+
+		function circ(ctx, x, y, r, l, color, fill = false) {
+			ctx.lineWidth = l;
+			ctx.strokeStyle = color
+			ctx.beginPath();
+			ctx.arc(x, y, r, 0, Math.PI / 180 * 360);
+			ctx.stroke();
+			if (fill) {
+				ctx.fillStyle = fill
+				ctx.fill()
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<canvas width="600" height="400">
+		Seu navegador não suporta a tag canvas!
+	</canvas>
+</body>
+
+</html>

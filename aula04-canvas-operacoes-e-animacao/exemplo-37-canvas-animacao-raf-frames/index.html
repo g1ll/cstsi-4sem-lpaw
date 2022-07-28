@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Exemplo 29 - Canvas - Animação - requestAnimationFrames</title>
+	<style>
+		body {
+			display: flex;
+			justify-content: center;
+		}
+
+		canvas {
+			border: 1px solid black;
+		}
+	</style>
+	<script>
+		window.addEventListener("load", canvasApp, false)
+
+		function canvasApp() {
+			const CANVAS = document.querySelector('canvas')
+			const CTX = CANVAS.getContext('2d');
+			const FRAMES = 15;
+
+			let x = -10
+			let y = CANVAS.height / 2
+			let vel = 10
+			let count = 0;
+			let colors = Array.from(Array(10).keys())
+			colors = [...colors, 'a', 'b', 'c', 'd', 'e', 'f']
+			
+			const loop = () => {
+				setTimeout(() => {
+					clearScreen(CTX)
+					let color = '#' +colors[Math.round(Math.random()*(colors.length-1))]
+									+colors[Math.round(Math.random()*(colors.length-1))]
+									+colors[Math.round(Math.random()*(colors.length-1))]
+					count = count > colors.length-3? 0 : count
+					x = x > CANVAS.width? 0: x
+					circ(CTX, x += vel, y, 25, 5, color,color)
+					requestAnimationFrame(loop)
+				}, 1000 / FRAMES);
+			}
+
+			loop()
+		}
+
+		function circ(ctx, x, y, r, l, color, fill = false) {
+			ctx.lineWidth = l;
+			ctx.strokeStyle = color
+			ctx.beginPath();
+			ctx.arc(x, y, r, 0, Math.PI / 180 * 360);
+			ctx.stroke();
+			if (fill) {
+				ctx.fillStyle = fill
+				ctx.fill()
+			}
+		}
+
+		function clearScreen(ctx) {
+			ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+		}
+
+	</script>
+</head>
+
+<body>
+	<canvas width="600" height="400">
+		Seu navegador não suporta a tag canvas!
+	</canvas>
+</body>
+
+</html>
