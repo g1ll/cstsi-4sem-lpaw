@@ -23,15 +23,17 @@
 			const canvas = document.querySelector('canvas')
 			const ctx = canvas.getContext('2d');
 			
-			let x = canvas.width/2
-			let y = canvas.height/2
-			let interval = 1000
-			let cx=x;
-			setInterval(() => {
-				circ(ctx,--cx,y,25,5,"#0f0","#00f")
-				quad(ctx,++x,y,50,5,'blue','red')	
-			}, interval);
+			let x = 50
+			let y = 50
+			let width = 50
+			let height = width
 
+			quad(ctx,x,y,width,5,'black','blue')	
+			ctx.save()
+			quad(ctx,x+width*1.5,y,width,5,'blue','black')
+			ctx.restore()
+			quad(ctx,x+width*3,y,width,5,ctx.strokeStyle,ctx.fillStyle)
+	
 		}
 
 		function quad(ctx,x,y,s,l,color,fill=false)
