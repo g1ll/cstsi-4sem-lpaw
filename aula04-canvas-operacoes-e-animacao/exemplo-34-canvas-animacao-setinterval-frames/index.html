@@ -30,6 +30,7 @@
 			let c_vel=5;
 			setInterval(() => {
 				circ(ctx,x+=c_vel,y,25,5,"#0f0","#00f")
+				x=x>canvas.width+25 ? 0:x;
 			}, interval);
 		}
 

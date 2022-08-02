@@ -26,9 +26,9 @@
 			let a = 225
 			let sin = Math.sin(Math.PI/180*a)
 			let cos = Math.cos(Math.PI/180*a)
-			ctx.translate(60, 60)
-			ctx.transform(cos, sin, -sin, cos, -25, -25)
-			smile(ctx, 0, 0, 25)
+			// ctx.translate(60, 60)
+			ctx.transform(cos, sin, -sin, cos, 60, 60)
+			smile(ctx, -25, -25, 25)
 		}
 
 		function quad(ctx, x, y, s, l, color, fill = false) {

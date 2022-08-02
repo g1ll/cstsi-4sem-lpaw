@@ -27,11 +27,13 @@
 			smile(ctx,150,50,25)
 			ctx.rotate(Math.PI/180*45)
 			smile(ctx,150,50,25)
-
-			// ctx.restore()
-			// ctx.translate(150,50)
-			// ctx.rotate(Math.PI/180*45)
-			// smile(ctx,0,0,25)
+			ctx.restore()
+			ctx.fillStyle = 'rgba(255,255,255,.5)'
+			ctx.fillRect(0,0,canvas.width,canvas.height)
+			
+			ctx.translate(150,50)
+			ctx.rotate(Math.PI/180*45)
+			smile(ctx,0,0,25)
 
 			// ctx.fillStyle = 'rgba(255,255,255,.5)'
 			// ctx.fillRect(0,0,canvas.width,canvas.height)
