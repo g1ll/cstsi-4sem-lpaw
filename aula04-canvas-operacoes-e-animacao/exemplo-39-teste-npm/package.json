@@ -1,0 +1,16 @@
+{
+  "name": "exemplo-39-teste-npm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "live-server": "^1.2.2",
+    "rollup": "^2.77.2",
+    "rollup-plugin-terser": "^7.0.2"
+  }
+}
