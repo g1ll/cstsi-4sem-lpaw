@@ -2,7 +2,7 @@
   "scripts":{
     "build": "rollup -c",
     "dev": "rollup -c -w  & npm run start",             
-    "start": "npx live-server public --port=8088 --host=localhost"      
+    "start": "npx live-server public --port=8080 --host=localhost"      
   },
   "dependencies": {
     "live-server": "^1.2.2",
