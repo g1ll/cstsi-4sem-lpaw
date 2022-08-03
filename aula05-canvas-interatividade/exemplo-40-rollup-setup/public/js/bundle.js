@@ -1,0 +1,1 @@
+var o;o="Olá Mundo!",console.log(o);
