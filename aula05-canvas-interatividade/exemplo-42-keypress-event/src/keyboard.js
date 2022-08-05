@@ -1,9 +1,9 @@
 
-let key;
+let key = '';
 
 function keyPress(element){
-    element.addEventListener('keydown',event=>{
-        key = event.key
+    element.addEventListener('keydown',evento=>{
+        key = evento.key
         console.log(key)
     })
 }

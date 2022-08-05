@@ -39,9 +39,14 @@ export default class Quad {
 
 	colide(rect) {
 		return (
-			Math.abs(this.x + this.size / 2 - (rect.x + rect.size / 2)) 
-			< this.size/2+rect.size/2
-			&& Math.abs(this.y + this.size / 2 - (rect.y + rect.size / 2))
+			Math.abs(
+				this.x + this.size / 2 
+				- (rect.x + rect.size / 2)
+			) 
+			< (this.size+rect.size)/2
+			&& 
+			Math.abs(this.y + this.size / 2 
+			- (rect.y + rect.size / 2))
 			< this.size/2+rect.size/2
 			)
 	}

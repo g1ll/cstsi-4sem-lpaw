@@ -18,7 +18,8 @@ const init = () => {
 const loop = () => {
 	setTimeout(() => {
 		CTX.fillStyle = 'rgba(255,255,255,0.3)'
-		CTX.fillRect(0, 0, CANVAS.width, CANVAS.height)
+		CTX.fillRect(0, 0,
+			 CANVAS.width, CANVAS.height)
 		
 		let canvasRect = CANVAS.getBoundingClientRect()
 		let clk = {

@@ -17,8 +17,11 @@ const loop = () => {
 	setTimeout(() => {
 		CTX.clearRect(0, 0, CANVAS.width, CANVAS.height)
 
-		writeCenterXY(CTX,CANVAS.width,	CANVAS.height,
-			`Apertou: ${key}`,'blue',30, 'sans','bold','top')
+		writeCenterXY(CTX,
+			CANVAS.width,
+			CANVAS.height,
+			`Apertou: ${key}`,
+			'blue',30, 'sans','bold','top')
 
 		requestAnimationFrame(loop)
 	}, 1000 / FRAMES)

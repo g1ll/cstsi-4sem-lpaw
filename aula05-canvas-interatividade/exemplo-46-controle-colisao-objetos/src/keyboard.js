@@ -3,7 +3,7 @@ let keys = [];
 let key;
 
 function keyPress(element){
-    element.addEventListener('keypress',event=>{
+    element.addEventListener('keydown',event=>{
         key = event.key
         console.log(key)
     })
