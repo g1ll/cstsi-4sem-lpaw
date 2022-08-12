@@ -22,7 +22,12 @@ const init = async () => {
 const loop = () => {
 	setTimeout(() => {
 		CTX.clearRect(0,0,CANVAS.width,CANVAS.height)
-		CTX.drawImage(goblinImage,100,10,190,240)
+		
+		CTX.drawImage(
+			goblinImage,
+			0,0,165,174, //source
+			100,10,165,174 //draw
+		)
 
 		requestAnimationFrame(loop)
 	}, 1000/FRAMES)
