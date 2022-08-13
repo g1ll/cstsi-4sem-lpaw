@@ -1,7 +1,3 @@
-import Quad from "./geometries/Quad"
-import Rect from "./geometries/Rect"
-
-import { keyPress, key } from "./keyboard"
 import { loadImage } from "./loaderAssets"
 
 let CTX
@@ -14,7 +10,6 @@ const init = async () => {
 	console.log("Initialize Canvas")
 	CANVAS = document.querySelector('canvas')
 	CTX = CANVAS.getContext('2d')
-	keyPress(CANVAS)
 	goblinImage = await loadImage('img/goblin.png')
 	loop()
 }
@@ -23,10 +18,15 @@ const loop = () => {
 	setTimeout(() => {
 		CTX.clearRect(0,0,CANVAS.width,CANVAS.height)
 		
-		CTX.drawImage(
+		CTX.drawImage( //Desenha toda a imagem no tamanho 165x200
+			goblinImage,
+			0,0,165,200,
+		)
+
+		CTX.drawImage(//Denha parte da imagem, recortando uma célula de 165*174
 			goblinImage,
 			0,0,165,174, //source
-			100,10,165,174 //draw
+			200,10,165,174 //draw
 		)
 
 		requestAnimationFrame(loop)
