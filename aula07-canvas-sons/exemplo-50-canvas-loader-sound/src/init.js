@@ -5,16 +5,17 @@ let CTX
 let CANVAS
 const FRAMES = 60
 
-let goblinImage = null
+let goblinImage
 let x = 0
 let y = 0
 
 let cellWidth = 165		//largura da celular de recorte
 let cellHeight = 177	//altura da celula de recorte
-let totalSprites = 3		//Total de sprites
+let totalSprites = 3	//Total de sprites
 let spriteSpeed = 1		//Velocidade de troca de sprites (anime)
 
-let sound = null	//https://mixkit.co/free-sound-effects/
+let sound
+let theme
 
 const init = async () => {
 	console.log("Initialize Canvas")
@@ -22,7 +23,10 @@ const init = async () => {
 	CTX = CANVAS.getContext('2d')
 	goblinImage = await loadImage('img/goblin.png')
 	sound = await loadAudio('sounds/retrogame.wav')
-	sound.volume = .5;
+	sound.volume = .5
+	theme = await loadAudio('sounds/illusory.mp3')
+	theme.volume = .3
+	theme.loop = true
 	keyPress(CANVAS)
 	loop()
 	animeSprite()
@@ -49,6 +53,7 @@ const loop = () => {
 		)
 
 		key == 'ArrowUp' && sound.play();
+		key == 'Enter'&& theme.currentTime == 0 && theme.play()
 
 		requestAnimationFrame(loop)
 	}, 1000 / FRAMES)
