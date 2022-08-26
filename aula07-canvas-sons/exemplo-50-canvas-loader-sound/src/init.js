@@ -12,7 +12,7 @@ let y = 0
 let cellWidth = 165		//largura da celular de recorte
 let cellHeight = 177	//altura da celula de recorte
 let totalSprites = 3	//Total de sprites
-let spriteSpeed = 1		//Velocidade de troca de sprites (anime)
+let spriteSpeed = 1	//Velocidade de troca de sprites (anime)
 
 let sound
 let theme
@@ -22,7 +22,7 @@ const init = async () => {
 	CANVAS = document.querySelector('canvas')
 	CTX = CANVAS.getContext('2d')
 	goblinImage = await loadImage('img/goblin.png')
-	sound = await loadAudio('sounds/retrogame.wav')
+	sound = await loadAudio('sounds/retrogame.ogg')
 	sound.volume = .5
 	theme = await loadAudio('sounds/illusory.mp3')
 	theme.volume = .3
@@ -53,12 +53,10 @@ const loop = () => {
 		)
 
 		key == 'ArrowUp' && sound.play();
-		key == 'Enter'&& theme.currentTime == 0 && theme.play()
+		key == 'Enter' && theme.currentTime == 0 && theme.play()
 
 		requestAnimationFrame(loop)
 	}, 1000 / FRAMES)
 }
 
 export { init }
-
-
