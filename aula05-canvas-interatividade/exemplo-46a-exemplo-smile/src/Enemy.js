@@ -10,18 +10,26 @@ export default class Enemy extends Circle{
 		this.color = color;
 		this.status = null;
 		this.line = 3
+		console.log(this)
 	}
 
-	move(limits,key){
+	move(limits){
 		this.y +=this.speed
 		this.limits(limits)
 	}
 
 	limits(limits){
 
-		if(this.y - this.size > limits.height+this.size ){
+		if(this.y - this.size > limits.height ){
 			this.y = -this.size
 			this.x = Math.random()*limits.width;
 		}
 	}
 }
+
+
+
+
+
+
+

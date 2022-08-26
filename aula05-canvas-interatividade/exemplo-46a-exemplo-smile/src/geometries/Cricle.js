@@ -34,7 +34,10 @@ export default class Circle {
 	move(limits, key) {
 
 		let movements = {
-			'ArrowDown': { x: this.x, y: this.y + this.speed },
+			'ArrowDown': {
+				x: this.x,
+				y: this.y + this.speed 
+			},
 			'ArrowUp': { x: this.x, y: this.y - this.speed },
 			'ArrowLeft': { x: this.x - this.speed, y: this.y },
 			'ArrowRight': { x: this.x + this.speed, y: this.y }
@@ -49,7 +52,10 @@ export default class Circle {
 	}
 
 	limits(limits){
-		this.x = this.x - this.size > limits.width ? -this.size : this.x
+		this.x = this.x - this.size > limits.width 
+							? -this.size 
+							: this.x
+
 		this.x = this.x + this.size < 0 ? limits.width - this.size : this.x
 
 		this.y = this.y - this.size > limits.height+this.size ? -this.size : this.y

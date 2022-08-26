@@ -9,23 +9,23 @@ export default class Smile extends Circle {
 
 
 	paint(ctx) {
-		// ctx.fillStyle = "#fff";
+		ctx.fillStyle = "#fff";
 		this.draw(ctx)
-		// this.circ(ctx,
-		// 	this.x - this.size / 2.5,
-		// 	this.y - this.size / 4,
-		// 	this.size * .1, 1, 'black', 'black')
+		this.circ(ctx,
+			this.x - this.size / 2.5,
+			this.y - this.size / 4,
+			this.size * .1, 1, 'black', 'black')
 
-		// this.circ(ctx,
-		// 	this.x + this.size / 2.5,
-		// 	this.y - this.size / 4,
-		// 	this.size * .1, 1, 'black', 'black')
+		this.circ(ctx,
+			this.x + this.size / 2.5,
+			this.y - this.size / 4,
+			this.size * .1, 1, 'black', 'black')
 
-		// ctx.beginPath()
-		// ctx.lineWidth = 2
-		// ctx.arc(this.x, this.y + this.size / 4, this.size / 2, 0, Math.PI)
-		// ctx.strokeStyle = "#000"
-		// ctx.stroke()
+		ctx.beginPath()
+		ctx.lineWidth = 2
+		ctx.arc(this.x, this.y + this.size / 4, this.size / 2, 0, Math.PI)
+		ctx.strokeStyle = "#000"
+		ctx.stroke()
 
 		ctx.beginPath()
 		ctx.lineWidth = 2
@@ -34,11 +34,14 @@ export default class Smile extends Circle {
 		
 	}
 
-	limits(limits){
-		this.x = this.x + this.size > limits.width ? limits.width-this.size : this.x
-		this.x = this.x -this.size < 0 ? this.size : this.x
+	// limits(limits){
+	// 	this.x = this.x + this.size > limits.width //logica
+	// 			? limits.width-this.size //verdade
+	// 			: this.x //falso
 
-		this.y = this.y + this.size > limits.height ? limits.height-this.size : this.y
-		this.y = this.y - this.size < 0 ? this.size : this.y
-	}
+	// 	this.x = this.x -this.size < 0 ? this.size : this.x
+
+	// 	this.y = this.y + this.size > limits.height ? limits.height-this.size : this.y
+	// 	this.y = this.y - this.size < 0 ? this.size : this.y
+	// }
 }
