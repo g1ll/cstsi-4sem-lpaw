@@ -5,7 +5,6 @@ export default class Circle {
 		this.size = size;
 		this.speed = speed;
 		this.color = color;
-		this.status = 'ArrowRight';
 		this.line = 3
 	}
 
@@ -19,49 +18,18 @@ export default class Circle {
 			this.color)
 	}
 
-	circ(ctx, x, y, r, l, color, fill = false) {
-		ctx.lineWidth = l;
+	circ(ctx, pos_x, pos_y, radius, line, color, fill = false) {
+		ctx.lineWidth = line;
 		ctx.strokeStyle = color
 		ctx.beginPath();
-		ctx.arc(x, y, r, 0, Math.PI*2);
+		ctx.arc(pos_x, pos_y, radius, 0, Math.PI*2);
 		ctx.stroke();
 		if (fill) {
 			ctx.fillStyle = fill
 			ctx.fill()
 		}
 	}
-
-	move(limits, key) {
-
-		let movements = {
-			'ArrowDown': {
-				x: this.x,
-				y: this.y + this.speed 
-			},
-			'ArrowUp': { x: this.x, y: this.y - this.speed },
-			'ArrowLeft': { x: this.x - this.speed, y: this.y },
-			'ArrowRight': { x: this.x + this.speed, y: this.y }
-		}
-
-		this.status = movements[key] ? key : this.status
-
-		this.x = movements[this.status].x
-		this.y = movements[this.status].y
-
-		this.limits(limits)
-	}
-
-	limits(limits){
-		this.x = this.x - this.size > limits.width 
-							? -this.size 
-							: this.x
-
-		this.x = this.x + this.size < 0 ? limits.width - this.size : this.x
-
-		this.y = this.y - this.size > limits.height+this.size ? -this.size : this.y
-		this.y = this.y + this.size < 0 ? limits.height + this.size : this.y
-	}
-
+	
 	anda(limits, key) {
 
 		switch (key) {

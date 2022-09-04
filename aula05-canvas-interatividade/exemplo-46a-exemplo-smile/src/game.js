@@ -6,7 +6,7 @@ let CTX
 let CANVAS
 const FRAMES = 30
 
-const qtdEnemies = 20
+const qtdEnemies = 1
 
 let enemies = Array.from({length:qtdEnemies});
 
@@ -26,11 +26,11 @@ const init = () => {
 		height: CANVAS.height
 	}
 
-	enemies = enemies.map(i => new Enemy(
-		Math.random()*CANVAS.width,
-		Math.random()*CANVAS.height,
-		10, 5, 'red')
-	)
+	enemies = enemies.map(i=>new Enemy(
+			Math.random()*CANVAS.width,
+			Math.random()*CANVAS.height,
+			10, 5, 'red'
+		))
 	
 	keyPress(window)
 	loop()
@@ -41,13 +41,13 @@ const loop = () => {
 
 		CTX.clearRect(0, 0, CANVAS.width, CANVAS.height)
 
-
 		smile.move(boundaries, key)
 		smile.paint(CTX)
 
 		enemies.forEach(e =>{
-			 e.draw(CTX)
-			 e.move(boundaries, 0)
+			e.move(boundaries, 0) 
+			e.draw(CTX)
+			 //var = teste?verdadeiro:falso;
 			 gameover = !gameover 
 			 		? e.colide(smile)
 					: true;

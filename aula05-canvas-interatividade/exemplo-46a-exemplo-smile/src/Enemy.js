@@ -1,16 +1,10 @@
-import Circle from "./geometries/Cricle";
+import Circle from "./geometries/Circle";
 
 export default class Enemy extends Circle{
 	constructor(x, y, size, speed = 10, color = "#00f") {
-		super()
-		this.x = x;
-		this.y = y;
-		this.size = size;
-		this.speed = speed;
-		this.color = color;
-		this.status = null;
-		this.line = 3
-		console.log(this)
+		super(x,y,size,speed,color)
+		this.line = 1
+		// console.log('enemy',this) 
 	}
 
 	move(limits){
@@ -21,7 +15,7 @@ export default class Enemy extends Circle{
 	limits(limits){
 
 		if(this.y - this.size > limits.height ){
-			this.y = -this.size
+			this.y = -2*this.size
 			this.x = Math.random()*limits.width;
 		}
 	}
