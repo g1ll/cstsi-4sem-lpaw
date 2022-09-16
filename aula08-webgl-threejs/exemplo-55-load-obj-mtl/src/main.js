@@ -18,14 +18,14 @@ const camera = new THREE.PerspectiveCamera(
 );
 camera.position.z = 2
 
- //Luz
- var light = new THREE.AmbientLight(0xffffff, 10);
- scene.add(light);
+//Luz
+var light = new THREE.AmbientLight(0xffffff, 10);
+scene.add(light);
 
- //Ponto de Luz
- var plight = new THREE.PointLight(0xffffff, 10);
- plight.position.set(10, 10, 0);
- scene.add(plight);
+//Ponto de Luz
+var plight = new THREE.PointLight(0xffffff, 10);
+plight.position.set(10, 10, 0);
+scene.add(plight);
 
 const modelPath = 'models/f15c/'
 const mtlFile = 'f15c.mtl'
@@ -41,11 +41,14 @@ const objLoader = new OBJLoader();
 
 mtlLoader.setPath(modelPath)
   .load(mtlFile, (materials) => {
-  materials.preload()
-  objLoader.setMaterials(materials)
-  objLoader.setPath(modelPath).load(objFile, (object) => {
-    object.rotation.x = 0.7
-    scene.add(object)
-    renderer.render(scene, camera)
+    materials.preload()
+    objLoader.setMaterials(materials)
+    objLoader.setPath(modelPath)
+      .load(objFile, (object) => {
+        object.rotation.x = 0
+        object.rotation.y = 1.5
+        scene.add(object)
+        renderer.render(scene, camera)
+      }
+      )
   })
-})
