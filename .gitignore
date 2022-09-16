@@ -5,3 +5,4 @@ snapcode*
 **/node_modules
 node_modules
 **/*-lock.json
+**/dist
