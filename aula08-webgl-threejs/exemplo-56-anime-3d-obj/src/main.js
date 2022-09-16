@@ -17,7 +17,7 @@ const camera = new THREE.PerspectiveCamera(
   0.1, //Plano proximo
   100//Plano distante
 );
-camera.position.z = 8
+camera.position.z = 10
 
  //Luz
  var light = new THREE.AmbientLight(0xffffff, 10);
