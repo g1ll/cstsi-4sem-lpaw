@@ -12,20 +12,20 @@ scene.background = new THREE.Color(0x000000)
 
 let aspecto = window.innerWidth / window.innerHeight
 const camera = new THREE.PerspectiveCamera(
-  75, //campo de visao vertical
+  40, //campo de visao vertical
   aspecto, //aspecto da imagem (Largura/Altura)
   0.1, //Plano proximo
   100//Plano distante
 );
-camera.position.z = 5
+camera.position.z = 8
 
  //Luz
  var light = new THREE.AmbientLight(0xffffff, 10);
  scene.add(light);
 
  //Ponto de Luz
- var plight = new THREE.PointLight(0xffffff, 10);
- plight.position.set(10, 10, 0);
+ var plight = new THREE.PointLight(0xffff00, 100);
+ plight.position.set(-1, 1, 0);
  scene.add(plight);
 
 let model
@@ -47,7 +47,9 @@ mtlLoader.setPath(modelPath)
   objLoader.setMaterials(materials)
   objLoader.setPath(modelPath).load(objFile, (object) => {
     model = object
-    model.scale.set(.05,.05,.05)//redimensiona o objeto
+    model.scale.setScalar(.05)//redimensiona o objeto
+    model.position.y=-.5
+    model.rotation.x=.5
     scene.add(model)
     animate()
   })
@@ -60,7 +62,7 @@ function animate() {
 }
 
 window.addEventListener('mousemove',event=>{
-  if(model){
-    model.rotation.x += (event.clientY-window.innerHeight/2)/window.innerHeight/100
-  }
+  let wh = window.innerHeight
+  let my = event.clientY
+  if(model)  model.rotation.x += (my-wh/2)/wh/100
 })

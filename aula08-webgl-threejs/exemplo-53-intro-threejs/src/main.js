@@ -16,7 +16,6 @@ const camera = new THREE.PerspectiveCamera(
 );
 camera.position.z = 35
 
-
 const geometry = new THREE.BoxGeometry(20, 20, 20)
 const cor = {color:0x0000ff};
 const material = new THREE.MeshBasicMaterial(cor)
