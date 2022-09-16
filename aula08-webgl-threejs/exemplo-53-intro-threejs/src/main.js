@@ -22,11 +22,6 @@ const cor = {color:0x0000ff};
 const material = new THREE.MeshBasicMaterial(cor)
 const cube = new THREE.Mesh(geometry, material)
 
-// const texture = new THREE.TextureLoader()
-// 	.load('img/crate.jpg',animate);
-// const material = new THREE.MeshBasicMaterial(
-// 	{ map: texture });
-
 scene.add(cube)
 const animate=()=>{
     renderer.render(scene, camera)
