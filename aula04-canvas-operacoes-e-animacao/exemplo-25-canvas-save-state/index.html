@@ -32,8 +32,8 @@
 			ctx.save()
 			quad(ctx,x+width*1.5,y,width,5,'blue','black')
 			ctx.restore()
-			quad(ctx,x+width*3,y,width,5,ctx.strokeStyle,ctx.fillStyle)
-	
+			quad(ctx,x+width*3,y,width,5,
+				ctx.strokeStyle,ctx.fillStyle)
 		}
 
 		function quad(ctx,x,y,s,l,color,fill=false)

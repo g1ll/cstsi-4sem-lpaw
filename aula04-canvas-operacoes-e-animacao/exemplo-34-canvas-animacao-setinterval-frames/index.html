@@ -13,6 +13,7 @@
 		}
 
 		canvas {
+			/* background-color: blue; */
 			border: 1px solid black;
 		}
 	</style>
@@ -25,10 +26,12 @@
 			
 			let x = canvas.width/2
 			let y = canvas.height/2
-			let frames = 60
+			let frames = 15
 			let interval = 1000/frames
 			let c_vel=5;
 			setInterval(() => {
+				ctx.fillStyle = "rgba(255,255,255,0.5)"
+				ctx.clearRect(0,0,canvas.width,canvas.height)
 				circ(ctx,x+=c_vel,y,25,5,"#0f0","#00f")
 				x=x>canvas.width+25 ? 0:x;
 			}, interval);

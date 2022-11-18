@@ -29,15 +29,18 @@
 			let height = width
 
 			quad(ctx,x,y,width,5,'black','blue')	
-			ctx.save()
+			ctx.save()//1
 			quad(ctx,incX(),y,width,5,'blue','black')
-			ctx.save()
+			ctx.save()//2
 			setTimeout(draw,2000)
 
+			ctx.strokeStyle = 'red'
+			ctx.fillStyle = 'green'
+
 			function draw(){
-				ctx.restore()
+				// ctx.restore()// 2 save
 				quad(ctx,incX(),y,width,5,ctx.strokeStyle,ctx.fillStyle)
-				ctx.restore()
+				ctx.restore()//2 save
 				quad(ctx,incX(),y,width,5,ctx.strokeStyle,ctx.fillStyle)		
 			}
 

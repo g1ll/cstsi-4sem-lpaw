@@ -22,15 +22,17 @@
 		function canvasApp() {
 			const CANVAS = document.querySelector('canvas')
 			const CTX = CANVAS.getContext('2d');
-			const FRAMES = 15;
+			const FRAMES = 30;
 
 			let x = -10
 			let y = CANVAS.height / 2
 			let vel = 10
 			let count = 0;
-			let colors = Array.from(Array(10).keys())
-			colors = [...colors, 'a', 'b', 'c', 'd', 'e', 'f']
+			// let colors = Array.from(Array(10).keys())
+			// colors = [...colors, 'a', 'b', 'c', 'd', 'e', 'f']
 			
+			let colors = "0123456789abcdef".split("")
+
 			const loop = () => {
 				setTimeout(() => {
 					clearScreen(CTX)

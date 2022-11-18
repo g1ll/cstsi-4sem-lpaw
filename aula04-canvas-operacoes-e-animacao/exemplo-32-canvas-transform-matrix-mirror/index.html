@@ -26,9 +26,9 @@
 			let x = 50
 			let y = x
 			smile(ctx, x, y, 25)
-			ctx.translate(canvas.width,0)
+			// ctx.translate(canvas.width,0)
 			//scale(-1,1)
-			ctx.transform(-1, 0, 0, 1, 0, 0)
+			ctx.transform(-1, 0, 0, 1, canvas.width, 0)
 			smile(ctx, x, y, 25)
 		}
 
