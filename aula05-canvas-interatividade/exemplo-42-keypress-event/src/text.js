@@ -1,6 +1,7 @@
 export default function writeCenterXY(ctx, cwidth, cheight, text,
 	color = 'black', size = 12, family = 'serif',
 	style = 'normal', base = 'alphabetic', stroke = false) {
+		
 	ctx.font = `${style} ${size}px ${family}`;
 	ctx.textBaseline = base;
 	let textMetric = ctx.measureText(text)

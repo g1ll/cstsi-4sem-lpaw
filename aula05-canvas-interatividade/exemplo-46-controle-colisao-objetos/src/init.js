@@ -14,7 +14,7 @@ const init = () => {
 	console.log("Initialize Canvas")
 	CANVAS = document.querySelector('canvas')
 	CTX = CANVAS.getContext('2d')
-	keyPress(CANVAS)
+	keyPress(window)
 	loop()
 }
 
@@ -29,6 +29,7 @@ const loop = () => {
 
 		rect.draw(CTX)
 		quad.draw(CTX)
+		
 		redCirc(CTX)
 
 		quad.colide(rect) && console.error('QUAD COLIDE')

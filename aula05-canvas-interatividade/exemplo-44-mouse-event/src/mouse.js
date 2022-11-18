@@ -9,6 +9,7 @@ let click = {x:null,y:null}
 function setClick(event){
 	click.x = event.clientX
 	click.y = event.clientY
+	console.log(click)
 }
 
 const getClick=()=>click
