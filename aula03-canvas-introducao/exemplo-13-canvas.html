@@ -7,7 +7,7 @@
 	<title>Exemplo 13 - Canvas - Introdução ao Canvas</title>
 	<style>
 		body{display: flex; justify-content: center;}
-		canvas{border: 1px solid black;}
+		canvas{border: 3px dashed blue;}
 	</style>
 	<script>
 		window.addEventListener("load",canvasApp,false)
@@ -15,7 +15,7 @@
 		function canvasApp(){
 			const canvas = document.querySelector('canvas')
 			const ctx = canvas.getContext('2d');
-			ctx.strokeRect(0,0,50,50);
+			ctx.strokeRect(100,350,50,50);
 		}
 	</script>
 </head>

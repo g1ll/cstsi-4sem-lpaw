@@ -7,7 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Exemplo 18 - Canvas - Textos</title>
 	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+
 		body {
+			font-family: 'Poor Story';
 			display: flex;
 			justify-content: center;
 		}
@@ -23,13 +26,13 @@
 			const canvas = document.querySelector('canvas')
 			const ctx = canvas.getContext('2d');
 
-			ctx.shadowColor = "#333";
-			ctx.shadowOffsetX = 15;
-			ctx.shadowOffsetY = 15;
+			ctx.shadowColor = "magenta";
+			ctx.shadowOffsetX = 0;
+			ctx.shadowOffsetY = 0;
 			ctx.shadowBlur = 3;
 
-			let textSize = 24;
-			ctx.font = `bold ${textSize}px sans`;
+			let textSize = 48;
+			ctx.font = `bold ${textSize}px 'Poor Story', cursive`;
 			ctx.textBaseline = "top";
 			let texto = "Olá Canvas!";
 			let textMetric = ctx.measureText(texto)

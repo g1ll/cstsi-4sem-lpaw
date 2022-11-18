@@ -26,7 +26,7 @@
 			let x = canvas.width/2
 			let y = canvas.height/2
 
-			ctx.globalAlpha = 0.5;
+			ctx.globalAlpha = 1;
 
 			let textSize = 50;
 			ctx.font = `bold ${textSize}px sans`;
@@ -37,10 +37,10 @@
 			ctx.fillStyle = "#00f";
 			ctx.fillText(tricolor,x-textWidth/2,y-textSize/2)
 
+			ctx.globalAlpha = 0.5;
 			let colorado = "NAL";
 			ctx.fillStyle = "#f00";
 			ctx.fillText(colorado,x-textWidth/2,y-textSize/2)
-
 		}
 	</script>
 </head>

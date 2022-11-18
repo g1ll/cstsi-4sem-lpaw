@@ -6,8 +6,14 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Exemplo 18 - Canvas - Textos</title>
+	<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet"> -->
 	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+
 		body {
+			font-family: 'Poor Story';
 			display: flex;
 			justify-content: center;
 		}
@@ -23,9 +29,9 @@
 			const canvas = document.querySelector('canvas')
 			const ctx = canvas.getContext('2d');
 			let textSize = 32;
-			ctx.font = `bold ${textSize}px sans`;
+			ctx.font = `bold ${textSize}px 'Poor Story',cursive`;
 			ctx.textBaseline = "top";
-			let texto = "Olá Canvas HTML5!";
+			let texto = "Ola Canvas HTML5!";
 			let textMetric = ctx.measureText(texto)
 			console.log(textMetric);
 			ctx.fillStyle = "#00f";

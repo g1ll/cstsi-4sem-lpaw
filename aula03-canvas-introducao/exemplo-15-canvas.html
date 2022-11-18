@@ -24,9 +24,21 @@
 			ctx.lineTo(5,70);//bottom line
 			ctx.lineTo(10,20);//left line
 			ctx.fill();
-		
-			// ctx.fillStyle = 'green';
-			// ctx.fill();
+
+			ctx.strokeStyle = "#00F";
+			ctx.beginPath();
+			ctx.moveTo(300,20);
+			ctx.lineTo(400,20);
+			ctx.lineTo(400,120);
+			ctx.lineTo(300,120);
+			ctx.lineTo(300,20);
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.rect(300,220,100,100)
+			ctx.stroke(); //strokeStyle
+
+			ctx.strokeRect(450,220,100,100)
 		}
 	</script>
 </head>

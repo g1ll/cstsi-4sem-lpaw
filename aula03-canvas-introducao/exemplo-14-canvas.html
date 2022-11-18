@@ -15,12 +15,14 @@
 		function canvasApp(){
 			const canvas = document.querySelector('canvas')
 			const ctx = canvas.getContext('2d');
+			ctx.lineWidth = 4;
 			ctx.strokeStyle = 'blue';
 			ctx.strokeRect(0,0,50,50);
 			ctx.strokeStyle = '#f00';
 			ctx.strokeRect(51,0,50,50);
 			ctx.fillStyle = 'rgba(0,255,0,.3)';
 			ctx.fillRect(90,0,50,50);
+			ctx.strokeRect(90,0,50,50);
 		}
 	</script>
 </head>

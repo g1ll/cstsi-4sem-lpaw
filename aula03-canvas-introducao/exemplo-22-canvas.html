@@ -42,15 +42,19 @@
 			let y0 = canvas.height / 2 - textSize;
 			let x1 = canvas.width / 2 + textMetric.width / 2;
 			let y1 = y0;
-			let gradiente = ctx.createLinearGradient(x0, y0, x1, y1)
+			// let gradiente = ctx.createLinearGradient(x0, y0, x1, y1)
+			let gradiente = ctx.createLinearGradient(
+				0,0,
+				canvas.width,canvas.height)
 			gradiente.addColorStop(0, "#000")
 			gradiente.addColorStop(.5, "#f00")
 			gradiente.addColorStop(1, "#000")
 			ctx.fillStyle = gradiente;
 
-			ctx.fillText(texto,
-				canvas.width / 2 - textMetric.width / 2,
-				canvas.height / 2 - textSize)
+			// ctx.fillText(texto,
+			// 	canvas.width / 2 - textMetric.width / 2,
+			// 	canvas.height / 2 - textSize)
+			ctx.fillRect(0,0,canvas.width,canvas.height)
 		}
 	</script>
 </head>
