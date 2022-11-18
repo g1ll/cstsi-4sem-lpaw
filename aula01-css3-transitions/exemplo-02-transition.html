@@ -6,17 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSTI-4SEM-LPAW-Aula 01 | Transitions: Exemplo 02</title>
     <style>
+
         div{
             width: 100px;
             height: 100px;
             background-color: red;
-            transition-property: background-color, transform, border-radius;
-            transition-duration: 1s;
-            transition-delay: 1s;
-            transition-timing-function: ease;
+            transition-property: border-radius, transform;
+            transition-duration: 2s;
+            /* transition-delay: 1s; */
+            transition-timing-function: cubic-bezier(.11,.81,.23,.9);
         }
 
-        div:hover{
+        p:hover~div{
             transform: translate(200px,100px);
             border-radius: 100%;
             background-color: blue;
@@ -24,6 +25,7 @@
     </style>
 </head>
 <body>
+    <p>ANIMA</p>
     <div></div>
 </body>
 </html>

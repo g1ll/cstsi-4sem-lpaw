@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSTI-4SEM-LPAW-Aula 01 | Transitions: Exemplo 05</title>
+    <title>CSTI-4SEM-LPAW-Aula 01 | Transitions: Exemplo 06</title>
     <style>
         /*LAYOUT*/
         .container {
@@ -62,7 +62,6 @@
         label{
             font-family: sans-serif;
             color: #1e1e1e;
-            transform: translateY(-50px);
             opacity: 0.5;
             transition: all 1s ease-in;
         }
@@ -107,12 +106,13 @@
             opacity: 1;
         }
 
-        input:focus ~ label{
+        .row:focus-within label{
             font-style: bolder;
             padding: 0px;
             opacity: 1;
             transition: all 1s ease-out;
         }
+
         /*end INPUT*/
     </style>
 </head>
@@ -120,12 +120,12 @@
 <body>
     <div class="container">
         <div class="row">
-            <input id="login" type="text" name="login" placeholder="Please, type your Username">
             <label for="login">Username:</label>
+            <input id="login" type="text" name="login" placeholder="Please, type your Username">
         </div>
         <div class="row">
-            <input id="password" type="password" name="login" placeholder="Please, type your Password">
             <label for="password">Password:</label>
+            <input id="password" type="password" name="login" placeholder="Please, type your Password">
         </div>
         <div class="row">
             <button>Enter</button>

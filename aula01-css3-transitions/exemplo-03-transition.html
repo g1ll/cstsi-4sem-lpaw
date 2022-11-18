@@ -10,16 +10,17 @@
             width: 100px;
             height: 100px;
             background-color: red;
-            /* 
-            transition-property: transform;
-            transition-duration: 1000ms;
+            
+            /* transition-property: transform; */
+            /* transition-duration: 1000ms;
             transition-delay: 0.5s;
-            transition-timing-function: ease-out; 
-            */
-            transition: transform 1s 500ms ease-out;
+            transition-timing-function: ease-out;  */
+           
+            transition: transform 2s ease-in 500ms,
+                        background-color 2s steps(4,end);
         }
 
-        div:hover{
+        p:hover~div{
             transform: translate(200px,0px);
             border-radius: 100%;
             background-color: blue;
@@ -27,6 +28,7 @@
     </style>
 </head>
 <body>
+    <p>TRANSITION</p>
     <div></div>
 </body>
 </html>
