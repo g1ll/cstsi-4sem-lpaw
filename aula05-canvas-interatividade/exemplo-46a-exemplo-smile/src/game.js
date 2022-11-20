@@ -4,13 +4,13 @@ import { keyPress, key } from "./keyboard"
 
 let CTX
 let CANVAS
-const FRAMES = 30
+const FRAMES = 15
 
 const qtdEnemies = 10
 
 let enemies = Array.from({length:qtdEnemies});
 
-const smile = new Smile(300, 100, 20, 5, 'yellow')
+const smile = new Smile(300, 100, 20, 5,'green')
 
 let gameover = false
 let anime;
