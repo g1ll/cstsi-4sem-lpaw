@@ -7,13 +7,20 @@ export default class Hero extends Circle{
 	constructor(x, y, size, speed = 10, width, height,imgUrl,FRAMES) {
 		super(x, y, size, speed)
 		this.imgUrl = imgUrl
-		loadImage(this.imgUrl).then(img=>this.img = img)
+		loadImage(this.imgUrl)
+		.then(img=>{
+			this.img = img
+			this.cellWidth = img.naturalWidth/this.totalSprites+3.5
+			console.log('W:'+this.cellWidth)
+		})
 
-		this.cellWidth = 165
+		
 		this.cellHeight= 177
 		this.cellX = 0
 		this.totalSprites = 3
 		this.spriteSpeed = 1
+		console.log('H:'+this.cellHeight)
+		
 
 		this.width = width
 		this.height = height
@@ -49,7 +56,7 @@ export default class Hero extends Circle{
 		this.hit.draw(CTX)
 	}
 
-	animeSprite = (FRAMES)=>{ //Controla a animacao do sprite
+	animeSprite(FRAMES){ //Controla a animacao do sprite
 		setInterval(() => {
 			this.cellX = this.cellX < this.totalSprites - 1 
 						 ? this.cellX + 1 

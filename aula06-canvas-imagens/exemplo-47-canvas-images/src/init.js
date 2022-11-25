@@ -11,6 +11,7 @@ const init = async () => {
 	CANVAS = document.querySelector('canvas')
 	CTX = CANVAS.getContext('2d')
 	goblinImage = await loadImage('img/goblin.png')
+	console.log(goblinImage)
 	loop()
 }
 
@@ -25,7 +26,7 @@ const loop = () => {
 
 		CTX.drawImage(//Denha parte da imagem, recortando uma célula de 165*174
 			goblinImage,
-			0,0,165,174, //source
+			1*goblinImage.naturalWidth/3,0,165,174, //source
 			200,10,165,174 //draw
 		)
 

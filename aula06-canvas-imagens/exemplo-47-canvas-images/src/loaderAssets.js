@@ -1,4 +1,4 @@
-const loadImage = async (url) => 
+const loadImage = async (url)=> 
     new Promise(resolve=>{
     const img = new Image();
     img.addEventListener("load",

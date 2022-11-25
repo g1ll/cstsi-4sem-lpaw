@@ -11,7 +11,7 @@ let y = 0
 let cellWidth = 165		//largura da celular de recorte
 let cellHeight = 177	//altura da celula de recorte
 let totalSprites = 3		//Total de sprites
-let spriteSpeed = 1		//Velocidade de troca de sprites (anime)
+let spriteSpeed =  1	//Velocidade de troca de sprites (anime)
 
 const init = async () => {
 	console.log("Initialize Canvas")

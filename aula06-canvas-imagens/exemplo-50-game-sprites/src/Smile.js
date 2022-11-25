@@ -4,14 +4,14 @@ export default class Smile extends Circle {
 
 	constructor(x, y, size, speed = 10, color = "#00f") {
 		super(x, y, size, speed, color)
-		this.status = 'ArrowDown';
+		this.status = 'ArrowRight';
 	}
 
 
-	paint(ctx) {
+	draw(ctx) {
 		ctx.fillStyle = "#fff";
 		
-		this.draw(ctx)
+		super.draw(ctx)
 		
 		this.circ(ctx,
 			this.x - this.size / 2.5,
