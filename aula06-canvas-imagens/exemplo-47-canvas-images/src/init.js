@@ -24,14 +24,17 @@ const loop = () => {
 			0,0,165,200,
 		)
 
-		CTX.drawImage(//Denha parte da imagem, recortando uma célula de 165*174
+		//Denha parte da imagem, 
+		//recortando uma célula de 165*174
+		CTX.drawImage(
 			goblinImage,
-			1*goblinImage.naturalWidth/3,0,165,174, //source
-			200,10,165,174 //draw
+			2*165,0,165,174, //source
+			200,10,165,174 //draw (destination)
 		)
 
 		requestAnimationFrame(loop)
 	}, 1000/FRAMES)
 }
 
+// 1*goblinImage.naturalWidth/3,0,165,174, //source
 export { init}

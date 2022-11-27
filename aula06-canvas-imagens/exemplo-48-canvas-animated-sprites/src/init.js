@@ -2,7 +2,7 @@ import { loadImage } from "./loaderAssets"
 
 let CTX
 let CANVAS
-const FRAMES = 30	
+const FRAMES = 6
 
 let goblinImage = null
 let x = 0
@@ -38,7 +38,7 @@ const loop = () => {
 		CTX.drawImage(
 			goblinImage,
 			x * cellWidth,
-			cellHeight*2,
+			0*cellHeight,
 			cellWidth,
 			cellHeight, //source
 			100, 10, cellWidth*2, cellHeight*2 //draw
