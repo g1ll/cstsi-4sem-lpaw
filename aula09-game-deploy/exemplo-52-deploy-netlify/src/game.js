@@ -30,6 +30,10 @@ const init = async () => {
 	canvas = document.querySelector('canvas')
 	ctx = canvas.getContext('2d')
 
+	ctx.clearRect(0, 0, canvas.width, canvas.height)
+	hud(ctx, `Carregando... `, "#f00",canvas.height/2-50)
+		
+
 	scoreSound = await loadAudio('sounds/score.ogg')
 	scoreSound.volume = .5
 	gameoverSound = await loadAudio('sounds/gameover.wav')
