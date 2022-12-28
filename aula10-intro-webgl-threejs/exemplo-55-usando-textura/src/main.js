@@ -19,17 +19,35 @@ camera.position.z = 100
 
 const geometry = new THREE.BoxGeometry(20, 20, 20)
 const texture = new THREE.TextureLoader()
-			.load('img/crate.jpg',animate);
+			.load('img/crate.jpg',()=>{
+				console.log('Carregou imagem!')
+				animate()
+			});
 const material = new THREE.MeshBasicMaterial(
 	{ map: texture });
 const cube = new THREE.Mesh(geometry, material)
 scene.add(cube)
+
+let indo = true;
 
 function animate(){
     renderer.render(scene, camera)
 	cube.rotation.y += .01
 	cube.rotation.x += .01
 	cube.rotation.z += .01
+	
+	if(indo){
+		camera.position.z -=1
+	}else{
+		camera.position.z +=1
+	}
+
+	if(!indo && camera.position.z>50)
+		indo = true
+	
+	if(indo && camera.position.z<15)
+		indo = false
+		
 	requestAnimationFrame(animate)
 }
-animate()
+console.log('terminou script')
