@@ -16,7 +16,7 @@ const camera = new THREE.PerspectiveCamera(
   0.1, //Plano proximo
   100//Plano distante
 );
-camera.position.z = 1.2
+camera.position.z = 1
 
 //Luz
 var light = new THREE.AmbientLight(0xffffff, 10);
@@ -27,12 +27,8 @@ var plight = new THREE.PointLight(0xffffff, 5);
 plight.position.set(3,20,-15);
 scene.add(plight);
 
-// const modelPath = 'models/f15c/'
-// const mtlFile = 'f15c.mtl'
-// const objFile = 'f15c.obj'
-
-const modelPath = 'models/mbenz/'
-const filename = 'mercedez_benz'
+const modelPath = 'models/f15c/'
+const filename = 'f15c'
 
 const manager = new THREE.LoadingManager();
 manager.onProgress = function (item, loaded, total) {
@@ -51,12 +47,14 @@ mtlLoader.setPath(modelPath)
     objLoader.setMaterials(materials)
     objLoader.setPath(modelPath)
       .load(filename+'.obj', (object) => {
-        // jet = object
-        // jet.rotation.x = 0
-        // jet.rotation.y = 1.5
-        scene.add(object)
+        jet = object
+        jet.rotation.x = 0
+        jet.rotation.y = 1.5
+        jet.position.z = -.5
+        scene.add(jet)
+        console.log(`Carregou ${filename}.obj`)
         renderer.render(scene, camera)
-        // animate()
+        animate()
       })
   })
 
