@@ -29,12 +29,9 @@ var plight = new THREE.PointLight(0xffffff, 10);
 plight.position.set(10, 10, 0);
 scene.add(plight);
 
-// const modelPath = 'models/f15c/'
-// const mtlFile = 'f15c.mtl'
-// const objFile = 'f15c.obj'
-
-const modelPath = 'models/suzanne/'
-const objFile = 'suzanne.obj'
+const modelPath = 'models/f15c/'
+const mtlFile = 'f15c.mtl'
+const objFile = 'f15c.obj'
 
 const manager = new THREE.LoadingManager();
 manager.onProgress = function (item, loaded, total) {
