@@ -3,8 +3,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
 import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader.js';
 
-
-const renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true})
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
 renderer.setSize(window.innerWidth, window.innerHeight)
 document.body.appendChild(renderer.domElement)
 
@@ -17,8 +16,9 @@ const camera = new THREE.PerspectiveCamera(
   0.1, //Plano proximo
   100//Plano distante
 );
+
 camera.position.z = 1.2
-const controls = new OrbitControls( camera, renderer.domElement );
+const controls = new OrbitControls(camera, renderer.domElement);
 
 //Luz
 var light = new THREE.AmbientLight(0xffffff, 10);
@@ -29,9 +29,12 @@ var plight = new THREE.PointLight(0xffffff, 10);
 plight.position.set(10, 10, 0);
 scene.add(plight);
 
-const modelPath = 'models/f15c/'
-const mtlFile = 'f15c.mtl'
-const objFile = 'f15c.obj'
+// const modelPath = 'models/f15c/'
+// const mtlFile = 'f15c.mtl'
+// const objFile = 'f15c.obj'
+
+const modelPath = 'models/suzanne/'
+const objFile = 'suzanne.obj'
 
 const manager = new THREE.LoadingManager();
 manager.onProgress = function (item, loaded, total) {
@@ -40,7 +43,6 @@ manager.onProgress = function (item, loaded, total) {
 
 const mtlLoader = new MTLLoader(manager);
 const objLoader = new OBJLoader();
-
 
 mtlLoader.setPath(modelPath)
   .load(mtlFile, (materials) => {
@@ -53,13 +55,11 @@ mtlLoader.setPath(modelPath)
         scene.add(object)
         renderer.render(scene, camera)
         animate()
-      }
-      )
+      })
   })
 
-  function animate() {
-    requestAnimationFrame( animate );
-    controls.update();
-    renderer.render( scene, camera );
-  }
-
+function animate() {
+  requestAnimationFrame(animate);
+  controls.update();
+  renderer.render(scene, camera);
+}
