@@ -22,10 +22,14 @@ const material = new THREE.MeshBasicMaterial(cor)
 const cube = new THREE.Mesh(geometry, material)
 
 scene.add(cube)
+// cube.rotation.x += .5
+// 	cube.rotation.y += .5
+// 	cube.rotation.z += .5
+// renderer.render(scene, camera)
 const animate=()=>{
     renderer.render(scene, camera)
-	cube.rotation.y += .01
 	cube.rotation.x += .01
+	cube.rotation.y += .01
 	cube.rotation.z += .01
 	requestAnimationFrame(animate)
 }
