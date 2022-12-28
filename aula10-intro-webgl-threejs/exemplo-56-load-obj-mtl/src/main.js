@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
 import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader.js';
 
-const renderer = new THREE.WebGLRenderer({alpha:true})
+const renderer = new THREE.WebGLRenderer({ alpha: true })
 renderer.setSize(window.innerWidth, window.innerHeight)
 document.body.appendChild(renderer.domElement)
 
@@ -29,6 +29,7 @@ scene.add(plight);
 const modelPath = 'models/f15c/'
 const mtlFile = 'f15c.mtl'
 const objFile = 'f15c.obj'
+let jet
 
 const manager = new THREE.LoadingManager();
 manager.onProgress = function (item, loaded, total) {
@@ -39,19 +40,30 @@ const mtlLoader = new MTLLoader(manager);
 const objLoader = new OBJLoader();
 
 mtlLoader.setPath(modelPath)
-  .load(mtlFile, (materials) => {
-    materials.preload()
-    objLoader.setMaterials(materials)
-    objLoader.setPath(modelPath)
-      .load(objFile, (object) => {
-        object.position.x=-.5
-        object.position.y=.25
-        object.position.z=.5
-        object.rotation.y = .78
-        object.rotateZ(.78)
-        object.rotateX(.78)
-        object.scale.setScalar(.5)
-        scene.add(object)
-        renderer.render(scene, camera)
-      })
-  })
+  .load(mtlFile, handleMaterial)
+
+function handleMaterial(materials) {
+  materials.preload()
+  objLoader.setMaterials(materials)
+  objLoader.setPath(modelPath)
+    .load(objFile, handleObject)
+}
+
+function handleObject(object) {
+  jet = object
+  jet.position.x = -.5
+  jet.position.y = .25
+  jet.position.z = .5
+  jet.rotation.y = .78
+  jet.rotateZ(.78)
+  jet.rotateX(.78)
+  jet.scale.setScalar(.5)
+  scene.add(jet)
+  animate()
+}
+
+function animate() {
+  renderer.render(scene, camera)
+  jet.rotation.z += .01
+  requestAnimationFrame(animate)
+}
