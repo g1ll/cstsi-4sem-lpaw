@@ -1,3 +1,4 @@
+//adaptado de: https://codinhood.com/post/create-skybox-with-threejs
 import {
 	TextureLoader,
 	MeshBasicMaterial,
