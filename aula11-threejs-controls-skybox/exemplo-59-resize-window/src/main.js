@@ -2,7 +2,6 @@ import * as THREE from 'three'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
 import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader.js';
 
-
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
 renderer.setSize(window.innerWidth, window.innerHeight)
 document.body.appendChild(renderer.domElement)
@@ -17,6 +16,14 @@ const camera = new THREE.PerspectiveCamera(
   100//Plano distante
 );
 camera.position.z = 1
+
+//Redimensionamento da camera ao redimensionar a tela
+window.addEventListener('resize', ()=>{
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  console.log(`Resize: ${camera.aspect}`)
+  renderer.setSize(window.innerWidth, window.innerHeight);
+}, false);
 
 //Luz
 var light = new THREE.AmbientLight(0xffffff, 10);
@@ -41,7 +48,15 @@ const objLoader = new OBJLoader();
 let jet
 let counter = 0
 
-mtlLoader.setPath(modelPath)
+function moveJet(){
+  let vel = 10
+  let angleRad = Math.sin((counter * Math.PI/180))/5
+  counter = counter > 360 ? 0 : counter + vel
+  jet.rotation.z = angleRad
+}
+
+function loadJet(){
+  mtlLoader.setPath(modelPath)
   .load(filename+'.mtl', (materials) => {
     materials.preload()
     objLoader.setMaterials(materials)
@@ -49,7 +64,7 @@ mtlLoader.setPath(modelPath)
       .load(filename+'.obj', (object) => {
         jet = object
         jet.rotation.x = 0
-        jet.rotation.y = 1.5
+        jet.rotation.y = 90*Math.PI/180
         jet.position.z = -.5
         scene.add(jet)
         console.log(`Carregou ${filename}.obj`)
@@ -57,11 +72,12 @@ mtlLoader.setPath(modelPath)
         animate()
       })
   })
+}
 
 function animate() {
-  requestAnimationFrame(animate);
-  let angle = Math.sin((counter * Math.PI)/100)
-  counter = counter > 200 ? 0 : counter + 1
-  jet.rotation.z = angle
   renderer.render(scene, camera);
+  moveJet()
+  requestAnimationFrame(animate);
 }
+
+loadJet()
