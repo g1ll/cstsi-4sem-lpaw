@@ -46,13 +46,12 @@ const mtlLoader = new MTLLoader(manager);
 const objLoader = new OBJLoader();
 
 let jet
-let counter = 0
+let anglo = 0
 
 function moveJet(){
-  let vel = 10
-  let angleRad = Math.sin((counter * Math.PI/180))/5
-  counter = counter > 360 ? 0 : counter + vel
-  jet.rotation.z = angleRad
+  let vel = 5
+  anglo = anglo > 360 ? 0 : anglo + vel
+  jet.rotation.z = Math.sin((anglo * Math.PI/180))/2
 }
 
 function loadJet(){
