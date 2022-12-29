@@ -17,13 +17,12 @@ const camera = new THREE.PerspectiveCamera(
 );
 camera.position.z = 1
 
-//Redimensionamento da camera ao redimensionar a tela
+//Ajuste da camera de acordo com redimensionamento da tela
 window.addEventListener('resize', ()=>{
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  console.log(`Resize: ${camera.aspect}`)
-  renderer.setSize(window.innerWidth, window.innerHeight);
-}, false);
+  camera.aspect = window.innerWidth / window.innerHeight
+  camera.updateProjectionMatrix()
+  renderer.setSize(window.innerWidth, window.innerHeight)
+}, false)
 
 //Luz
 var light = new THREE.AmbientLight(0xffffff, 10);
