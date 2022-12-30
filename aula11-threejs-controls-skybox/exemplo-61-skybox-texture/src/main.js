@@ -21,7 +21,7 @@ camera.position.z = 1
 window.addEventListener('resize', () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
-  console.log(`Resize: ${camera.aspect}`)
+  // console.log(`Resize: ${camera.aspect}`)
   renderer.setSize(window.innerWidth, window.innerHeight);
 }, false);
 

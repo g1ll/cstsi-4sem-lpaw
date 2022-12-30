@@ -14,6 +14,7 @@ const createPathStrings = (filename) => {
 	const pathStings = sides.map(side => {
 		return baseFilename + "/" + side + fileType;
 	});
+	console.log(pathStings)
 	return pathStings;
 }
 
@@ -25,7 +26,8 @@ const createSkyBoxMaterial = async (filename) => {
 		console.log(`Loading: ${image}`)
 		let loader = new TextureLoader();
 		let texture = await loader.loadAsync(image);
-		materialArray.push(new MeshBasicMaterial({ map: texture, side: BackSide }));
+		materialArray.push(new MeshBasicMaterial(
+			{ map: texture, side: BackSide }));
 		console.log(`Loaded: ${image}`)
 	}
 	return materialArray;
