@@ -57,12 +57,14 @@ mtlLoader.setPath(modelPath)
       model.position.x = .05
       model.rotation.z = .5
       scene.add(model)
-      createSkyBox('bluesky', 70).then(sky => {
-        console.log('sky created')
-        console.log(sky)
-        scene.add(sky)
-        animate()
-      });
+      createSkyBox('bluesky', 70)
+        .then(sky=> {
+          console.log('sky created')
+          console.log(sky)
+          scene.add(sky)
+          animate()
+        })
+        .catch(error => console.log(error));
     })
   })
 
@@ -71,6 +73,10 @@ function animate() {
   renderer.render(scene, camera)
   requestAnimationFrame(animate)
 }
+
+window.addEventListener('click',evento=>{
+  console.log(evento.clientX)
+});
 
 window.addEventListener('mousemove', event => {
   if (!event.buttons) {
