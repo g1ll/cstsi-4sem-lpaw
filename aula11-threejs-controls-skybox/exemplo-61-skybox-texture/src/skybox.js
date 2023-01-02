@@ -19,16 +19,18 @@ const createPathStrings = (filename) => {
 }
 
 const createSkyBoxMaterial = async (filename) => {
-	const skyboxImagepaths = createPathStrings(filename);
-	console.log(skyboxImagepaths)
+	const skyBoxImagePaths = createPathStrings(filename);
+	console.log(skyBoxImagePaths)
 	const materialArray = []
-	for(let image of skyboxImagepaths){
-		console.log(`Loading: ${image}`)
+	for(let imagePath of skyBoxImagePaths){
+		console.log(`Loading: ${imagePath}`)
 		let loader = new TextureLoader();
-		let texture = await loader.loadAsync(image);
-		materialArray.push(new MeshBasicMaterial(
-			{ map: texture, side: BackSide }));
-		console.log(`Loaded: ${image}`)
+		let texture = await loader.loadAsync(imagePath);
+		materialArray.push(
+			new MeshBasicMaterial(
+				{ map: texture, side: BackSide }
+			));
+		console.log(`Loaded: ${imagePath}`)
 	}
 	return materialArray;
 }
