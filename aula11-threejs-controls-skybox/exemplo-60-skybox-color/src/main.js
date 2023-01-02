@@ -31,14 +31,14 @@ window.addEventListener('resize', () => {
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
-const skyboxGeo = new THREE.BoxGeometry(10, 10, 10);
-// const skyboxGeoCylinder = new THREE.CylinderGeometry(100, 100, 10, 64, 1, false, 0, 2 * Math.PI)
-let skyColor = 0xa0cdfa
+// const skyboxGeo = new THREE.BoxGeometry(10, 10, 10);
+const skyboxGeoCylinder = new THREE.CylinderGeometry(100, 100, 10, 64, 1, false, 0, 2 * Math.PI)
+//let skyColor = 0xa0cdfa
 // let skyColor = new THREE.Color( 'skyblue' );
-// let skyColor = new THREE.Color("hsl(200, 70%, 75%)");
-// let seaColor = new THREE.Color("hsl(200, 70%,20%)");
+let skyColor = new THREE.Color("hsl(200, 70%, 75%)");
+let seaColor = new THREE.Color("hsl(200, 70%,20%)");
 
-const skyMaterial = new THREE.MeshBasicMaterial({color:skyColor, side: THREE.BackSide })
+// const skyMaterial = new THREE.MeshBasicMaterial({color:skyColor, side: THREE.BackSide })
 // const skyMaterial = [
 //   new THREE.MeshBasicMaterial({color:skyColor, side: THREE.BackSide }), //FRONT
 //   new THREE.MeshBasicMaterial({color:skyColor, side: THREE.BackSide }), //BACK
@@ -47,13 +47,13 @@ const skyMaterial = new THREE.MeshBasicMaterial({color:skyColor, side: THREE.Bac
 //   new THREE.MeshBasicMaterial({color:skyColor, side: THREE.BackSide }), //LEFT
 //   new THREE.MeshBasicMaterial({color:skyColor, side: THREE.BackSide }), //RIGHT
 // ]
-// const skyMaterialCylinder = [
-//   new THREE.MeshBasicMaterial({ color: skyColor, side: THREE.BackSide }), //WALL
-//   new THREE.MeshBasicMaterial({ color: skyColor, side: THREE.BackSide }), //UP
-//   new THREE.MeshBasicMaterial({ color: seaColor, side: THREE.BackSide })  //DOWN
-// ]
-const skybox = new THREE.Mesh(skyboxGeo,skyMaterial);
-// const skybox = new THREE.Mesh(skyboxGeoCylinder, skyMaterialCylinder);
+const skyMaterialCylinder = [
+  new THREE.MeshBasicMaterial({ color: skyColor, side: THREE.BackSide }), //WALL
+  new THREE.MeshBasicMaterial({ color: skyColor, side: THREE.BackSide }), //UP
+  new THREE.MeshBasicMaterial({ color: seaColor, side: THREE.BackSide })  //DOWN
+]
+// const skybox = new THREE.Mesh(skyboxGeo,skyMaterial);
+const skybox = new THREE.Mesh(skyboxGeoCylinder, skyMaterialCylinder);
 scene.add(skybox);
 
 //Luz
