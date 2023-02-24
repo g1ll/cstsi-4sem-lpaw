@@ -12,14 +12,15 @@
             height: 100px;
             background-color: red;
             transition-property: border-radius, transform;
-            transition-duration: 2s;
-            /* transition-delay: 1s; */
-            transition-timing-function: cubic-bezier(.11,.81,.23,.9);
+            transition-duration: 1s;
+            transition-delay: 1s;
+            transition-timing-function: cubic-bezier(.92,.08,.04,.83);
         }
 
         p:hover~div{
-            transform: translate(200px,100px);
-            border-radius: 100%;
+            /* transform: translate(200px,100px); */
+            transform: rotate(45deg);
+            border-radius: 25%;
             background-color: blue;
         }
     </style>
