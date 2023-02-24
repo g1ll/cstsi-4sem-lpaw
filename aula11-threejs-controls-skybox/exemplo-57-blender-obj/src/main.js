@@ -42,7 +42,8 @@ const monkey = {};
 
 objLoader.setPath(modelPath)
   .load(objFile, (object) => {
-    object.traverse(child =>child.material?.color.setHex(0xff0011));
+    // object.traverse(child =>child.material?.color.setHex(0xff0011));
+    object.traverse(child =>child.material = new THREE.MeshStandardMaterial({color: 0xff0011 }));
     monkey.model = object
     scene.add(object)
     renderer.render(scene, camera)

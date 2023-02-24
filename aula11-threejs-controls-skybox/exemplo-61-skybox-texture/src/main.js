@@ -57,8 +57,9 @@ mtlLoader.setPath(modelPath)
       model.position.x = .05
       model.rotation.z = .5
       scene.add(model)
-      createSkyBox('bluesky', 70)
+      createSkyBox('bluesky', 200)
         .then(sky=> {
+          sky.position.y = 100
           console.log('sky created')
           console.log(sky)
           scene.add(sky)

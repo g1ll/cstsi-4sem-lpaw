@@ -19,7 +19,7 @@ const camera = new THREE.PerspectiveCamera(
 camera.position.z = 5
 const controls = new OrbitControls(camera, renderer.domElement);
 //Luz
-var light = new THREE.AmbientLight(0xffffff, 5);
+var light = new THREE.AmbientLight(0xffffff, 10);
 scene.add(light);
 
 //Ponto de Luz
