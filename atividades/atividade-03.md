@@ -15,4 +15,4 @@ Desenvolver um jogo animado com Canvas API que tenha os seguintes requisitos:
 DICA: Utilize [Math.random()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Math/random), função que gera números aleatórios no intervalo de 0 a 1 (0.3, 0.9998, 0.54234), basta multiplicar estes valores pela faixa de números aleatórios que precisamos. Exemplo, gerar números aleatórios de 0 a 100 (Math.random()*100). Ainda é possível usar funções da classe [Math](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Math) para arredondamento como o Math.floor(), Math.ceil() ou ainda Math.round().
 - Assista ao vídeo de exemplo da atividade:
 
-[Exemplo do Game Smile](./img/atividade-03/atividade-smile.mp4)
+[Exemplo do Game Smile](./img/atividade-03/atividade_smile.mp4)
