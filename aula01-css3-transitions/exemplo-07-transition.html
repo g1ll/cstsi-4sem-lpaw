@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSTI-4SEM-LPAW-Aula 01 | Transitions: Exemplo 06</title>
+    <style>
+        /*LAYOUT*/
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+    padding: 0px;
+  }
+  
+  .row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 2px;
+    padding: 15px;
+  }
+  /*LAYOUT end*/
+  
+  /*BUTTON*/
+  button {
+    outline: 0;
+    width: 100px;
+    height: 40px;
+    background-color: #808080;
+    color: #1e1e1e;
+    border: 0px;
+    border-bottom: 0px;
+    padding-bottom: 10px;
+    transition: padding-top 0.5s ease, box-shadow 1 s linear;
+  }
+  
+  button:active {
+    transform: scale(0.95);
+    font-weight: bold;
+    box-shadow: 0px 3px 10px #1e1e1e, 3px 0px 10px #808080;
+  }
+  
+  button:hover {
+    box-shadow: 0px 0px 10px #1e1e1e;
+    background-color: #1e1e1e;
+    padding-top: 5px;
+    color: white;
+    border-bottom: 20px solid #1e1e1e;
+    transition: border-bottom 1s ease-out, background-color 1s ease,
+      box-shadow 1ms linear;
+  }
+  /*BUTTON end*/
+  
+  /*INPUT*/
+  label {
+    font-family: sans-serif;
+    color: #1e1e1e;
+    /*visibility: hidden;*/
+    /*display: none;*/
+  }
+  
+  input {
+    outline: 0;
+    text-align: center;
+    width: 100%;
+    margin: 0px 0px;
+    padding: 3px;
+    border: none;
+    border-bottom: 1px #808080 solid;
+    transition: border-bottom 1s, text-shadow 1s ease, box-shadow 1s linear;
+  }
+  
+  input:focus {
+    outline: 0;
+    border: none;
+    border-bottom: 2px #1e1e1e solid;
+    box-shadow: 0px 2px #1e1e1e inset;
+  }
+  
+  input:focus::placeholder {
+    text-shadow: 0px 0px 2px #8e8e8e;
+    color: #8e8e8e;
+  }
+  
+  input::placeholder {
+    text-shadow: 0px 0px 0px #1e1e1e;
+    text-decoration: solid;
+    font-style: bolder;
+    transition: text-shadow color 1s ease;
+    color: #1e1e1e;
+    font-style: bold;
+    opacity: 1;
+  }
+  /*end INPUT*/
+  
+    </style>
+</head>
+  
+<body>
+    <div class="container">
+        <div class="row">
+          <label for="login">Username:</label>
+          <input id="login" type="text" name="login" placeholder="Type your username">
+        </div>
+        <div class="row">
+          <label for="password">Password:</label>
+          <input id="password" type="password" name="login" placeholder="Type your password">
+        </div>
+        <div class="row">
+          <button>Enter</button>
+        </div>
+      </div>
+</body>
+
+</html>

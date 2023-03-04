@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSTI-4SEM-LPAW-Aula 01 | Transitions: Exemplo 03</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            
+            /* transition-property: transform; */
+            /* transition-duration: 1000ms;
+            transition-delay: 0.5s;
+            transition-timing-function: ease-out;  */
+           
+            transition: transform 2s ease-in 500ms,
+                        background-color 1s steps(4,end);
+        }
+
+        p:hover~div{
+            transform: translate(200px,0px);
+            border-radius: 100%;
+            background-color: blue;
+            width: 200px;
+            transition: width 2s;
+        }
+
+
+        
+    </style>
+</head>
+<body>
+    <p>TRANSITION</p>
+    <div></div>
+</body>
+</html>

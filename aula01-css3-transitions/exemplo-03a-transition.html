@@ -6,25 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSTI-4SEM-LPAW-Aula 01 | Transitions: Exemplo 03</title>
     <style>
-        div{
+        div {
             width: 100px;
             height: 100px;
             background-color: red;
             
-            /* transition-property: transform; */
-            /* transition-duration: 1000ms;
+          /*   transition-property: transform;
+            transition-duration: 1000ms;
             transition-delay: 0.5s;
             transition-timing-function: ease-out;  */
            
-            transition: transform 2s ease-in 500ms,
-                        background-color 2s steps(4,end);
-        }
-
-        p:hover~div{
-            transform: translate(200px,0px);
+            transition: transform 1s 500ms steps(1,jump-end);
+          }
+          
+          div:hover {
+            transform: translate(200px, 0px);
             border-radius: 100%;
             background-color: blue;
-        }
+            box-shadow: 5px 5px 5px red;
+          }
+          
+
+
+        
     </style>
 </head>
 <body>

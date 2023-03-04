@@ -22,13 +22,13 @@ img {
   
   @keyframes img-sprite{
     0%,100%{
-      object-position: 60% 90%;
+      object-position: 75% 90%;
     }
     25%{
-      object-position: 80% 90%;
+      object-position: 75% 85%;
     }
     50%{
-      object-position: 90% 90%;
+      object-position: 75% 80%;
     }
   }
 
