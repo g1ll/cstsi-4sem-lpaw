@@ -9,11 +9,19 @@
 	<style>
 		body {
 			display: flex;
+			flex-direction: row;
 			justify-content: center;
 		}
 
 		canvas {
 			border: 1px solid black;
+		}
+		div{
+			flex-direction: column;
+			justify-items: center;
+		}
+		p{
+			text-align: center;
 		}
 	</style>
 	<script>
@@ -23,11 +31,11 @@
 			const canvas = document.querySelector('canvas')
 			const ctx = canvas.getContext('2d');
 
-			let x = canvas.width/2
-			let y = canvas.height/2
+			let x = canvas.width / 2
+			let y = canvas.height / 2
 			let r1 = 400
 			let r2 = 4
-			let fundoRadial = ctx.createRadialGradient(x,y,r1,x,y,r2)
+			let fundoRadial = ctx.createRadialGradient(x, y, r1, x, y, r2)
 			fundoRadial.addColorStop(.1, "yellow")
 			fundoRadial.addColorStop(.9, "blue")
 			ctx.fillStyle = fundoRadial;
@@ -36,7 +44,7 @@
 			let textSize = 24;
 			ctx.font = `bold ${textSize}px sans`;
 			ctx.textBaseline = "top";
-			let texto = "Pelotas";
+			let texto = "Pelotas RS";
 			let textMetric = ctx.measureText(texto)
 			ctx.fillStyle = "#fff";
 
@@ -48,9 +56,12 @@
 </head>
 
 <body>
-	<canvas width="600" height="400">
-		Seu navegador não suporta a tag canvas!
-	</canvas>
+	<div>
+		<canvas width="600" height="400">
+			Seu navegador não suporta a tag canvas!
+		</canvas>
+		<p><a href="/">←Início</a></p>
+	</div>
 </body>
 
 </html>

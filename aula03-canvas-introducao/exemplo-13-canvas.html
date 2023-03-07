@@ -8,6 +8,16 @@
 	<style>
 		body{display: flex; justify-content: center;}
 		canvas{border: 3px dashed blue;}
+		div{
+			flex-direction: column;
+			justify-items: center;
+		}
+		p{
+			text-align: center;
+		}
+		a{
+			outline: 0px;	
+		}
 	</style>
 	<script>
 		window.addEventListener("load",canvasApp,false)
@@ -20,8 +30,13 @@
 	</script>
 </head>
 <body>
-	<canvas width="600" height="400">
-		Seu navegador não suporta a tag canvas!
-	</canvas>
+	<div>
+		<canvas width="600" height="400">
+			Seu navegador não suporta a tag canvas!
+		</canvas>
+		<p>
+			<a href="/">←Início</a>
+		</p>
+	</div>
 </body>
 </html>
