@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/x-icon" href="/assets/img/fav.ico">
+	<!-- Google Font Press Start 2P -->
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+	<!-- latest -->
+	<link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+	<title>CSTSI-LPAW Aula 03: Alternativas ao SMIL</title>
+	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.examples-containers {
+			margin-top: 10%;
+			width:500px;
+		}
+
+		.btn {
+			margin: 15px;
+			width: 200px;
+		}
+
+		/*Exemplo 4.1*/
+		#circle {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			background-color: #209cee;
+			animation: moveCircle 1s ease-in 1 forwards paused;
+		}
+
+		#circle:hover {
+			animation-play-state: running;
+		}
+
+		@keyframes moveCircle {
+			0% {
+				transform: translateX(0px);
+			}
+
+			100% {
+				transform: translateX(400px);
+			}
+		}
+
+		/*Fim exemplo 4.1*/
+
+		/*#========= EXEMPLO 4.2 =========#*/
+		.svg-container {
+			width: 100%;
+			height: 100%;
+			float: left;
+			/*background-color: red;*/
+		}
+
+
+
+		svg #spaceship {
+			/*offset-path: path("M0 49C0 21.938 21.938 0 49 0V0C76.062 0 98 21.938 98 49V51C98 78.062 76.062 100 49 100V100C21.938 100 0 78.062 0 51L0 49Z");*/
+			/*offset-path: path("M2.04704 460.44C-29.8407 597.91 679.663 1.00002 352.813 1C25.9631 0.999983 229.248 485.764 584 460.44");*/
+			offset-path: path("M1.44899 240.292C-12.225 311.891 292.022 1.00001 151.863 1C11.7046 0.999991 98.8764 253.481 251 240.292");
+			animation: moves_pacechip 5s linear infinite;
+		}
+
+		@keyframes moves_pacechip {
+			100% {
+				offset-distance: 100%;
+				motion-offset: 100%;
+			}
+		}
+
+		.nes-container:has(.svg-container) {
+			background-color: #38454F;
+		}
+
+		/*#FIM 4.2#*/
+		/*#========= EXEMPLO 4.3 =========#*/
+
+		.svg-container-e43{
+			width: 100%;
+			height: 100%;
+		}
+
+		#enterprise {
+			/*offset-path: path("M0 49C0 21.938 21.938 0 49 0V0C76.062 0 98 21.938 98 49V51C98 78.062 76.062 100 49 100V100C21.938 100 0 78.062 0 51L0 49Z");*/
+			/*offset-path: path("M2.04704 460.44C-29.8407 597.91 679.663 1.00002 352.813 1C25.9631 0.999983 229.248 485.764 584 460.44");*/
+			/*offset-path: path("M1.44899 240.292C-12.225 311.891 292.022 1.00001 151.863 1C11.7046 0.999991 98.8764 253.481 251 240.292");*/
+			/*offset-path: path("M63 0L125.354 99.75H0.646172L63 0Z");*/
+			/*offset-path: path("M10 14C10 14 39 30 65 14C91 -1.99999 97 -0.999993 125 14C153 29 163 31 187.5 14C212 -3 229 3.00001 250 14C271 25 287 28 312.5 14M312.5 14C338 1.90735e-06 346 -0.999994 375 14C404 29 415 31 437.5 14C460 -3 470 5.72205e-06 500 14C530 28 539 33 562.5 14C574.492 4.30444 594.05 4.33833 626 14C662 41 684 14 684 14H312.5ZM312.5 14H0");*/
+			offset-path: path("M2 20.7555C7.11831 14.0377 9.48556 5.75552 18.3333 5.75552C29.326 5.75552 40.8335 7.04851 51.3889 10.3111C66.7475 15.0583 82.0737 26.4676 98.6667 26.3111C109.713 26.2069 120.347 20.0627 129.444 14.4222C141.139 7.17182 153.898 4.38758 167.444 2.75552C182.843 0.900257 198.102 2.46409 212.778 7.42219C225.207 11.6213 236.794 15.6024 249.889 16.8111C266.044 18.3023 280.306 20.5558 296.556 17.2C304.463 15.5669 311.602 11.7669 319.333 9.5333C340.251 3.49029 364.893 -1.10865 386.111 5.0333C409.248 11.7309 428.629 33.4904 454.222 27.5333C464.873 25.0543 472.682 18.8838 482.444 14.7C501.457 6.55186 524.711 7.75552 545 7.75552");
+			animation: flyEnterpise 20s linear infinite alternate paused;
+		}
+
+		@keyframes flyEnterpise {
+			100% {
+				offset-distance: 80%;
+				motion-offset: 100%;
+			}
+		}
+
+		.nes-container:has(.svg-container-e43) {
+			background-color: #0b283f;
+		}
+
+		/*#FIM 4.2#*/
+
+		.btn {
+			margin: 20px;
+			width: 200px;
+		}
+	</style>
+</head>
+
+<body>
+	<h2 class="nes-text is-primary">
+		Exemplos de Alternativas ao SMIL
+	</h2>
+	<div class="nes-container with-title examples-containers">
+		<span class="title">Exemplo 4.1</span>
+		<div id="circle"></div>
+	</div>
+
+	<div class="nes-container with-title examples-containers">
+		<span class="title">Exemplo 4.2</span>
+
+		<div class="svg-container">
+			<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+				viewBox="10 -100 400 400" xml:space="preserve">
+				<g id="spaceship">
+					<path style="fill:#E6E6E6;" d="M52.521,45.042h-8l-1.086-5.433c-0.601-3.008-0.528-6.111,0.216-9.087v0
+		c0.576-2.303,1.543-4.491,2.861-6.466l0.97-1.455c0.495-0.742,1.585-0.742,2.08,0l0.97,1.455c1.317,1.976,2.285,4.163,2.861,6.466
+		v0c0.744,2.975,0.818,6.079,0.216,9.087L52.521,45.042z" />
+					<path style="fill:#E6E6E6;" d="M11.521,45.042h-8l-1.086-5.433c-0.601-3.008-0.528-6.111,0.216-9.087l0,0
+		c0.576-2.303,1.543-4.491,2.861-6.466l0.97-1.455c0.495-0.742,1.585-0.742,2.08,0l0.97,1.455c1.317,1.976,2.285,4.163,2.861,6.466
+		l0,0c0.744,2.975,0.818,6.079,0.216,9.087L11.521,45.042z" />
+					<path style="fill:#E6E6E6;" d="M30.299,2.267L28.032,0l-2.267,2.267c-9.962,9.962-11.672,25.051-5.129,36.773
+		c0.005,0.009,0.01,0.018,0.015,0.026c1.492,2.64,2.381,5.58,2.381,8.612v1.363h10v-1.363c0-3.033,0.891-5.972,2.381-8.613
+		c0.004-0.008,0.009-0.016,0.013-0.023C41.971,27.32,40.261,12.229,30.299,2.267z" />
+
+					<line style="fill:none;stroke:#F29C1F;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10;"
+						x1="5.032" y1="48.042" x2="5.032" y2="50.042" />
+
+					<line style="fill:none;stroke:#F29C1F;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10;"
+						x1="10.032" y1="48.042" x2="10.032" y2="50.042" />
+
+					<line style="fill:none;stroke:#F29C1F;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10;"
+						x1="46.032" y1="48.042" x2="46.032" y2="50.042" />
+
+					<line style="fill:none;stroke:#F29C1F;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10;"
+						x1="51.032" y1="48.042" x2="51.032" y2="50.042" />
+					<g>
+						<path style="fill:#A5A5A4;" d="M38.584,30.637c-0.494,2.26-1.236,4.474-2.243,6.598l7.564,4.728l-0.471-2.353
+			c-0.404-2.021-0.496-4.084-0.292-6.124L38.584,30.637z" />
+						<path style="fill:#A5A5A4;" d="M17.48,30.637l-4.579,2.862c0.202,2.035,0.11,4.094-0.293,6.11l-0.474,2.369l7.59-4.744
+			C18.716,35.111,17.973,32.897,17.48,30.637z" />
+					</g>
+					<circle style="fill:#556080;" cx="28.032" cy="14.042" r="5" />
+					<circle style="fill:#8697CB;" cx="28.032" cy="27.042" r="3" />
+					<circle style="fill:#8697CB;" cx="28.032" cy="38.042" r="3" />
+					<polygon style="fill:#38454F;" points="34.032,56.042 22.032,56.042 23.032,49.042 33.032,49.042 	" />
+					<path style="fill:#546A79;" d="M26.032,54.042c-0.552,0-1-0.448-1-1v-1c0-0.552,0.448-1,1-1s1,0.448,1,1v1
+		C27.032,53.594,26.584,54.042,26.032,54.042z" />
+					<path style="fill:#546A79;" d="M30.032,54.042c-0.552,0-1-0.448-1-1v-1c0-0.552,0.448-1,1-1s1,0.448,1,1v1
+		C31.032,53.594,30.584,54.042,30.032,54.042z" />
+				</g>
+			</svg>
+		</div>
+	</div>
+
+	<div class="nes-container with-title examples-containers">
+		<span class="title">Exemplo 4.3</span>
+		<div class="svg-container-e43">
+			<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+				viewBox="15 -30 500 150" xml:space="preserve">
+				<g id="enterprise">
+					<path style="fill:#8697CB;" d="M50.471,23.761c0.391-0.391,1.023-0.391,1.414,0l2.793,2.793c5.33-6.035,5.33-15.107,0-21.142
+		l-2.793,2.793c-0.195,0.195-0.451,0.293-0.707,0.293S50.666,8.4,50.471,8.204c-0.391-0.391-0.391-1.023,0-1.414l2.793-2.793
+		c-6.035-5.33-15.107-5.33-21.142,0l2.793,2.793c0.391,0.391,0.391,1.023,0,1.414c-0.195,0.195-0.451,0.293-0.707,0.293
+		S33.695,8.4,33.5,8.204l-2.793-2.793c-5.551,6.284-5.338,15.875,0.671,21.885c6.01,6.01,15.601,6.222,21.885,0.671l-2.793-2.793
+		C50.08,24.784,50.08,24.152,50.471,23.761z" />
+
+					<line style="fill:none;stroke:#0096E6;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10;"
+						x1="4.509" y1="35.782" x2="1" y2="39.29" />
+
+					<line style="fill:none;stroke:#0096E6;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10;"
+						x1="16.278" y1="42.397" x2="14.734" y2="43.941" />
+
+					<line style="fill:none;stroke:#0096E6;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10;"
+						x1="22.893" y1="54.166" x2="19.385" y2="57.675" />
+					<circle style="fill:#B2BDD3;" cx="42.692" cy="15.983" r="12" />
+					<path style="fill:#556080;" d="M27.966,22.224l-7.901,7.901c-1.569,1.569-2.082,3.791-1.549,5.792l1.549-1.549
+		c1.167-1.167,3.076-1.167,4.243,0c1.167,1.167,1.167,3.076,0,4.243l-1.549,1.549c2.001,0.533,4.222,0.02,5.792-1.549l7.901-7.901
+		c-1.842-0.78-3.571-1.911-5.073-3.413S28.746,24.066,27.966,22.224z" />
+
+					<line style="fill:none;stroke:#0096E6;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10;"
+						x1="35.621" y1="23.054" x2="34.207" y2="24.468" />
+					<g>
+						<path style="fill:#E6E7E8;" d="M34.914,6.79l-2.793-2.793c-0.25,0.22-0.504,0.433-0.743,0.671s-0.451,0.493-0.671,0.743
+			L33.5,8.204l1.414,1.414c0.195,0.195,0.451,0.293,0.707,0.293s0.512-0.098,0.707-0.293c0.391-0.391,0.391-1.023,0-1.414
+			L34.914,6.79z" />
+						<path style="fill:#E6E7E8;" d="M50.471,22.347c-0.391-0.391-1.023-0.391-1.414,0s-0.391,1.023,0,1.414l1.414,1.414l2.793,2.793
+			c0.25-0.22,0.504-0.433,0.743-0.671s0.451-0.493,0.671-0.743l-2.793-2.793L50.471,22.347z" />
+						<path style="fill:#E6E7E8;" d="M49.764,9.911c0.256,0,0.512-0.098,0.707-0.293l1.414-1.414l2.793-2.793
+			c-0.22-0.25-0.433-0.504-0.671-0.743s-0.493-0.451-0.743-0.671L50.471,6.79l-1.414,1.414c-0.391,0.391-0.391,1.023,0,1.414
+			C49.252,9.814,49.508,9.911,49.764,9.911z" />
+						<path style="fill:#E6E7E8;" d="M42.692,2.983c-0.552,0-1,0.447-1,1v2c0,0.553,0.448,1,1,1s1-0.447,1-1v-2
+			C43.692,3.43,43.245,2.983,42.692,2.983z" />
+						<path style="fill:#E6E7E8;" d="M42.692,24.983c-0.552,0-1,0.447-1,1v2c0,0.553,0.448,1,1,1s1-0.447,1-1v-2
+			C43.692,25.43,43.245,24.983,42.692,24.983z" />
+						<path style="fill:#E6E7E8;" d="M54.692,14.983h-2c-0.552,0-1,0.447-1,1s0.448,1,1,1h2c0.552,0,1-0.447,1-1
+			S55.245,14.983,54.692,14.983z" />
+						<path style="fill:#E6E7E8;" d="M32.692,14.983h-2c-0.552,0-1,0.447-1,1s0.448,1,1,1h2c0.552,0,1-0.447,1-1
+			S33.245,14.983,32.692,14.983z" />
+					</g>
+					<circle style="fill:#E6E7E8;" cx="42.692" cy="15.983" r="3" />
+					<path style="fill:#8697CB;" d="M22.186,22.347l-9.899,9.899l-2.829,2.829l-4.243-4.243l2.829-2.829l9.899-9.899
+		c1.172-1.172,3.071-1.172,4.243,0l0,0C23.358,19.276,23.358,21.175,22.186,22.347z" />
+
+					<rect x="3.923" y="32.367" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -22.5667 14.2541)"
+						style="fill:#B2BDD3;" width="4" height="4" />
+
+					<rect x="15.64" y="38.857" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -23.6715 24.566)"
+						style="fill:#B2BDD3;" width="4.355" height="4" />
+					<path style="fill:#8697CB;" d="M36.328,36.489l-9.899,9.899l-2.829,2.829l4.243,4.243l2.829-2.829l9.899-9.899
+		c1.172-1.172,1.172-3.071,0-4.243l0,0C39.4,35.317,37.5,35.317,36.328,36.489z" />
+					<g>
+
+						<rect x="14.943" y="21.347" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 14.8288 50.8356)"
+							style="fill:#D1D4D1;" width="6" height="2" />
+
+						<rect x="35.329" y="37.731" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -18.161 37.6179)"
+							style="fill:#D1D4D1;" width="2" height="6" />
+					</g>
+
+					<rect x="22.308" y="50.752" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -30.1819 32.6389)"
+						style="fill:#B2BDD3;" width="4" height="4" />
+					<g>
+
+						<rect x="19.479" y="23.882" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 18.3659 59.3717)"
+							style="fill:#B2BDD3;" width="4" height="4" />
+
+						<rect x="30.793" y="35.196" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -16.6966 34.0825)"
+							style="fill:#B2BDD3;" width="4" height="4" />
+					</g>
+					<path style="fill:#8697CB;" d="M24.308,38.61l-2.828,2.828l-4.243-4.243l2.828-2.828c1.167-1.167,3.076-1.167,4.243,0l0,0
+		C25.474,35.534,25.474,37.443,24.308,38.61z" />
+					<path style="fill:#ECF0F1;" d="M29.257,30.417c-0.256,0-0.512-0.098-0.707-0.293c-0.391-0.391-0.391-1.023,0-1.414l6.364-6.363
+		c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414l-6.364,6.363C29.769,30.32,29.513,30.417,29.257,30.417z" />
+				</g>
+			</svg>
+		</div>
+	</div>
+
+	<div>
+		<a href="/">
+			<button type="button" title='Voltar ao início!' class="nes-btn is-error btn">Voltar</button>
+		</a>
+	<div>
+
+	<script>
+		document.getElementById("enterprise").addEventListener("click", (event)=>{
+			event.target.parentElement.style.animationPlayState = "running";
+			console.log(event.target.parentElement)
+		  });
+
+
+		  
+	</script>
+</body>
+
+</html>

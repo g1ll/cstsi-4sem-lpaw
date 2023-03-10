@@ -1,0 +1,14 @@
+<svg width="40" height="35" viewBox="0 0 40 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="AnimationButton">
+<rect width="40" height="35" fill="white"/>
+<g id="second">
+<rect id="Rectangle 5" x="7.62561" y="25.3388" width="30" height="5" transform="rotate(-45 7.62561 25.3388)" fill="#717171"/>
+<rect id="Rectangle 6" x="11.5355" y="4" width="30" height="5" transform="rotate(45 11.5355 4)" fill="#717171"/>
+</g>
+<g id="first">
+<rect id="Rectangle 2" x="5" y="6" width="30" height="5" fill="#717171"/>
+<rect id="Rectangle 3" x="5" y="14" width="30" height="5" fill="#717171"/>
+<rect id="Rectangle 4" x="5" y="22" width="30" height="5" fill="#717171"/>
+</g>
+</g>
+</svg>

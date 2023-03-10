@@ -1,0 +1,11 @@
+<svg width="40" height="29" viewBox="0 0 40 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="AnimationButtonPoligon">
+<rect width="40" height="29" fill="white" fill-opacity="0.03"/>
+<g id="btnOpen">
+<path d="M5 3.72778H35V8.72778H5V3.72778Z" fill="#696969" fill-opacity="0.85"/>
+<path d="M5 11.7278H35V16.7278H5V11.7278Z" fill="#696969" fill-opacity="0.85"/>
+<path d="M5 19.7278H35V24.7278H5V19.7278Z" fill="#696969" fill-opacity="0.85"/>
+</g>
+<path id="Polygon 4" d="M11.5 2L20.25 10.7278L29 2L32.5 5.5L24 14.5L32.5 23.2278L29 27L20.25 17.5L11 27L7.5 23.5L16.5 14.2278L8 5.5L11.5 2Z" fill="#6D6D6D" fill-opacity="0.83"/>
+</g>
+</svg>
