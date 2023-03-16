@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Exemplo 15 - Canvas - Paths</title>
+	<style>
+		body{display: flex; justify-content: center;}
+		canvas{border: 1px solid black;}
+	</style>
+	<script>
+		window.addEventListener("load",canvasApp,false)
+		
+		function canvasApp(){
+			const canvas = document.querySelector('canvas')
+			const ctx = canvas.getContext('2d');
+			ctx.lineWidth = 5;
+			ctx.fillStyle = 'green';
+			ctx.beginPath();
+			ctx.moveTo(10,20);
+			ctx.lineTo(80,50);//top line
+			ctx.lineTo(70,100);//right line
+			ctx.lineTo(5,70);//bottom line
+			ctx.lineTo(10,20);//left line
+			ctx.fill();
+
+			ctx.strokeStyle = "#00F";
+			ctx.beginPath();
+			ctx.moveTo(300,20);
+			ctx.lineTo(400,20);
+			ctx.lineTo(400,120);
+			ctx.lineTo(300,120);
+			ctx.lineTo(300,20);
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.rect(300,220,100,100)
+			ctx.stroke(); //strokeStyle
+
+			ctx.strokeRect(450,220,100,100)
+		}
+	</script>
+</head>
+<body>
+	<canvas width="600" height="400">
+		Seu navegador não suporta a tag canvas!
+	</canvas>
+</body>
+</html>

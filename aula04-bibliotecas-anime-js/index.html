@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/x-icon" href="/assets/img/fav.ico">
+	<!-- Google Font Press Start 2P -->
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+	<!-- latest -->
+	<link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+	<style>
+		h1 a{
+			color:#92cc41;
+		}
+		h1 a:hover{
+			color:#92cc41;
+			text-decoration: none;
+		}
+		li{
+			margin: 5px 0;
+		}
+		li a{
+			font-size: 25px;
+		}
+		a{
+			font-size: 32px;
+		}
+		li:has(a:hover) {
+			background-color: #ccffaa;
+			border-radius: 5px;
+			transition: 1s;
+		}
+		li a:hover {
+			text-decoration: none;
+		}
+		.container {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			align-content: center;
+		}
+		button{
+			font-size: 8px;
+		}
+	</style>
+	<title>CSTSI-LPAW Aula 04: Exemplos AnimeJS</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="nes-text is-success">CSTSI LPAW 
+			<a class="is-success" target="_blank" href="#">
+				Aula 04
+			</a>
+		</h1>
+		<ul class="nes-list"></ul>
+	</div>
+	<script>
+		const links = [
+			{ path: 'exemplo-01-lib-animejs', title: 'Exemplo 1: Biblioteca AnimeJS' },
+			{ path: 'exemplo-02-anime-update', title: 'Exemplo 2: Função Update' },
+			{ path: 'exemplo-03-progress-complete', title: 'Exemplo 3: Progresso Completo' },
+			{ path: 'exemplo-04-promisse-finish', title: 'Exemplo 4: Promisse Finished' },
+			{ path: 'exemplo-05-slider-animejs', title: 'Exemplo 5: Slider de Imagens' },
+			{ path: 'exemplo-06-elastic-ease', title: 'Exemplo 6: Elastic Easing' },
+			{ path: 'exemplo-07-load-assets', title: 'Exemplo 7: Loading Assets' },
+			{ path: 'exemplo-08-motion-path', title: 'Exemplo 8: Motion Path com SVG' },
+		]
+		const DOMlist = document.querySelector('ul')
+		links.forEach((item) => DOMlist.innerHTML += `
+			<li>
+				<a href="pages/${item.path}/">
+					<button type="button" class="nes-btn is-primary">>></button>
+					${item.title}
+				</a>
+			</li>
+		` )
+	</script>
+</body>
+
+</html>

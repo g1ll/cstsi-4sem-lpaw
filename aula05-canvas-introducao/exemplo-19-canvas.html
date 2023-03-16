@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Exemplo 18 - Canvas - Textos</title>
+	<style>
+		body {
+			display: flex;
+			justify-content: center;
+		}
+
+		canvas {
+			border: 1px solid black;
+		}
+	</style>
+	<script>
+		window.addEventListener("load", canvasApp, false)
+
+		function canvasApp() {
+			const canvas = document.querySelector('canvas')
+			const ctx = canvas.getContext('2d');
+
+			let y = 100
+			let x = 100
+
+			ctx.beginPath()
+			ctx.moveTo(x,y)
+			ctx.lineTo(x+400,y)
+			ctx.lineWidth = 3
+			ctx.strokeStyle = "magenta";
+			ctx.stroke()
+
+			let textSize = 24;
+			ctx.fillStyle = "blue";
+			ctx.font = `bold ${textSize}px sans`;
+			ctx.textBaseline = "top";
+			ctx.fillText("Top", x+5, y);
+			ctx.textBaseline = "bottom";
+			ctx.fillText("Bottom", x+50, y);
+			ctx.textBaseline = "middle";
+			ctx.fillText("Middle", x+150, y);
+			ctx.textBaseline = "alphabetic";
+			ctx.fillText("Alphabetic", x+250, y);
+		}
+	</script>
+</head>
+
+<body>
+	<canvas width="600" height="400">
+		Seu navegador não suporta a tag canvas!
+	</canvas>
+</body>
+
+</html>

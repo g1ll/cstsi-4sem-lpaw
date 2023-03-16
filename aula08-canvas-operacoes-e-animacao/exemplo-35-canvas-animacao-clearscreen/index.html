@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Exemplo 27 - Canvas - Animação - Limpando a Tela</title>
+	<style>
+		body {
+			display: flex;
+			justify-content: center;
+		}
+
+		canvas {
+			border: 1px solid black;
+		}
+	</style>
+	<script>
+		window.addEventListener("load", canvasApp, false)
+
+		function canvasApp() {
+			const canvas = document.querySelector('canvas')
+			const ctx = canvas.getContext('2d');
+			
+			let x = -10
+			let y = canvas.height/2
+			let frames = 60
+			let interval = 1000/frames
+			let c_vel=5;
+
+			setInterval(() => {
+				clearScreen(ctx);
+				circ(ctx,x+=c_vel,y,25,5,"#0f0","#00f")
+				x=x>canvas.width+25 ? 0:x;
+			}, interval);
+		}
+
+		function circ(ctx,x,y,r,l,color,fill=false){
+			ctx.lineWidth = l;
+			ctx.strokeStyle = color
+			ctx.beginPath();
+			ctx.arc(x,y,r,0,Math.PI/180*360);
+			ctx.stroke();
+			if(fill){
+				ctx.fillStyle = fill
+				ctx.fill()
+			}
+		}
+
+		function clearScreen(ctx){
+			ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height)
+		}
+
+	</script>
+</head>
+
+<body>
+	<canvas width="600" height="400">
+		Seu navegador não suporta a tag canvas!
+	</canvas>
+</body>
+
+</html>

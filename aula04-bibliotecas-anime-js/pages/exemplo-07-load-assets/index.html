@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/assets/img/fav.ico" />
+  <!-- Google Font Press Start 2P -->
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />
+  <!-- latest -->
+  <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+    integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <title>CSTSI-LPAW Aula 04: Biblioteca AnimeJS</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn {
+      margin: 15px;
+      width: 200px;
+    }
+
+    .examples-containers {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 2%;
+      width: 75%;
+    }
+
+    .load-container {
+      display: block;
+      width: 90%;
+      height: 50px;
+      margin: 0 auto;
+      border: 1px solid black;
+    }
+
+    .loading-bar {
+      width: 0%;
+      height: inherit;
+      background-color: red;
+    }
+
+    .slider-container {
+      margin-top: 1%;
+      width: 75%;
+      flex-direction: row;
+      column-gap: 2%;
+      align-items: center;
+      display:none;
+    }
+
+    .slider {
+      width: 90%;
+      min-height: 300px;
+    }
+
+    .slider-list {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+
+    .slider-element {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+
+    }
+
+    .slider-element img {
+      width: 100%;
+    }
+
+    .slider-item {
+      display: none;
+    }
+
+    .item-active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <h2 class="nes-text is-primary">
+    Slider de Imagens com 
+    <a href="https://animejs.com/documentation/" target="_blank">AnimeJS</a>
+  </h2>
+  <div class="nes-container with-title examples-containers">
+    <span class="title">Exemplo 7.1</span>
+    <div class="load-container">
+      <div class="loading-bar"></div>
+    </div>
+    <div class="slider-container">
+      <div class="slider-prev">
+        <button type="button" class="nes-btn is-primary">&nbsp<<&nbsp</button>
+      </div>
+      <div class="slider">
+        <ul class="slider-list">
+          <li class="slider-item item-active">
+            <div class="slider-element"></div>
+          </li>
+          <li class="slider-item">
+            <div class="slider-element"></div>
+          </li>
+          <li class="slider-item">
+            <div class="slider-element"></div>
+          </li>
+        </ul>
+      </div>
+      <div class="slider-next">
+          <button type="button" class="nes-btn is-primary">&nbsp>>&nbsp</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div>
+    <a href="/">
+      <button type="button" title="Voltar ao início!" class="nes-btn is-error btn">Voltar</button>
+    </a>
+  </div>
+
+  <script>
+    const sliderContainer = document.querySelector('.slider-container')
+    const loadContainer = document.querySelector('.load-container')
+    const loadingBar = document.querySelector('.loading-bar')
+    const imgUrls = [
+        {src:"https://m.media-amazon.com/images/M/MV5BNDFjNWYxMDktOTE4Yy00MjhjLTg0NTgtNThjYmQ2MmFiMjcwXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg"},
+        {src:"https://m.media-amazon.com/images/M/MV5BNGZhYWIyZWUtOTdjZS00ZTc1LWFlZDMtNzU5MTE0OTcyMjg1XkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg"},
+        {src:"https://m.media-amazon.com/images/M/MV5BYzIxNjJlYmYtZWZhZC00N2JiLThhMTMtZWNiZTI3YmEzYmQxXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"}
+    ]
+
+    const sliderItens = Array.from(document.querySelectorAll('.slider-item'))
+    const btnPrev = document.querySelector('.slider-prev')
+    const btnNext = document.querySelector('.slider-next')
+
+    let itemIndex = 0
+    let countLoaded = 0;
+    let totalAssetsLoad  = sliderItens.length
+    let loadedProgress  = 0
+
+    sliderItens.forEach((listItem,index)=>{
+      let item =  listItem.querySelector('.slider-element')
+      let img = new Image()
+      img.src = imgUrls[index].src
+      item.appendChild(img)
+      img.onload = ()=>{
+        console.info('LOAD: '+img.src)
+        countLoaded++
+      }
+    })
+
+    const animeLoading = anime({
+      targets: loadingBar,
+      backgroundColor: "#0f0",
+      duration: 1000,
+      autoplay: false,
+      easing: "linear",
+      update: function (anim) {
+        if (loadingBar)
+          loadingBar.style.width = anim.progress + "%"
+
+        if (anim.progress > loadedProgress)
+          anim.pause()
+      },
+    });
+
+   
+    let interval = setInterval(() => {
+      loadedProgress  = Math.round(countLoaded/totalAssetsLoad*100)
+      if (loadedProgress > animeLoading.progress)
+        animeLoading.play()
+      console.log({ cl: loadedProgress, pl: animeLoading.progress.toFixed(2) });
+    }, 100)
+
+    animeLoading.finished.then(() => {
+      console.log("Loading Complete!")
+      sliderContainer.style.display ='flex';
+      loadContainer.style.display='none'
+      clearInterval(interval)
+    })
+
+    const deactivateItens = () => {
+      sliderItens.forEach((element, index) => {
+        if (index != itemIndex)
+          element.classList.remove('item-active')
+      })
+    }
+
+    const showItem = (element) => {
+      element.classList.add('item-active')
+      anime({
+        targets: element.querySelector('img'),
+        width: ['85%', '100'],
+        delay: 100,
+        duration: 1000,
+        loop: 1,
+        autoplay: true,
+        easing: "easeOutElastic(2, .3)",
+      })
+      deactivateItens()
+    }
+
+    const toggleBtnVisibility = () => {
+      btnPrev.style.visibility = 'visible'
+      btnNext.style.visibility = 'visible'
+      if (itemIndex == 0)
+        btnPrev.style.visibility = 'hidden'
+      if (itemIndex == sliderItens.length - 1)
+        btnNext.style.visibility = 'hidden'
+    }
+
+    btnPrev.onclick = () => {
+      if (itemIndex > 0)
+        showItem(sliderItens[--itemIndex])
+      toggleBtnVisibility()
+    }
+
+
+    btnNext.onclick = () => {
+      if (itemIndex < sliderItens.length - 1)
+        showItem(sliderItens[++itemIndex])
+      toggleBtnVisibility()
+    }
+
+    showItem(sliderItens[itemIndex]);
+    toggleBtnVisibility()
+  </script>
+  </div>
+  </div>
+</body>
+
+</html>

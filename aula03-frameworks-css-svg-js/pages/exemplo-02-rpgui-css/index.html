@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		html {
+			background-color: rgb(20, 20, 20);
+		}
+
+		li a:hover {
+			text-decoration: none;
+		}
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			align-content: center;
+			padding-top: 180px;
+			opacity: 0;
+			animation: show-content 5s ease-in 100ms forwards 1;
+		}
+
+		.trigger{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			align-content: center;
+		}
+
+		@keyframes show-content {
+			0% {
+				opacity: 0;
+			}
+
+			100% {
+				opacity: 1;
+			}
+		}
+
+		.globin-walk {
+			width: 160px;
+			height: 180px;
+			background: url('../../assets/img/goblin.png') no-repeat content-box;
+			background-size: 480px 730px;
+			animation: walk-goblin 500ms step-end 100ms infinite paused;
+		}
+
+		@keyframes walk-goblin {
+
+			0%,
+			100% {
+				background-position: -170px 0px;
+				transform: translateY(2px);
+			}
+
+			50% {
+				background-position: -330px 0px;
+				transform: translateY(4px);
+			}
+		}
+
+		#goblinBox {
+			width: 400px;
+			height: 200px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			align-content: center;
+		}
+
+		.trigger:focus-within .globin-walk {
+			animation-play-state: running;
+		}
+
+		.btn {
+			margin: 15px;
+		}
+	</style>
+	<link href="lib/rpgui.min.css" rel="stylesheet" type="text/css">
+	<title>CSTSI-LPAW Aula 03: Exemplos RPGUi</title>
+</head>
+
+<body>
+	<div class="rpgui-content container">
+		<div class="rpgui-container framed rpgui-draggable container">
+			<h1>Exemplo de uso da RPGUI.css</h1>
+			<div class="trigger">
+				<div id="goblinBox">
+					<div class="globin-walk"></div>
+				</div>
+				<button title='Rodar a animação!' type="button" class="rpgui-button golden btn">
+					<p>Walk</p>
+				</button>
+			</div>
+			<a href="/">
+				<button type="button" class="rpgui-button btn" title='Voltar ao início!'>
+					Voltar
+				</button>
+			</a>
+		</div>
+	</div>
+</body>
+</html>

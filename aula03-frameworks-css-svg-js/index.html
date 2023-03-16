@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/x-icon" href="/assets/img/fav.ico">
+	<!-- Google Font Press Start 2P -->
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+	<!-- latest -->
+	<link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+	<style>
+		h1 a{
+			color:#92cc41;
+		}
+		h1 a:hover{
+			color:#92cc41;
+			text-decoration: none;
+		}
+		li{
+			margin: 5px 0;
+		}
+		li a{
+			font-size: 25px;
+		}
+		a{
+			font-size: 32px;
+		}
+		li:has(a:hover) {
+			background-color: #ccffaa;
+			border-radius: 5px;
+			transition: 1s;
+		}
+		li a:hover {
+			text-decoration: none;
+		}
+		.container {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			align-content: center;
+		}
+		button{
+			font-size: 8px;
+		}
+	</style>
+	<title>CSTSI-LPAW Aula 03: Exemplos de Aula</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="nes-text is-success">CSTSI LPAW 
+			<a class="is-success" target="_blank" href="https://www.notion.so/Aula-03-Frameworks-e-Bibliotecas-para-Anima-o-e-Estilos-CSS-SVG-Javascript-8db1678689984023b4225adde60809b3">Aula 03</a>
+		</h1>
+		<ul class="nes-list"></ul>
+	</div>
+	<script>
+		const links = [
+			{ path: 'exemplo-01-ness-css', title: 'Exemplo 01: NES.css' },
+			{ path: 'exemplo-02-rpgui-css', title: 'Exemplo 02: RPGUI.css' },
+			{ path: 'exemplo-03-svg-smil', title: 'Exemplo 03: SVG e SMIL' },
+			{ path: 'exemplo-04-smil-alt', title: 'Exemplo 04: Alternativas ao SMIL' },
+		]
+		const DOMlist = document.querySelector('ul')
+		links.forEach((item) => DOMlist.innerHTML += `
+			<li>
+				<a href="pages/${item.path}/">
+					<button type="button" class="nes-btn is-primary">>></button>
+					${item.title}
+				</a>
+			</li>
+		` )
+	</script>
+</body>
+
+</html>

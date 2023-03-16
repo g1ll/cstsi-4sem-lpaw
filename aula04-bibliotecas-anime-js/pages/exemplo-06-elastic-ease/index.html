@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/assets/img/fav.ico" />
+  <!-- Google Font Press Start 2P -->
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />
+  <!-- latest -->
+  <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+    integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <title>CSTSI-LPAW Aula 04: Biblioteca AnimeJS</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn {
+      margin: 15px;
+      width: 200px;
+    }
+
+    .examples-containers {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 5%;
+      width: 75%;
+    }
+
+    .slider-container {
+      margin-top: 5%;
+      width: 75%;
+      display: flex;
+      flex-direction: row;
+      column-gap: 2%;
+      align-items: center;
+     
+    }
+
+    .slider{
+      width: 90%;
+      min-height: 300px;
+    }
+
+    .slider-list {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+
+    .slider-element{
+      display: flex;
+      justify-content: center;
+      width:100%;
+      height: 100%;
+     
+    }
+    .slider-element img {
+      width: 100%;
+    }
+
+    .slider-item {
+      display: none;
+    }
+
+    .item-active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <h2 class="nes-text is-primary">
+    Slider de Imagens com 
+    <a href="https://animejs.com/documentation/" target="_blank">AnimeJS</a>
+  </h2>
+  <div class="nes-container with-title examples-containers">
+    <span class="title">Exemplo 6.1</span>
+    <div class="slider-container">
+      <div class="slider-prev">
+          <button type="button" class="nes-btn is-primary">&nbsp<<&nbsp</button>
+      </div>
+      <div class="slider">
+        <ul class="slider-list">
+          <li class="slider-item item-active">
+            <div class="slider-element">
+              <img alt='img01'
+                src="../../assets/img/slider/princess.jpg" />
+            </div>
+          </li>
+          <li class="slider-item">
+            <div class="slider-element">
+              <img alt='img02'
+                src="../../assets/img/slider/all_small.jpg" />
+            </div>
+          </li>
+          <li class="slider-item">
+            <div class="slider-element">
+              <img alt='img03'
+                src="../../assets/img/slider/luigi_small.jpg" />
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="slider-next">
+          <button type="button" class="nes-btn is-primary">&nbsp>>&nbsp</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div>
+    <a href="/">
+      <button type="button" title="Voltar ao início!" class="nes-btn is-error btn">Voltar</button>
+    </a>
+  </div>
+
+  <script>
+    const sliderItens = Array.from(document.querySelectorAll('.slider-item'))
+    const btnPrev = document.querySelector('.slider-prev')
+    const btnNext = document.querySelector('.slider-next')
+    let itemIndex = 0
+    const deactivateItens = () => {
+      sliderItens.forEach((element, index) => {
+        if (index != itemIndex)
+          element.classList.remove('item-active')
+      })
+    }
+
+    const showItem = (element) => {
+      element.classList.add('item-active')
+      anime({
+        targets: element.querySelector('img'),
+        width:['85%','100'],
+        delay: 100,
+        duration: 1000,
+        loop: 1,
+        autoplay: true,
+        easing: "easeOutElastic(2, .3)",
+      })
+      deactivateItens()
+    }
+
+    const toggleBtnVisibility=()=>{
+      btnPrev.style.visibility='visible'
+      btnNext.style.visibility='visible'
+      if(itemIndex==0)
+        btnPrev.style.visibility='hidden'
+      if(itemIndex==sliderItens.length-1)
+        btnNext.style.visibility='hidden'
+    }
+
+    btnPrev.onclick = () => {
+      if (itemIndex > 0)
+        showItem(sliderItens[--itemIndex])
+      toggleBtnVisibility()
+    }
+
+
+    btnNext.onclick = () => {
+      if (itemIndex < sliderItens.length - 1) 
+        showItem(sliderItens[++itemIndex])
+        toggleBtnVisibility()
+    }
+
+    showItem(sliderItens[itemIndex]);
+    toggleBtnVisibility()
+  </script>
+  </div>
+  </div>
+</body>
+
+</html>

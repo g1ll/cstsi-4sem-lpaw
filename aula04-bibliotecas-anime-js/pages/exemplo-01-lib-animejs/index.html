@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/x-icon" href="/assets/img/fav.ico">
+	<!-- Google Font Press Start 2P -->
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+	<!-- latest -->
+	<link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<title>CSTSI-LPAW Aula 04: Biblioteca AnimeJS</title>
+	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.examples-containers {
+			margin-top: 5%;
+			width: 50%;
+		}
+
+		.btn {
+			margin: 15px;
+			width: 200px;
+		}
+
+		#circle{
+			width:40px;
+			height: 40px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<h2 class="nes-text is-primary">
+		Exemplos de Introdução a Biblioteca 
+		<a href="https://animejs.com/documentation/" target="_blank">AnimeJS</a>
+	</h2>
+	<div class="nes-container with-title examples-containers">
+		<span class="title">Exemplo 1.1</span>
+		<div id="circle"></div>
+	</div>
+	<div class="nes-container with-title examples-containers">
+		<span class="title">Exemplo 1.2</span>
+		<div id="svg-container">
+			<svg id='sgv-geometry' width="98" height="100" viewBox="0 0 98 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M0 49C0 21.938 21.938 0 49 0V0C76.062 0 98 21.938 98 49V51C98 78.062 76.062 100 49 100V100C21.938 100 0 78.062 0 51L0 49Z" fill="#ff0000"/>
+			</svg>
+		</div>
+	</div>
+
+	<div class="nes-container with-title examples-containers">
+		<span class="title">Exemplo 1.3</span>
+		<div id="svg-container">
+			<svg id='sgv-anime3' width="98" height="100" viewBox="0 0 98 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M0 49C0 21.938 21.938 0 49 0V0C76.062 0 98 21.938 98 49V51C98 78.062 76.062 100 49 100V100C21.938 100 0 78.062 0 51L0 49Z" fill="#ff0000"/>
+			</svg>
+		</div>
+	</div>
+
+	<div>
+		<a href="/">
+			<button type="button" title='Voltar ao início!' class="nes-btn is-error btn">Voltar</button>
+		</a>
+	<div>
+	<script>
+
+		//Animação 1.1
+		// document.querySelector('#circle').addEventListener('click',()=>{
+			anime({
+				targets: '#circle',			//alvo da animação, pode ser mais de um
+				translateX: 250,			//propriedade a ser modificada
+				borderRadius:50,			//propriedade css em camelCase
+				backgroundColor: '#00ff00',	//propriedade css em camelCase
+				duration:4000,				//duração em  milisegundos (ms)
+				// direction: 'alternate',		//direção da animação (animation) 
+				// loop: 3,					//numero de iterações (animation-iteration-count)
+				easing: 'easeInQuad'		//função de tempo (animation-timing-function)
+			  });
+		//   })
+		
+		//Animação 1.2
+		anime({
+			targets: '#sgv-geometry path', 	//alvo da animação (elemento svg)
+			fill:[							//propriedade a ser modificada (fill)
+				{value:'#00ff00', duration:2000},
+				{value:'#0000ff', duration:2000},
+				{value:'#ff0000', duration:2000},
+			],
+			// duration:1000, 			//duração em ms
+			loop: true, 			//animação em loop (animation-count:infinite)
+			direction: 'normal',	//animação em loop (animation-count:infinite)
+			// autoplay: true,
+			// easing: 'easeInOutExpo'	//função de tempo  (animation-timing-function)
+			// easing: 'linear'	//função de tempo  (animation-timing-function)
+			easing: 'easeInQuad'	//função de tempo  (animation-timing-function)
+		  });
+
+
+		//Animação 1.3
+		const anime3 = anime({
+			targets: '#sgv-anime3 path', 	//alvo da animação (elemento svg)
+			// fill:[							//propriedade a ser modificada (fill)
+			// 	{value:'#ff0000', duration:1000},
+			// 	{value:'#00ff00', duration:2000},
+			// 	{value:'#0000ff', duration:2000}
+			// ],
+			keyframes:[
+				{fill:'#ff0000'},
+				{fill:'#00ff00'},
+				{fill:'#0000ff'}
+			],
+			duration:1000, 			//duração em ms
+			loop: true, 			//animação em loop (animation-count:infinite)
+			direction: 'alternate',	//animação em loop (animation-count:infinite)
+			autoplay: false,
+			// easing: 'easeInOutExpo'	//função de tempo  (animation-timing-function)
+			// easing: 'linear'	//função de tempo  (animation-timing-function)
+			easing: 'easeInQuad'	//função de tempo  (animation-timing-function)
+		  });
+		  
+
+		  document.querySelector('#sgv-anime3 path').addEventListener('click',()=>{
+			// anime3.duration = 1000;
+			anime3.autoplay = true;
+			anime3.play();
+			console.log({ duration:anime3.duration, play:anime3.autoplay})
+		  })
+	</script>
+</body>
+</html>

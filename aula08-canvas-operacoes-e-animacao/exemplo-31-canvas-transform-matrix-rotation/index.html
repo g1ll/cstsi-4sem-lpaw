@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Exemplo 31 - Canvas - Matrix Rotate</title>
+	<style>
+		body {
+			display: flex;
+			justify-content: center;
+		}
+
+		canvas {
+			border: 1px solid black;
+		}
+	</style>
+	<script>
+		window.addEventListener("load", canvasApp, false)
+
+		function canvasApp() {
+			const canvas = document.querySelector('canvas')
+			const ctx = canvas.getContext('2d');
+			
+			let a = 225
+			let sin = Math.sin(Math.PI/180*a)
+			let cos = Math.cos(Math.PI/180*a)
+			// ctx.translate(60, 60)
+			ctx.transform(cos, sin, -sin, cos, 60, 60)
+			smile(ctx, -25, -25, 25)
+		}
+
+		function quad(ctx, x, y, s, l, color, fill = false) {
+			ctx.lineWidth = l;
+			ctx.strokeStyle = color;
+			color && ctx.strokeRect(x, y, s, s)
+			ctx.fillStyle = fill ? fill : null;
+			fill && ctx.fillRect(x, y, s, s)
+		}
+
+		function circ(ctx, x, y, r, l, color, fill = false) {
+			ctx.lineWidth = l;
+			ctx.strokeStyle = color
+			ctx.beginPath();
+			ctx.arc(x, y, r, 0, Math.PI / 180 * 360);
+			ctx.stroke();
+			if (fill) {
+				ctx.fillStyle = fill
+				ctx.fill()
+			}
+		}
+
+		function smile(ctx, x, y, size) {
+			circ(ctx, x, y, size, 3, 'black', 'yellow')
+			circ(ctx, x - size / 2.5, y - size / 4, size * .1, 1, 'black', 'black')
+			circ(ctx, x + size / 2.5, y - size / 4, size * .1, 1, 'black', 'black')
+			ctx.beginPath()
+			ctx.lineWidth = 2
+			ctx.arc(x, y + size / 4, size / 2, 0, Math.PI)
+			ctx.strokeStyle = "#000"
+			ctx.stroke()
+		}
+	</script>
+</head>
+
+<body>
+	<canvas width="600" height="400">
+		Seu navegador não suporta a tag canvas!
+	</canvas>
+</body>
+
+</html>

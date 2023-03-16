@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Google Font Press Start 2P -->
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+	<!-- latest -->
+	<link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+	<style>
+		.container {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			align-content: center;
+		}
+
+		.goblin-box {
+			width: 400px;
+			height: 200px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.btn {
+			margin: 15px;
+		}
+
+		.globin-walk {
+			width: 160px;
+			height: 180px;
+			background-image: url('../../assets/img/goblin.png');
+			background-size: 480px 730px;
+			background-repeat: no-repeat;
+			background-clip: content-box;
+			animation-name: div-sprite;
+			animation-duration: 500ms;
+			animation-delay: 100ms;
+			animation-iteration-count: infinite;
+			animation-timing-function: step-end;
+			animation-play-state: paused;
+		}
+
+		@keyframes div-sprite {
+
+			0%,
+			100% {
+				background-position: -170px 0px;
+				transform: translateY(2px);
+			}
+
+			50% {
+				background-position: -330px 0px;
+				transform: translateY(4px);
+			}
+		}
+
+		.trigger:focus-within .globin-walk {
+			animation-play-state: running;
+		}
+	</style>
+	<title>CSTSI-LPAW Aula 03: Exemplos NESS.css</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="nes-text is-primary">Exemplo de uso da NESS.css</h1>
+		<div class="nes-container with-title container">
+			<span class="title">Goblin</span>
+			<div class="trigger container">
+				<div class="goblin-box">
+					<div class="globin-walk"></div>
+				</div>
+				<button title='Rodar a animação!' class="nes-btn is-success btn-walk">Walk</button>
+			</div>
+			<a href="/"><button type="button" title='Voltar ao início!' class="nes-btn is-error btn">x</button><a>
+		</div>
+	</div>
+</body>
+
+</html>

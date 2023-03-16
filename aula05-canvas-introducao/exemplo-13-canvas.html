@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Exemplo 13 - Canvas - Introdução ao Canvas</title>
+	<style>
+		body{display: flex; justify-content: center;}
+		canvas{border: 3px dashed blue;}
+		div{
+			flex-direction: column;
+			justify-items: center;
+		}
+		p{
+			text-align: center;
+		}
+		a{
+			outline: 0px;	
+		}
+	</style>
+	<script>
+		window.addEventListener("load",canvasApp,false)
+		
+		function canvasApp(){
+			const canvas = document.querySelector('canvas')
+			const ctx = canvas.getContext('2d');
+			ctx.strokeRect(100,350,50,50);
+		}
+	</script>
+</head>
+<body>
+	<div>
+		<canvas width="600" height="400">
+			Seu navegador não suporta a tag canvas!
+		</canvas>
+		<p>
+			<a href="/">←Início</a>
+		</p>
+	</div>
+</body>
+</html>

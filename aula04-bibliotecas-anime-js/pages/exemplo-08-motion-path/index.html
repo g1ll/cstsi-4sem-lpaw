@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/assets/img/favkart.ico" />
+  <!-- Google Font Press Start 2P -->
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />
+  <!-- latest -->
+  <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+    integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <title>CSTSI-LPAW Aula 04: Biblioteca AnimeJS</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn {
+      margin: 15px;
+      width: 200px;
+    }
+
+    .examples-containers {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 5%;
+      width: 75%;
+    }
+
+    .container {
+      margin-top: 1%;
+      width: 95%;
+      display: flex;
+      flex-direction: row;
+      column-gap: 2%;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .circuit{
+      width:500px;
+      height: 250px;
+      background-image: url('../../assets/img/kart/circuit.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      overflow: hidden;
+    }
+
+    #pathMario{
+      margin-top: 120px;
+    }
+
+    #pathLuigi{
+      margin-top: -170px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2 class="nes-text is-primary">
+   Motion Path com
+    <a href="https://animejs.com/documentation/#motionPath" target="_blank">AnimeJS</a>
+  </h2>
+  <div class="nes-container with-title examples-containers">
+    <span class="title">Exemplo 8.1</span>
+    <div class="container">
+        <div class="circuit">
+          <img src="../../assets/img/kart/mario.png" alt="" id="mario">
+          <img src="../../assets/img/kart/luigi.png" alt="" id="luigi">
+          <svg id="pathMario" width="406" height="130" viewBox="0 0 406 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 4.5C1 4.5 66 9.50001 115 4.5C164 -0.500005 198 -0.499996 215.5 4.5C233 9.5 255 4.5 255 4.5C255 4.5 272.5 3.50001 298 9.5C323.5 15.5 338.5 14.5 351.5 25.5C364.5 36.5 368.5 40.5 368.5 40.5C368.5 40.5 373 45 384 60C395 75 387 74.5 391 90C395 105.5 395 114.5 395 114.5C395 114.5 394 125.5 405 129.5"/>
+          </svg>
+          <svg id="pathLuigi" width="406" height="131" viewBox="0 0 406 131" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 4.75C1 4.75 66 9.75001 115 4.75C164 -0.250005 198 -0.249996 215.5 4.75C233 9.75 255 4.75 255 4.75C255 4.75 272.5 3.75001 298 9.75C323.5 15.75 338.5 14.75 351.5 25.75C364.5 36.75 368.5 40.75 368.5 40.75C368.5 40.75 373 45.25 384 60.25C395 75.25 387 74.75 391 90.25C395 105.75 395 114.75 395 114.75C395 114.75 394 125.75 405 129.75"/>
+            </svg>
+        </div>
+    </div>
+  </div>
+  <div>
+    <a href="/">
+      <button type="button" title="Voltar ao início!" class="nes-btn is-error btn">Voltar</button>
+    </a>
+  </div>
+
+  <script>
+    const pathMario = anime.path('#pathMario path');
+    const pathLuigi = anime.path('#pathLuigi path');
+
+    anime({
+      targets: '#mario',
+      translateX: pathMario('x'),
+      translateY: pathMario('y'),
+      rotate: pathMario('angle'),
+      easing: 'linear',
+      duration: 2000,
+      loop: true
+    });
+
+    anime({
+      targets: '#luigi',
+      translateX: pathLuigi('x'),
+      translateY: pathLuigi('y'),
+      rotate: pathLuigi('angle'),
+      easing: 'easeInQuad',
+      duration: 3000,
+      loop: true
+    });
+  </script>
+  </div>
+  </div>
+</body>
+
+</html>
