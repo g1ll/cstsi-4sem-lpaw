@@ -129,7 +129,7 @@ Figura:
 
 <img src="img/atividade-02/task08.png" width=400>
 
-9) Use a sua criatividade a crie uma figura aplicando gradientes radiais. 
+9) Crie uma figura aplicando gradientes radiais. 
 
 A figura abaixo, por exemplo, foi feita com dois gradientes radiais, no entanto, o segundo gradiente,
 que simula o reflexo, possui o centro dos círculos desencontrados, distorcendo o gradiente radial.
@@ -137,3 +137,5 @@ que simula o reflexo, possui o centro dos círculos desencontrados, distorcendo 
 <img src="img/atividade-02/task09.png" width=600>
 
 Dica: Use transparência (rgba ou *transparent*) na composição do gradiente radial!
+
+10) Desenvolva uma tela inicial para o seu Game, utilizando textos com fontes personalizadas, figuras e efeitos vistos em aula. Use a sua criatividade!
