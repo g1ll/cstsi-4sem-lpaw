@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/x-icon" href="/assets/img/fav.ico">
+	<!-- Google Font Press Start 2P -->
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+	<!-- latest -->
+	<link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+
+	<title>Exemplo 1 - Canvas - Introdução ao Canvas</title>
+	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.examples-containers {
+			margin-top: 1%;
+			width: 70%;
+			display: flex;
+			justify-content: center;
+		}
+
+		.btn {
+			margin: 15px;
+			width: 200px;
+		}
+
+		canvas {
+			border: 3px dashed blue;
+		}
+
+		div {
+			flex-direction: column;
+			justify-items: center;
+		}
+
+		p {
+			text-align: center;
+		}
+
+		a {
+			outline: 0px;
+		}
+	</style>
+	<script>
+		window.addEventListener("load", canvasApp, false)
+
+		function canvasApp() {
+			const canvas = document.querySelector('canvas')
+			const ctx = canvas.getContext('2d');
+			ctx.strokeRect(100, 200, 50, 50);
+		}
+	</script>
+</head>
+
+<body>
+	<h2 class="nes-text is-primary">
+		<a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial" target="_blank">Canvas API:</a>
+		Introdução ao Canvas
+	</h2>
+	<div class="nes-container with-title examples-containers">
+		<span class="title">Exemplo 1</span>
+		<canvas width="600" height="300">
+			Seu navegador não suporta a tag canvas!
+		</canvas>
+	</div>
+	<div>
+		<a href="/">
+			<button type="button" title='Voltar ao início!' class="nes-btn is-error btn">Voltar</button>
+		</a>
+	</div>
+</body>
+
+</html>

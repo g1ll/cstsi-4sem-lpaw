@@ -5,17 +5,75 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Exemplo 18 - Canvas - Textos</title>
+	<link rel="icon" type="image/x-icon" href="/assets/img/fav.ico">
+	<!-- Google Font Press Start 2P -->
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+	<!-- latest -->
+	<link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+
+	<title>Exemplo 9 - Canvas - Gradiente Linear</title>
 	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P');
+
 		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.examples-containers {
+			margin-top: 1%;
+			width: 70%;
 			display: flex;
 			justify-content: center;
 		}
 
+		.btn {
+			margin: 15px;
+			width: 200px;
+		}
+
 		canvas {
-			border: 1px solid black;
+			/*font-family: 'Poor Story';*/
+			font-family: 'Press Start 2P';
+			border: 3px dashed blue;
+		}
+		.loadFont{
+			font-family: 'Poor Story';
+		}
+		div {
+			flex-direction: column;
+			justify-items: center;
+		}
+
+		p {
+			text-align: center;
+		}
+
+		a {
+			outline: 0px;
 		}
 	</style>
+</head>
+
+<body>
+	<h2 class="nes-text is-primary">
+		<a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial" target="_blank">Canvas API:</a>
+		Gradiente Linear
+	</h2>
+	<div class="nes-container with-title examples-containers">
+		<span class="title">Exemplo 10</span>
+		<canvas width="600" height="300">
+			Seu navegador não suporta a tag canvas!
+		</canvas>
+	</div>
+	<div>
+		<a href="/">
+			<button type="button" title='Voltar ao início!' class="nes-btn is-error btn">Voltar</button>
+		</a>
+	</div>
+	<p class="loadFont">&nbsp;</p>
 	<script>
 		window.addEventListener("load", canvasApp, false)
 
@@ -57,12 +115,6 @@
 			ctx.fillRect(0,0,canvas.width,canvas.height)
 		}
 	</script>
-</head>
-
-<body>
-	<canvas width="600" height="400">
-		Seu navegador não suporta a tag canvas!
-	</canvas>
 </body>
 
 </html>
