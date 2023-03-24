@@ -78,30 +78,28 @@
         const animeLoading = anime({
           targets: loadingBar,
           backgroundColor: "#0f0",
+          width:"100%",
           delay: 1000,
           duration: 3500,
           autoplay: false,
           easing: "linear",
+          loop: 1,
           update: function (anim) {
-            if (loadingBar) {
-              loadingBar.style.width = anim.progress + "%"
-              console.log(loadingBar.style.width)
-            }
-            if (Math.round(anim.progress) == 100) {
+            if (anim.progress == 100) {
               console.log("Loading Complete!")
               clearInterval(interval)
             }
           },
         });
 
-        document.querySelector('#bar').onclick = () => {
+        loadingBar.parentElement.onclick = () => {
           animeLoading.play()
           interval = setInterval(()=>{
             count++
             if(animeLoading.progress < count)
               animeLoading.play()
             else animeLoading.pause()
-            console.log({cl:count,pl:animeLoading.progress});
+            console.log({c:count,ap:animeLoading.progress});
           },100)
         }
       </script>

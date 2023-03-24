@@ -55,7 +55,7 @@
 
 <body>
   <h2 class="nes-text is-primary">
-    Exemplos da Promisse de Animação Concluída na
+    Exemplos da Promise de Animação Concluída na
     <a href="https://animejs.com/documentation/" target="_blank">AnimeJS</a>
   </h2>
   <div class="nes-container with-title examples-containers">
@@ -78,26 +78,28 @@
         const animeLoading = anime({
           targets: loadingBar,
           backgroundColor: "#0f0",
+          width:"100%",
           duration: 1000,
           autoplay: false,
           easing: "linear",
+          loop:1,
           update: function (anim) {
-            if (loadingBar)
-              loadingBar.style.width = anim.progress + "%"
-
             if(anim.progress > count)
               anim.pause()
           },
         });
 
-        document.querySelector('#bar').onclick = () => {
+        loadingBar.parentElement.onclick = () => {
           animeLoading.play()
           let interval = setInterval(()=>{
             count++
             if(count> animeLoading.progress )
               animeLoading.play()
             
-            console.log({cl:count,pl:animeLoading.progress.toFixed(2)});
+            console.log({
+              c:count,
+              ap:animeLoading.progress.toFixed(2)
+            });
           },100)
 
           animeLoading.finished.then(()=>{

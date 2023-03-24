@@ -148,12 +148,11 @@
       anime({
         targets: element.querySelector('img'),
         borderRadius:['30%', '5%'],
-        width:['75%','100'],
+        width:['75%','100%'],
         opacity: ['0%', '100%'],
         delay: 100,
-        duration: 1000,
+        duration: 100,
         loop: 1,
-        autoplay: true,
         easing: "linear",
       })
       deactivateItens()
@@ -163,7 +162,6 @@
       if (itemIndex > 0)
         showItem(sliderItens[--itemIndex])
     }
-
 
     btnNext.onclick = () => {
       if (itemIndex < sliderItens.length - 1) 

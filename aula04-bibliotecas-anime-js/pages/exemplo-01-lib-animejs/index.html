@@ -77,9 +77,9 @@
 				borderRadius:50,			//propriedade css em camelCase
 				backgroundColor: '#00ff00',	//propriedade css em camelCase
 				duration:4000,				//duração em  milisegundos (ms)
-				// direction: 'alternate',		//direção da animação (animation) 
-				// loop: 3,					//numero de iterações (animation-iteration-count)
-				easing: 'easeInQuad'		//função de tempo (animation-timing-function)
+				direction: 'alternate',		//direção da animação (animation) 
+				loop: 3,					//numero de iterações (animation-iteration-count)
+				easing: 'easeInBounce'		//função de tempo (animation-timing-function)
 			  });
 		//   })
 		
@@ -93,7 +93,7 @@
 			],
 			// duration:1000, 			//duração em ms
 			loop: true, 			//animação em loop (animation-count:infinite)
-			direction: 'normal',	//animação em loop (animation-count:infinite)
+			//direction: 'normal',	//animação em loop (animation-count:infinite)
 			// autoplay: true,
 			// easing: 'easeInOutExpo'	//função de tempo  (animation-timing-function)
 			// easing: 'linear'	//função de tempo  (animation-timing-function)
@@ -124,12 +124,17 @@
 		  });
 		  
 
-		  document.querySelector('#sgv-anime3 path').addEventListener('click',()=>{
-			// anime3.duration = 1000;
-			anime3.autoplay = true;
-			anime3.play();
-			console.log({ duration:anime3.duration, play:anime3.autoplay})
-		  })
+		  document.querySelector('#sgv-anime3 path')
+		  	.addEventListener('click',()=>{
+				// anime3.duration = 1000;
+				//anime3.autoplay = true;
+				anime3.play();
+				console.log(
+					{ 
+						duration:anime3.duration,
+						 play:anime3.autoplay
+				})
+		  	})
 	</script>
 </body>
 </html>

@@ -73,28 +73,26 @@
       <script>
         //Animação 2.1
         const loadingBar = document.querySelector("#loadingBar");
-        let count = 0;
         const animeLoading = anime({
           targets: loadingBar,
           backgroundColor: "#0f0",
+          //width:"100%",
           delay: 1000,
           duration: 3500,
           autoplay: false,
           easing: "linear",
-          update: function (anim) {
+          update: (anim) =>{
             if (loadingBar) {
               loadingBar.style.width = anim.progress + "%"
               console.log(loadingBar.style.width)
             }
-            if (Math.round(anim.progress) == 100) {
+            if (anim.progress == 100) {
               console.log("Loading Complete!")
             }
           },
         });
 
-        document.querySelector('#bar').onclick = () => {
-          animeLoading.play()
-        }
+        loadingBar.parentElement.onclick = ()=>animeLoading.play()
       </script>
     </div>
   </div>

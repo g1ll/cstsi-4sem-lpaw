@@ -99,14 +99,14 @@
       translateY: pathMario('y'),
       rotate: pathMario('angle'),
       easing: 'linear',
-      duration: 2000,
+      duration: 1000,
       loop: true
     });
 
     anime({
       targets: '#luigi',
-      translateX: pathLuigi('x'),
       translateY: pathLuigi('y'),
+      translateX: pathLuigi('x'),
       rotate: pathLuigi('angle'),
       easing: 'easeInQuad',
       duration: 3000,
