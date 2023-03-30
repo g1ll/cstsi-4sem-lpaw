@@ -55,7 +55,7 @@
 			const canvas = document.querySelector('canvas')
 			const ctx = canvas.getContext('2d');
 			ctx.lineWidth = 5;
-			ctx.fillStyle = 'green';
+			ctx.fillStyle = 'red';
 			ctx.beginPath();
 			ctx.moveTo(10,20);
 			ctx.lineTo(80,50);//top line
@@ -64,15 +64,20 @@
 			ctx.lineTo(10,20);//left line
 			ctx.fill();
 
-			ctx.strokeStyle = "#00F";
+			let rw = 100;
+			let rh = rw;
+			let rx = 300;
+			let ry = 20;
+			ctx.strokeStyle = "#F00";
 			ctx.beginPath();
-			ctx.moveTo(300,20);
-			ctx.lineTo(400,20);
-			ctx.lineTo(400,120);
-			ctx.lineTo(300,120);
-			ctx.lineTo(300,20);
+			ctx.moveTo(rx,ry);
+			ctx.lineTo(rx+rw,ry);
+			ctx.lineTo(rx+rw,ry+rh);
+			ctx.lineTo(rx,ry+rh);
+			ctx.lineTo(rx,ry-2.1);
 			ctx.stroke();
 
+			ctx.strokeStyle = "#00F";
 			ctx.beginPath();
 			ctx.rect(300,220,100,100)
 			ctx.stroke(); //strokeStyle

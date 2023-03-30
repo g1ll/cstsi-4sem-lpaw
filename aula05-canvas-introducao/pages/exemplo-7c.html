@@ -11,7 +11,7 @@
 	<!-- latest -->
 	<link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
 
-	<title>Exemplo 1 - Canvas - Introdução ao Canvas</title>
+	<title>Exemplo 7 - Canvas - Textos</title>
 	<style>
 		body {
 			display: flex;
@@ -22,8 +22,9 @@
 		.examples-containers {
 			margin-top: 1%;
 			width: 70%;
-			display: flex;
-			justify-content: center;
+			/*display: flex;
+			justify-content: center;*/
+			
 		}
 
 		.btn {
@@ -33,6 +34,8 @@
 
 		canvas {
 			border: 3px dashed blue;
+			margin: 0 auto;
+			display: block;
 		}
 
 		div {
@@ -49,24 +52,44 @@
 		}
 	</style>
 	<script>
-		window.addEventListener("load", canvasApp, false)
+		window.addEventListener("load", canvasApp, false);
 
 		function canvasApp() {
-			const canvas = document.querySelector('canvas')
-			const ctx = canvas.getContext('2d');
-			ctx.strokeRect(450, 150, 100, 100);
+			const containerWidth = document.querySelector(".examples-containers");
+			console.log(containerWidth.clientWidth)//fix Joao Raul
+
+			const canvas = document.querySelector("canvas");
+			canvas.width = containerWidth.clientWidth-150;
+			const ctx = canvas.getContext("2d");
+			
+			let textSize = 24;
+			ctx.font = `bold ${textSize}px sans`;
+			ctx.textBaseline = "top";
+			let texto = "Olá Canvas!";
+
+			let textMetric = ctx.measureText(texto);
+			console.log(textMetric);
+			
+			
+			ctx.fillStyle = "#00f";
+			ctx.fillText(
+				texto,
+				canvas.width / 2 - textMetric.width / 2,
+				canvas.height / 2 - textSize
+			);
 		}
+
 	</script>
 </head>
 
 <body>
 	<h2 class="nes-text is-primary">
 		<a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial" target="_blank">Canvas API:</a>
-		Introdução ao Canvas
+		Textos
 	</h2>
 	<div class="nes-container with-title examples-containers">
-		<span class="title">Exemplo 1</span>
-		<canvas width="600" height="300">
+		<span class="title">Exemplo 7</span>
+		<canvas width="600" height="400">
 			Seu navegador não suporta a tag canvas!
 		</canvas>
 	</div>
