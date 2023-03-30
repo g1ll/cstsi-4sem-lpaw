@@ -5,21 +5,51 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Exemplo 2 - Canvas - Animação - Controlando Frames</title>
+	<link rel="icon" type="image/x-icon" href="/assets/img/fav.ico">
+	<!-- Google Font Press Start 2P -->
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+	<!-- latest -->
+	<link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+	<title>Exemplo 04 - Canvas - Animação - Controlando Frames</title>
 	<style>
 		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.examples-containers {
+			margin-top: 1%;
+			width: 70%;
 			display: flex;
 			justify-content: center;
 		}
 
+		.btn {
+			margin: 15px;
+			width: 200px;
+		}
+
 		canvas {
-			/* background-color: blue; */
-			border: 1px solid black;
+			border: 3px dashed blue;
+		}
+
+		div {
+			flex-direction: column;
+			justify-items: center;
+		}
+
+		p {
+			text-align: center;
+		}
+
+		a {
+			outline: 0px;
 		}
 	</style>
 	<script>
 		window.addEventListener("load", canvasApp, false)
-
+		
 		function canvasApp() {
 			const canvas = document.querySelector('canvas')
 			const ctx = canvas.getContext('2d');
@@ -29,12 +59,11 @@
 			let frames = 15
 			let interval = 1000/frames
 			let c_vel=5;
-			setInterval(() => {
-				ctx.fillStyle = "rgba(255,255,255,0.5)"
-				ctx.clearRect(0,0,canvas.width,canvas.height)
+			let loop = setInterval(() => {
 				circ(ctx,x+=c_vel,y,25,5,"#0f0","#00f")
 				x=x>canvas.width+25 ? 0:x;
 			}, interval);
+
 		}
 
 		function circ(ctx,x,y,r,l,color,fill=false){
@@ -53,9 +82,21 @@
 </head>
 
 <body>
-	<canvas width="600" height="400">
-		Seu navegador não suporta a tag canvas!
-	</canvas>
+	<h2 class="nes-text is-primary">
+		<a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial" target="_blank">Canvas API:</a>
+		Animação - Controlando Frames
+	</h2>
+	<div class="nes-container with-title examples-containers">
+		<span class="title">Exemplo 4</span>
+		<canvas width="600" height="300">
+			Seu navegador não suporta a tag canvas!
+		</canvas>
+	</div>
+	<div>
+		<a href="/">
+			<button type="button" title='Voltar ao início!' class="nes-btn is-error btn">Voltar</button>
+		</a>
+	</div>
 </body>
 
 </html>

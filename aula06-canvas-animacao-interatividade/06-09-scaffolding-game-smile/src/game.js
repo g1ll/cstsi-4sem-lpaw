@@ -6,7 +6,7 @@ let CTX
 let CANVAS
 const FRAMES = 15
 
-const qtdEnemies = 10
+const qtdEnemies = 5
 
 let enemies = Array.from({length:qtdEnemies});
 
