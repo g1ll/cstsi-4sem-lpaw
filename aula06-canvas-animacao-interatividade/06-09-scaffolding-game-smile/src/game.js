@@ -10,7 +10,7 @@ const qtdEnemies = 10
 
 let enemies = Array.from({length:qtdEnemies});
 
-const smile = new Smile(300, 100, 20, 5,'green')
+const smile = new Smile(300, 100, 20, 5,'yellow')
 
 let gameover = false
 let anime;

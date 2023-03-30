@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/x-icon" href="/assets/img/fav.ico">
+	<!-- Google Font Press Start 2P -->
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+	<!-- latest -->
+	<link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+	<style>
+		h1 a{
+			color:#92cc41;
+		}
+		h1 a:hover{
+			color:#92cc41;
+			text-decoration: none;
+		}
+		li{
+			margin: 5px 0;
+		}
+		li a{
+			font-size: 25px;
+		}
+		a{
+			font-size: 32px;
+		}
+		li:has(a:hover) {
+			background-color: #ccffaa;
+			border-radius: 5px;
+			transition: 1s;
+		}
+		li a:hover {
+			text-decoration: none;
+		}
+		.container {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			align-content: center;
+		}
+		button{
+			font-size: 8px;
+		}
+	</style>
+	<title>CSTSI-LPAW Aula 05: Exemplos API Canvas HTML5</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="nes-text is-success">CSTSI LPAW 
+			<a class="is-success" target="_blank" href="#">
+				Aula 05
+			</a>
+		</h1>
+		<ul class="nes-list"></ul>
+	</div>
+	<script>
+		const links = [
+			{ path: 'exemplo-1', title: 'Exemplo 01: Introdução ao Canvas' },
+			{ path: 'exemplo-2', title: 'Exemplo 02: Funções de Desenho e Estilos' },
+			{ path: 'exemplo-3', title: 'Exemplo 03: Desenhando com Paths' },
+			{ path: 'exemplo-4', title: 'Exemplo 04: Paths Retangulares' },
+			{ path: 'exemplo-5', title: 'Exemplo 05: Retângulos com Stroke e Fill'},
+			{ path: 'exemplo-6', title: 'Exemplo 06: Desenhando Círculos' },
+			{ path: 'exemplo-7', title: 'Exemplo 07: Textos' },
+			{ path: 'exemplo-8', title: 'Exemplo 08: Fontes Personalizadas' },
+			{ path: 'exemplo-9', title: 'Exemplo 09: Efeitos de Sombra' },
+			{ path: 'exemplo-10', title: 'Exemplo 10: Gradiente Linear' },
+			{ path: 'exemplo-11', title: 'Exemplo 11: Gradiente Radial' },
+			{ path: 'exemplo-12', title: 'Exemplo 12: Canal Alpha/Opacity' },
+		]
+		const DOMlist = document.querySelector('ul')
+		links.forEach((item) => DOMlist.innerHTML += `
+			<li>
+				<a href="pages/${item.path}.html">
+					<button type="button" class="nes-btn is-primary">>></button>
+					${item.title}
+				</a>
+			</li>
+		` )
+	</script>
+</body>
+
+</html>
