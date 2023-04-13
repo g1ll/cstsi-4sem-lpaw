@@ -1,6 +1,6 @@
 export default print=(ctx,string)=>{
 	console.log(ctx)
-	let textSize = 42;
+	let textSize = 22;
 	ctx.font = `bold ${textSize}px _sans`;
 	ctx.textBaseline = "top";
 	let textMetric = ctx.measureText(string)

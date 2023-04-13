@@ -18,7 +18,7 @@ const loop = () => {
 	setTimeout(() => {
 		CTX.clearRect(0, 0, CANVAS.width, CANVAS.height)
 		let key='';
-		getKeys().map(k=>key+=' '+k)
+		getKeys().forEach(k=>key+=' '+k)
 		console.log(key)
 		writeCenterXY(CTX,CANVAS.width,	CANVAS.height,
 			`Apertou: ${key}`,'blue',30, 'sans','bold','top')
