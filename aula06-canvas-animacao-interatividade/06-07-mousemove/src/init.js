@@ -1,5 +1,5 @@
 import circle from "./circle"
-import { getClick, mouseClick, mouseMove } from "./mouse"
+import { getClick, getHover, mouseClick, mouseMove } from "./mouse"
 
 
 let CTX
@@ -12,6 +12,7 @@ const init = () => {
 	CANVAS = document.querySelector('canvas')
 	CTX = CANVAS.getContext('2d')
 	mouseMove(CANVAS)
+	mouseClick(CANVAS)
 	loop()
 }
 
@@ -19,15 +20,21 @@ const loop = () => {
 	setTimeout(() => {
 		CTX.fillStyle = 'rgba(255,255,255,0.3)'
 		CTX.fillRect(0, 0,
-			 CANVAS.width, CANVAS.height)
-		
+			CANVAS.width, CANVAS.height)
+
 		let canvasRect = CANVAS.getBoundingClientRect()
-		let clk = {
-				x:getClick().x-canvasRect.x,
-				y:getClick().y-canvasRect.y,
+		let hover = {
+			x: getHover().x - canvasRect.x,
+			y: getHover().y - canvasRect.y,
 		}
-		circle(CTX,clk.x,clk.y)
-		
+		circle(CTX, hover.x, hover.y)
+		console.log(getClick().x);
+		circle(CTX,
+			getClick().x - canvasRect.x,
+			getClick().y - canvasRect.y,
+			'red'
+		)
+
 		requestAnimationFrame(loop)
 	}, 1000 / FRAMES)
 }
