@@ -1,4 +1,5 @@
 export default class Circle {
+
 	constructor(x, y, size, speed = 10, color = "#00f") {
 		this.x = x;
 		this.y = y;
@@ -66,7 +67,7 @@ export default class Circle {
 			this.x = -this.size
 		else if (this.x + this.size < 0)
 			this.x = limits.width - this.size
-
+		
 		if (this.y > limits.height)
 			this.y = -this.size
 		else if (this.y + this.size < 0)

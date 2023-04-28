@@ -4,9 +4,8 @@ export default class Smile extends Circle {
 
 	constructor(x, y, size, speed = 10, color = "#00f") {
 		super(x, y, size, speed, color)
-		this.status = 'ArrowDown';
+		this.status = 'ArrowRight';
 	}
-
 
 	paint(ctx) {
 		ctx.fillStyle = "#fff";
@@ -34,7 +33,6 @@ export default class Smile extends Circle {
 	}
 
 	move(limits, key) {
-
 		let movements = {
 			'ArrowDown': {
 				sx: 0,
@@ -45,23 +43,24 @@ export default class Smile extends Circle {
 			'ArrowRight': { sx: this.speed, sy: 0 }
 		}
 		
+		// console.log(key)
 		this.status = movements[key] ? key : this.status
 		
+
 		const { sx, sy } = movements[this.status]
 		
 		this.x += sx
 		this.y += sy
-		
 		this.limits(limits)
 	}
 
 	limits(limits) {
-		this.x = this.x - this.size > limits.width
-			? -this.size
-			: this.x
+		//var = (teste)?TRUE:FALSA;
+		this.x = (this.x - this.size > limits.width)
+			? -this.size //TRUE
+			: this.x	//FALSE
 
 		this.x = this.x + this.size < 0 ? limits.width - this.size : this.x
-
 		this.y = this.y - this.size > limits.height + this.size ? -this.size : this.y
 		this.y = this.y + this.size < 0 ? limits.height + this.size : this.y
 	}

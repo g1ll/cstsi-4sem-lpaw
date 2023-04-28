@@ -6,7 +6,6 @@ export default class Enemy extends Circle{
 		this.line = 1
 		// console.log('enemy',this) 
 	}
-
 	move(limits){
 		this.y +=this.speed
 		this.limits(limits)

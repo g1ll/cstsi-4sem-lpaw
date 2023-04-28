@@ -6,21 +6,44 @@ let CTX
 let CANVAS
 const FRAMES = 15
 
-<<<<<<< HEAD:aula06-canvas-animacao-interatividade/06-09-scaffolding-game-smile/src/game.js
-const qtdEnemies = 2
-=======
-const qtdEnemies = 5
->>>>>>> aula-06-atualizacao-20231:aula06-08-canvas-animacao-interatividade/08-01-scaffolding-game-smile/src/game.js
+const qtdEnemies = 1
 
 let enemies = Array.from({length:qtdEnemies});
 
 const smile = new Smile(300, 100, 20, 5,'yellow')
 
 let gameover = false
-let anime;
+let animeReqReference;
 let boundaries
 
-const init = () => {
+const loop = () => {
+	setTimeout(() => {
+
+		CTX.clearRect(0, 0, CANVAS.width, CANVAS.height)
+		//input
+		smile.move(boundaries, key)//update
+		smile.paint(CTX)//draw
+
+		enemies.forEach(e =>{
+			e.move(boundaries, 0) 
+			e.draw(CTX)
+			 //var = teste?verdadeiro:falso;
+			 gameover = !gameover 
+			 		? e.colide(smile)
+					: true;
+		})
+
+		if (gameover) {
+			console.error('DEAD!!!')
+			cancelAnimationFrame(animeReqReference)
+		} else	animeReqReference = requestAnimationFrame(loop)
+
+	}, 1000 / FRAMES)
+}
+
+// export default function init(){
+// function init(){
+const init = ()=>{
 	console.log("Initialize Canvas")
 	CANVAS = document.querySelector('canvas')
 	CTX = CANVAS.getContext('2d')
@@ -40,29 +63,5 @@ const init = () => {
 	loop()
 }
 
-const loop = () => {
-	setTimeout(() => {
 
-		CTX.clearRect(0, 0, CANVAS.width, CANVAS.height)
-
-		smile.move(boundaries, key)
-		smile.paint(CTX)
-
-		enemies.forEach(e =>{
-			e.move(boundaries, 0) 
-			e.draw(CTX)
-			 //var = teste?verdadeiro:falso;
-			 gameover = !gameover 
-			 		? e.colide(smile)
-					: true;
-		})
-
-		if (gameover) {
-			console.error('DEAD!!!')
-			cancelAnimationFrame(anime)
-		} else	anime = requestAnimationFrame(loop)
-
-	}, 1000 / FRAMES)
-}
-
-export { init }
+export { init, loop }
