@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Exemplo 28 - Canvas - Animação - requestAnimationFrames</title>
+	<link rel="icon" type="image/x-icon" href="/assets/img/fav.ico">
+	<!-- Google Font Press Start 2P -->
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+	<!-- latest -->
+	<link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+	<title>Exemplo 06 - Canvas - Animação - requestAnimationFrames</title>
+	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.examples-containers {
+			margin-top: 1%;
+			width: 70%;
+			display: flex;
+			justify-content: center;
+		}
+
+		.btn {
+			margin: 15px;
+			width: 200px;
+		}
+
+		canvas {
+			border: 3px dashed blue;
+		}
+
+		div {
+			flex-direction: column;
+			justify-items: center;
+		}
+
+		p {
+			text-align: center;
+		}
+
+		a {
+			outline: 0px;
+		}
+	</style>
+	<script>
+		window.addEventListener("load", canvasApp, false)
+
+		function canvasApp() {
+			const canvas = document.querySelector('canvas')
+			const ctx = canvas.getContext('2d');
+			
+			let x = -5
+			let y = canvas.height/2
+			let c_vel=10
+			let colors = Array.from(Array(10).keys())
+			colors = [...colors,'a','b','c','d','e','f']
+			// colors = ['a','b','c','d','e','f']
+			let count = 0;
+			const loop = () => {
+				clearScreen(ctx)
+				let border = '#'+colors[count++]+'00'
+				let fill = `#00${colors[count++]}`
+				if(count>colors.length-1) 
+					count = 0
+				if(x>canvas.width)
+					x=-10
+				circ(ctx,x+=c_vel,y,25,5,border,fill)
+				requestAnimationFrame(loop)
+			}
+
+			loop()
+		}
+
+		function circ(ctx,x,y,r,l,color,fill=false){
+			ctx.lineWidth = l;
+			ctx.strokeStyle = color
+			ctx.beginPath();
+			ctx.arc(x,y,r,0,Math.PI/180*360);
+			ctx.stroke();
+			if(fill){
+				ctx.fillStyle = fill
+				ctx.fill()
+			}
+		}
+
+		function clearScreen(ctx){
+			ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height)
+		}
+
+	</script>
+</head>
+
+<body>
+	<h2 class="nes-text is-primary">
+		<a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial" target="_blank">Canvas API:</a>
+		Animação com a Função 
+		<a href="https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame" target="_blank"></a>
+			requestAnimationFrames
+		</a>
+	</h2>
+	<div class="nes-container with-title examples-containers">
+		<span class="title">Exemplo 6</span>
+		<canvas width="600" height="300">
+			Seu navegador não suporta a tag canvas!
+		</canvas>
+	</div>
+	<div>
+		<a href="/">
+			<button type="button" title='Voltar ao início!' class="nes-btn is-error btn">Voltar</button>
+		</a>
+	</div>
+</body>
+
+</html>
