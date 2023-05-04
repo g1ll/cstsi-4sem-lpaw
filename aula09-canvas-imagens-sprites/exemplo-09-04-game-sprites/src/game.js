@@ -42,9 +42,8 @@ const init = () => {
 const loop = () => {
 	setTimeout(() => {
 
-		// CTX.clearRect(0, 0, CANVAS.width, CANVAS.height)
+		CTX.clearRect(0, 0, CANVAS.width, CANVAS.height)
 		
-
 		smile.move(boundaries, key)
 		smile.draw(CTX)
 

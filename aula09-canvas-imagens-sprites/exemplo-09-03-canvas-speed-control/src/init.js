@@ -5,12 +5,14 @@ let CANVAS
 const FRAMES = 60
 
 let goblinImage = null
+let bgImage = null
+let bgPattern=null
 let x = 0
 let y = 0
 
 let cellWidth = 165		//largura da celular de recorte
 let cellHeight = 177	//altura da celula de recorte
-let totalSprites = 3		//Total de sprites
+let totalSprites = 3	//Total de sprites
 let spriteSpeed =  1	//Velocidade de troca de sprites (anime)
 
 const init = async () => {
@@ -18,6 +20,8 @@ const init = async () => {
 	CANVAS = document.querySelector('canvas')
 	CTX = CANVAS.getContext('2d')
 	goblinImage = await loadImage('img/goblin.png')
+	bgImage = await loadImage('img/rock-grass-1-small.jpg')
+	bgPattern = CTX.createPattern(bgImage,'repeat')
 	loop()
 	animeSprite()
 }
@@ -31,7 +35,8 @@ const animeSprite = ()=>{ //Controla a animacao do sprite
 const loop = () => {
 
 	setTimeout(() => {
-		CTX.clearRect(0, 0, CANVAS.width, CANVAS.height)
+		CTX.fillStyle = bgPattern;
+		CTX.fillRect(0,0,CANVAS.width,CANVAS.height)
 
 		CTX.drawImage(
 			goblinImage,
