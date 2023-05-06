@@ -25,7 +25,7 @@ export default class Hero extends Circle{
 		this.width = width
 		this.height = height
 
-		this.status = 'left'
+		this.status = 'right'
 
 		this.hit = new Circle(
 			this.x + this.width/2,
@@ -52,8 +52,8 @@ export default class Hero extends Circle{
 			this.width,
 			this.height
 		)
-
-		this.hit.draw(CTX)
+		//descomentar para ver a area de hit
+		// this.hit.draw(CTX)
 	}
 
 	animeSprite(FRAMES){ //Controla a animacao do sprite
@@ -69,7 +69,7 @@ export default class Hero extends Circle{
 			's':'down',
 			'w':'up',
 			'a':'left',
-			'd':'rigth'
+			'd':'right'
 		}
 	}
 
@@ -78,7 +78,7 @@ export default class Hero extends Circle{
 			'down': 0,
 			'up': 1,
 			'left': 3,
-			'rigth':2
+			'right':2
 		}
 
 		this.cellY = sprites[this.status]
@@ -93,7 +93,7 @@ export default class Hero extends Circle{
 			},
 			'up': 	{ x: this.x, y: this.y - this.speed },
 			'left': { x: this.x - this.speed, y: this.y },
-			'rigth': { x: this.x + this.speed, y: this.y }
+			'right': { x: this.x + this.speed, y: this.y }
 		}
 
 		this.status = this.controls[key] ? this.controls[key] : this.status
