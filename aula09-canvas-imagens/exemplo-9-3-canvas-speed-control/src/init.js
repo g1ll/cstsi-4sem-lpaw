@@ -10,8 +10,8 @@ let y = 0
 
 let cellWidth = 165		//largura da celular de recorte
 let cellHeight = 177	//altura da celula de recorte
-let totalSprites = 3		//Total de sprites
-let spriteSpeed =  1	//Velocidade de troca de sprites (anime)
+let totalSprites = 3	//Total de sprites
+let goblinSpeed =  1	//Velocidade de troca de sprites (anime)
 
 const init = async () => {
 	console.log("Initialize Canvas")
@@ -19,10 +19,10 @@ const init = async () => {
 	CTX = CANVAS.getContext('2d')
 	goblinImage = await loadImage('img/goblin.png')
 	loop()
-	animeSprite()
+	animeSprite(goblinSpeed)
 }
 
-const animeSprite = ()=>{ //Controla a animacao do sprite
+const animeSprite = (spriteSpeed)=>{ //Controla a animacao do sprite
 	setInterval(() => {
 		x = x < totalSprites - 1 ? x + 1 : 0;
 	}, 1000 / (FRAMES*spriteSpeed/10))
