@@ -1,4 +1,4 @@
-import { loadAudio, loadImage } from "./loaderAssets"
+import { loadAudio, loadImage, loadVideo } from "./loaderAssets"
 import { keyPress, key } from "./keyboard"
 
 let CTX
@@ -16,6 +16,7 @@ let spriteSpeed = 1	//Velocidade de troca de sprites (anime)
 
 let sound
 let theme
+let video
 
 const init = async () => {
 	console.log("Initialize Canvas")
@@ -27,7 +28,9 @@ const init = async () => {
 	theme = await loadAudio('sounds/illusory.mp3')
 	theme.volume = .3
 	theme.loop = true
+	video  = await loadVideo('video/exemplos_atividade-03.mp4')
 	keyPress(CANVAS)
+	CANVAS.onclick =()=>video.play()
 	loop()
 	animeSprite()
 }
@@ -39,9 +42,11 @@ const animeSprite = ()=>{ //Controla a animacao do sprite
 }
 
 const loop = () => {
-
 	setTimeout(() => {
-		CTX.clearRect(0, 0, CANVAS.width, CANVAS.height)
+		if(video.paused)
+			CTX.clearRect(0, 0, CANVAS.width, CANVAS.height)
+		else
+			CTX.drawImage(video, 0, 0, CANVAS.width, CANVAS.height);
 
 		CTX.drawImage(
 			goblinImage,

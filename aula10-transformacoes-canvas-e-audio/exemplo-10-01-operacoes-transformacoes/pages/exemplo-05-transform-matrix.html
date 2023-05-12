@@ -12,7 +12,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
 		integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
 		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<title>Exemplo 28 - Canvas - Rotate</title>
+	<title>Exemplo 10-01-03 - Canvas - Matriz Tranformação</title>
 	<style>
 		body {
 			display: flex;
@@ -33,21 +33,13 @@
 		function canvasApp() {
 			const canvas = document.querySelector('canvas')
 			const ctx = canvas.getContext('2d');
-
-			smile(ctx,50,50,25)
-			// ctx.scale(-1,1)
-			// ctx.translate(-650,0)
-			ctx.fillStyle = 'rgba(255,0,0,.5)'
-			ctx.fillRect(0,0,canvas.width,canvas.height)
-			smile(ctx,120,30,25)
-
-			// ctx.restore()
-			// ctx.translate(150,50)
-			// ctx.rotate(Math.PI/180*45)
-			// smile(ctx,0,0,25)
-
-			// ctx.fillStyle = 'rgba(255,255,255,.5)'
-			// ctx.fillRect(0,0,canvas.width,canvas.height)
+			
+			ctx.transform(1, 0, 0, 1, 0, 0)
+			//Não altera o contexto
+			smile(ctx, 50, 60, 25)// Normal
+			// ctx.translate(150, 60)// Desloca a origem
+			ctx.transform(1, .5, 1, 1, 50, 50) //Alterações
+			smile(ctx, 0, 0, 25) // Desenho
 		}
 
 		function quad(ctx, x, y, s, l, color, fill = false) {
@@ -70,13 +62,13 @@
 			}
 		}
 
-		function smile(ctx,x,y,size){
-			circ(ctx,x,y,size,3,'black','yellow')
-			circ(ctx,x-size/2.5,y-size/4,size*.1,1,'black','black')
-			circ(ctx,x+size/2.5,y-size/4,size*.1,1,'black','black')
+		function smile(ctx, x, y, size) {
+			circ(ctx, x, y, size, 3, 'black', 'yellow')
+			circ(ctx, x - size / 2.5, y - size / 4, size * .1, 1, 'black', 'black')
+			circ(ctx, x + size / 2.5, y - size / 4, size * .1, 1, 'black', 'black')
 			ctx.beginPath()
 			ctx.lineWidth = 2
-			ctx.arc(x,y+size/4,size/2,0,Math.PI)
+			ctx.arc(x, y + size / 4, size / 2, 0, Math.PI)
 			ctx.strokeStyle = "#000"
 			ctx.stroke()
 		}

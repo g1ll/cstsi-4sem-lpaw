@@ -5,15 +5,26 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Exemplo 30 - Canvas - Matriz Tranformação</title>
+	<!-- Google Font Press Start 2P -->
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />
+	<!-- latest -->
+	<link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+		integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<title>Exemplo 10-01-04 - Canvas - Mirror</title>
 	<style>
 		body {
 			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding:0 50%;
 			justify-content: center;
 		}
 
 		canvas {
 			border: 1px solid black;
+			margin-bottom: 10px;
 		}
 	</style>
 	<script>
@@ -23,12 +34,13 @@
 			const canvas = document.querySelector('canvas')
 			const ctx = canvas.getContext('2d');
 			
-			ctx.transform(1, 0, 0, 1, 0, 0)
-			//Não altera o contexto
-			smile(ctx, 50, 60, 25)// Normal
-			// ctx.translate(150, 60)// Desloca a origem
-			ctx.transform(1, .5, 1, 1, 50, 50) //Alterações
-			smile(ctx, 0, 0, 25) // Desenho
+			let x = 50
+			let y = x
+			smile(ctx, x, y, 25)
+			// ctx.translate(canvas.width,0)
+			//scale(-1,1)
+			ctx.transform(-1, 0, 0, 1, canvas.width, 0)
+			smile(ctx, x, y, 25)
 		}
 
 		function quad(ctx, x, y, s, l, color, fill = false) {
@@ -65,9 +77,14 @@
 </head>
 
 <body>
-	<canvas width="600" height="400">
+	<canvas width="400" height="400">
 		Seu navegador não suporta a tag canvas!
 	</canvas>
+	<div>
+		<a href="/">
+			<button type="button" title="Voltar ao início!" class="nes-btn is-error btn">Voltar</button>
+		</a>
+	</div>
 </body>
 
 </html>
