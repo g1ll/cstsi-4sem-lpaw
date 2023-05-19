@@ -35,9 +35,9 @@
 			const ctx = canvas.getContext('2d');
 
 			for (let i = 0; i < 6; i++)
-				for (let j = 0; j < 4; j++) {
+				for (let j = 0; j < 6; j++) {
 					ctx.save();
-					ctx.translate(15 + i * 75,15 + j * 75);
+					ctx.translate(25 + i * 95,15 + j * 60);
 					let color = `rgb(${45 * i}, 255, ${255 - 90 * i})`
 					circ(ctx,15,15,30,0,color,color)
 					ctx.restore();

@@ -12,7 +12,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
 		integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
 		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<title>Exemplo 28 - Canvas - Rotate</title>
+	<title>Exemplo 28 - Canvas - Scale</title>
 	<style>
 		body {
 			display: flex;
@@ -33,21 +33,12 @@
 		function canvasApp() {
 			const canvas = document.querySelector('canvas')
 			const ctx = canvas.getContext('2d');
-
-			smile(ctx,50,50,25)
-			// ctx.scale(-1,1)
-			// ctx.translate(-650,0)
-			ctx.fillStyle = 'rgba(255,0,0,.5)'
+			ctx.fillStyle = 'white'
 			ctx.fillRect(0,0,canvas.width,canvas.height)
-			smile(ctx,120,30,25)
-
-			// ctx.restore()
-			// ctx.translate(150,50)
-			// ctx.rotate(Math.PI/180*45)
-			// smile(ctx,0,0,25)
-
-			// ctx.fillStyle = 'rgba(255,255,255,.5)'
-			// ctx.fillRect(0,0,canvas.width,canvas.height)
+			smile(ctx,50,50,25)
+			ctx.scale(1,2)
+			smile(ctx,150,30,25)
+			//agora espelha isso!!
 		}
 
 		function quad(ctx, x, y, s, l, color, fill = false) {

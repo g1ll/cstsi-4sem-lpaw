@@ -34,11 +34,19 @@
 			const canvas = document.querySelector('canvas')
 			const ctx = canvas.getContext('2d');
 			
-			ctx.transform(1, 0, 0, 1, 0, 0)
+			ctx.transform(1, //scaleX
+				0,	//skewX
+				0,	//skewY
+				1,	//scaleY
+				0,	//translateX
+				0	//translateY
+			)
 			//Não altera o contexto
 			smile(ctx, 50, 60, 25)// Normal
-			// ctx.translate(150, 60)// Desloca a origem
-			ctx.transform(1, .5, 1, 1, 50, 50) //Alterações
+			
+			ctx.translate(150, 60)// Desloca a origem
+			ctx.transform(1, .5, 1, 1, 50, 50) //Alterações -->
+			
 			smile(ctx, 0, 0, 25) // Desenho
 		}
 

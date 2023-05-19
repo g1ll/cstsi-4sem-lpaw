@@ -1,5 +1,5 @@
 import { loadAudio, loadImage } from "./loaderAssets"
-import { keyPress, key } from "./keyboard"
+import { keyPress, key, keyDown, hasKey } from "./keyboard"
 
 let CTX
 let CANVAS
@@ -27,6 +27,7 @@ const init = async () => {
 	theme = await loadAudio('sounds/illusory.mp3')
 	theme.volume = .3
 	theme.loop = true
+	keyDown(CANVAS)
 	keyPress(CANVAS)
 	loop()
 	animeSprite()
@@ -53,7 +54,13 @@ const loop = () => {
 		)
 
 		key == 'ArrowUp' && sound.play();
-		key == 'Enter' && theme.currentTime == 0 && theme.play()
+		key == 'Enter' && theme.paused && theme.play()
+	
+		if(hasKey('r')){
+			theme.currentTime = 0 
+		}
+
+		hasKey('p') && theme.pause()
 
 		requestAnimationFrame(loop)
 	}, 1000 / FRAMES)

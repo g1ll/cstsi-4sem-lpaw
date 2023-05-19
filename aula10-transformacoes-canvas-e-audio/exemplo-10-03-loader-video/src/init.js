@@ -30,7 +30,7 @@ const init = async () => {
 	theme.loop = true
 	video  = await loadVideo('video/exemplos_atividade-03.mp4')
 	keyPress(CANVAS)
-	CANVAS.onclick =()=>video.play()
+	CANVAS.onclick =()=>video=null
 	loop()
 	animeSprite()
 }
