@@ -7,7 +7,7 @@ document.body.appendChild(renderer.domElement)
 const scene = new THREE.Scene()
 scene.background = new THREE.Color(0xffffff)
 
-let aspecto = window.innerWidth/ window.innerHeight
+let aspecto = window.innerWidth / window.innerHeight
 const camera = new THREE.PerspectiveCamera(
 	75, //campo de visao vertical
 	aspecto, //aspecto da imagem (Largura/Altura)
@@ -19,35 +19,33 @@ camera.position.z = 100
 
 const geometry = new THREE.BoxGeometry(20, 20, 20)
 const texture = new THREE.TextureLoader()
-			.load('img/crate.jpg',()=>{
-				console.log('Carregou imagem!')
-				animate()
-			});
+	.load('img/crate.jpg', () => {
+		console.log('Carregou imagem!')
+		animate()
+	});
 const material = new THREE.MeshBasicMaterial(
 	{ map: texture });
 const cube = new THREE.Mesh(geometry, material)
+cube.position.z = 35
 scene.add(cube)
 
 let indo = true;
+function move() {
+	cube.position.z += indo ? -.5 : .5
+	if (!indo && cube.position.z > 75)
+		indo = true
+	if (indo && cube.position.z < 1)
+		indo = false
+}
 
-function animate(){
-    renderer.render(scene, camera)
+function animate() {
+	renderer.render(scene, camera)
 	cube.rotation.y += .01
 	cube.rotation.x += .01
 	cube.rotation.z += .01
-	
-	if(indo){
-		camera.position.z -=1
-	}else{
-		camera.position.z +=1
-	}
 
-	if(!indo && camera.position.z>50)
-		indo = true
-	
-	if(indo && camera.position.z<15)
-		indo = false
-		
+	move()
+
 	requestAnimationFrame(animate)
 }
 console.log('terminou script')

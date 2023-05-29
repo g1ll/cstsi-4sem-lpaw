@@ -17,7 +17,6 @@ function main() {
   }
 
   // Vertex shader program
-
   const vsSource = `
     attribute vec4 aVertexPosition;
     attribute vec2 aTextureCoord;

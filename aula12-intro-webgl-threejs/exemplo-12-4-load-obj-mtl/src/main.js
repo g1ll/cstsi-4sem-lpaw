@@ -15,41 +15,42 @@ const camera = new THREE.PerspectiveCamera(
   0.1, //Plano proximo
   100//Plano distante
 );
-camera.position.z = 1.5
+camera.position.z = 1.3
 
 //Luz
-var light = new THREE.AmbientLight(0xffffff, 10);
+var light = new THREE.AmbientLight(0xffffff, 5);
 scene.add(light);
 
 //Ponto de Luz
-var plight = new THREE.PointLight(0xffffff, 10);
-plight.position.set(10, 10, 0);
+var plight = new THREE.PointLight(0xffffff, 50);
+plight.position.set(10, 10, -10);
 scene.add(plight);
 
+let jet //referencia global ao modelo f15
 const modelPath = 'models/f15c/'
 const mtlFile = 'f15c.mtl'
 const objFile = 'f15c.obj'
-let jet
 
-const manager = new THREE.LoadingManager();
-manager.onProgress = function (item, loaded, total) {
-  console.log(item, loaded, total);
+const manager = new THREE.LoadingManager()
+const mtlLoader = new MTLLoader(manager)
+const objLoader = new OBJLoader()
+
+manager.onProgress = (item, loaded, total)=> {
+  let percentLoaded = Number(loaded/total*100).toFixed()
+  console.log(item, percentLoaded+'%')
 };
 
-const mtlLoader = new MTLLoader(manager);
-const objLoader = new OBJLoader();
-
 mtlLoader.setPath(modelPath)
-  .load(mtlFile, handleMaterial)
+  .load(mtlFile, handleMaterialLoaded)
 
-function handleMaterial(materials) {
+function handleMaterialLoaded(materials) {
   materials.preload()
   objLoader.setMaterials(materials)
   objLoader.setPath(modelPath)
-    .load(objFile, handleObject)
+    .load(objFile, handleObjectLoaded)
 }
 
-function handleObject(object) {
+function handleObjectLoaded(object) {
   jet = object
   jet.position.x = -.5
   jet.position.y = .25
@@ -64,6 +65,6 @@ function handleObject(object) {
 
 function animate() {
   renderer.render(scene, camera)
-  jet.rotation.z += .01
+  jet.rotation.z += .05
   requestAnimationFrame(animate)
 }
