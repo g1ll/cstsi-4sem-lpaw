@@ -15,15 +15,15 @@ const camera = new THREE.PerspectiveCamera(
   0.1, //Plano proximo
   100//Plano distante
 );
-camera.position.z = 1.3
+camera.position.z = 1.5
 
 //Luz
 var light = new THREE.AmbientLight(0xffffff, 5);
 scene.add(light);
 
 //Ponto de Luz
-var plight = new THREE.PointLight(0xffffff, 50);
-plight.position.set(10, 10, -10);
+var plight = new THREE.PointLight(0xffffff, 10);
+plight.position.set(10, 10, 0);
 scene.add(plight);
 
 let jet //referencia global ao modelo f15
@@ -65,6 +65,6 @@ function handleObjectLoaded(object) {
 
 function animate() {
   renderer.render(scene, camera)
-  jet.rotation.z += .05
+  jet.rotation.z += .01
   requestAnimationFrame(animate)
 }

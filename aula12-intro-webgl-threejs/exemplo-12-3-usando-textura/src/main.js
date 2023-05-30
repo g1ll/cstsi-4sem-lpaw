@@ -12,7 +12,7 @@ const camera = new THREE.PerspectiveCamera(
 	75, //campo de visao vertical
 	aspecto, //aspecto da imagem (Largura/Altura)
 	0.1, //Plano proximo
-	200//Plano distante
+	100//Plano distante
 );
 camera.position.z = 100
 
@@ -44,7 +44,7 @@ function animate() {
 	cube.rotation.x += .01
 	cube.rotation.z += .01
 
-	move()
+	// move()
 
 	requestAnimationFrame(animate)
 }
