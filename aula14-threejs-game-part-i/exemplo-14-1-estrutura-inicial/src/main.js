@@ -15,7 +15,7 @@ const camera = new THREE.PerspectiveCamera(
   40, window.innerWidth / window.innerHeight, 0.1, 1000
 );
 
-camera.position.z = 1
+camera.position.z = 2
 
 //Resimensionamento da camera ao redimensionar a tela
 window.addEventListener('resize', () => {
@@ -27,15 +27,19 @@ window.addEventListener('resize', () => {
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
-var light = new THREE.AmbientLight(0xffffff, 10);
+const light = new THREE.AmbientLight(0xffffff, 10);
 scene.add(light);
 
-var plight = new THREE.PointLight(0xffffff, 50, 50);
+const plight = new THREE.PointLight(0xffffff, 50, 50);
 plight.position.set(0, 25, -10);
 scene.add(plight);
 
-let model
-const modelPath = 'models/f15c/'
+//criacao do skybox
+const skyBox = await createSkyBox('bluesky', 200)
+skyBox.position.y = 1
+scene.add(skyBox)
+
+const jetPath = 'models/f15c/'
 const mtlFile = 'f15c.mtl'
 const objFile = 'f15c.obj'
 
@@ -47,27 +51,17 @@ manager.onProgress = (item, loaded, total) => {
 const mtlLoader = new MTLLoader(manager);
 const objLoader = new OBJLoader();
 
-mtlLoader.setPath(modelPath)
-  .load(mtlFile, (materials) => {
-    materials.preload()
-    objLoader.setMaterials(materials)
-    objLoader.setPath(modelPath).load(objFile, (object) => {
-      model = object
-      model.scale.setScalar(.5)//redimensiona o objeto
-      model.position.x = .05
-      model.rotation.z = .5
-      scene.add(model)
-      createSkyBox('bluesky', 200)
-        .then(sky=> {
-          sky.position.y = 1
-          console.log('sky created')
-          console.log(sky)
-          scene.add(sky)
-          animate()
-        })
-        .catch(error => console.log(error));
-    })
-  })
+mtlLoader.setPath(jetPath)
+objLoader.setPath(jetPath)
+
+objLoader.setMaterials(await mtlLoader.loadAsync(mtlFile))
+const jet = await objLoader.loadAsync(objFile)
+const jetJoystick = { x: null, y: null }
+jet.scale.setScalar(.5)//redimensiona o objeto
+jet.position.y = -.2
+scene.add(jet)
+
+animate()
 
 function animate() {
   controls.update();
@@ -85,7 +79,7 @@ window.addEventListener('mousemove', event => {
     let ww = window.innerWidth
     let my = event.clientY
     let mx = event.clientX
-    if (model) model.rotation.x += (my - wh / 2) / wh / 100
-    if (model) model.rotation.z -= (mx - ww / 2) / ww / 100
+    if (jet) jet.rotation.x += (my - wh / 2) / wh / 100
+    if (jet) jet.rotation.z -= (mx - ww / 2) / ww / 100
   }
 })
