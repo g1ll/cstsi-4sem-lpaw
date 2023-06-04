@@ -69,17 +69,18 @@ function animate() {
   requestAnimationFrame(animate)
 }
 
+function updateJoystick(event) {
+  if (!event.buttons) {
+    jetJoystick.x = event.clientX
+    jetJoystick.y = event.clientY
+  } else {
+    jetJoystick.x = null
+    jetJoystick.y = null
+  }
+}
+
 window.addEventListener('click',evento=>{
   console.log(evento.clientX)
 });
 
-window.addEventListener('mousemove', event => {
-  if (!event.buttons) {
-    let wh = window.innerHeight
-    let ww = window.innerWidth
-    let my = event.clientY
-    let mx = event.clientX
-    if (jet) jet.rotation.x += (my - wh / 2) / wh / 100
-    if (jet) jet.rotation.z -= (mx - ww / 2) / ww / 100
-  }
-})
+window.addEventListener('mousemove', updateJoystick)
