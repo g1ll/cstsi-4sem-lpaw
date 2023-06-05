@@ -74,6 +74,7 @@ function updateJoystick(event) {
   if (!event.buttons) {
     jetJoystick.x = event.clientX
     jetJoystick.y = event.clientY
+    console.log(jetJoystick)
   } else {
     jetJoystick.x = null
     jetJoystick.y = null
