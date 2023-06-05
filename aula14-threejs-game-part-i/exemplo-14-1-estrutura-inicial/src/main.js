@@ -35,12 +35,9 @@ plight.position.set(0, 25, -10);
 scene.add(plight);
 
 //criacao do skybox
-let skyBox;
-createSkyBox('bluesky', 200).then(sky=>{
-  skyBox = sky
-  skyBox.position.y = 1
-  scene.add(skyBox)
-})
+const skyBox = await createSkyBox('bluesky', 200)
+skyBox.position.y = 1
+scene.add(skyBox)
 
 const jetPath = 'models/f15c/'
 const mtlFile = 'f15c.mtl'
@@ -57,18 +54,13 @@ const objLoader = new OBJLoader();
 mtlLoader.setPath(jetPath)
 objLoader.setPath(jetPath)
 
-let jet
-mtlLoader.loadAsync(mtlFile).then(material=>{
-  objLoader.setMaterials(material)
-  objLoader.loadAsync(objFile).then((obj)=>{
-    jet = obj
-    jet.scale.setScalar(.5)//redimensiona o objeto
-    jet.position.y = -.2
-    scene.add(jet)
-  })
-})
-
+objLoader.setMaterials(await mtlLoader.loadAsync(mtlFile))
+const jet = await objLoader.loadAsync(objFile)
 const jetJoystick = { x: null, y: null }
+jet.scale.setScalar(.5)//redimensiona o objeto
+jet.position.y = -.2
+scene.add(jet)
+
 animate()
 
 function animate() {
