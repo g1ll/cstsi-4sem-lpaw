@@ -36,7 +36,8 @@ scene.add(plight);
 
 //criacao do skybox
 let skyBox;
-createSkyBox('bluesky', 200).then(()=>{
+createSkyBox('bluesky', 200).then(sky=>{
+  skyBox = sky
   skyBox.position.y = 1
   scene.add(skyBox)
 })
