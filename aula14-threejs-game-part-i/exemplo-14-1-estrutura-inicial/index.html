@@ -25,6 +25,14 @@
 <body>
   <div id="app"></div>
   <script type="module" src="src/main.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./node_modules/three/build/three.module.js",
+        "three/examples/jsm/": "./node_modules/three/examples/jsm/" // THIS DOES NOT WORK
+      }
+    }
+  </script>
 </body>
 
 </html>
