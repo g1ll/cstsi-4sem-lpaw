@@ -1,7 +1,13 @@
-export default {
-  build: {
-    target: 'esnext', //browsers can handle the latest ES features
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  esbuild: {
+    supported: {
+      'top-level-await': true //browsers can handle top-level-await features
+    },
+  },
+  build:{
     sourcemap:true,
   },
   publicDir:'../assets'
-}
+})
