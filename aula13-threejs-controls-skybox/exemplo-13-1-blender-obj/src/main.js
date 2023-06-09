@@ -17,16 +17,20 @@ const camera = new THREE.PerspectiveCamera(
 );
 
 camera.position.z = 1.2
-const controls = new OrbitControls(camera, renderer.domElement);
 
 //Luz
 var light = new THREE.AmbientLight(0xffffff, 10);
 scene.add(light);
 
 //Ponto de Luz
-var plight = new THREE.PointLight(0xffffff, 15);
-plight.position.set(1, -2, 2);
+var plight = new THREE.PointLight(0xffffff, 10);
+plight.position.set(1,-1,2)
+plight.distance=10
 scene.add(plight);
+
+const helper = new THREE.PointLightHelper(plight)
+scene.add(helper)
+
 
 const modelPath = 'models/suzanne/'
 const objFile = 'suzanne.obj'
@@ -42,8 +46,11 @@ const monkey = {};
 
 objLoader.setPath(modelPath)
   .load(objFile, (object) => {
-    // object.traverse(child =>child.material?.color.setHex(0xff0011));
-    object.traverse(child =>child.material = new THREE.MeshStandardMaterial({color: 0xff0011 }));
+    object.traverse(child =>child.material?.color.setHex(0xff0011));
+    // object.traverse(child =>{
+    //   child.material = new THREE.MeshStandardMaterial({color: 0xff0011 })
+    //   return child
+    // });
     monkey.model = object
     scene.add(object)
     renderer.render(scene, camera)
@@ -52,6 +59,5 @@ objLoader.setPath(modelPath)
 
 function animate() {
   requestAnimationFrame(animate);
-  controls.update();
   renderer.render(scene, camera);
 }
