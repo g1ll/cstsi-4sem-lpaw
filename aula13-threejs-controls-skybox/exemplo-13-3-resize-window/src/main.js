@@ -15,12 +15,14 @@ const camera = new THREE.PerspectiveCamera(
   0.1, //Plano proximo
   100//Plano distante
 );
-camera.position.z = 1
-
+let ww = window.innerWidth
+camera.position.z = ww
 //Ajuste da camera de acordo com redimensionamento da tela
 window.addEventListener('resize', ()=>{
   camera.aspect = window.innerWidth / window.innerHeight
   camera.updateProjectionMatrix()
+  camera.position.z += (ww - window.innerWidth)*.00001
+  //todo modelar com a divisão
   renderer.setSize(window.innerWidth, window.innerHeight)
 }, false)
 
@@ -63,7 +65,10 @@ function loadJet(){
         jet = object
         jet.rotation.x = 0
         jet.rotation.y = 90*Math.PI/180
-        jet.position.z = -.5
+        // jet.position.z = -.5
+        jet.position.z  = ww-2
+        console.log(ww)
+        console.log(camera.position.z)
         scene.add(jet)
         console.log(`Carregou ${filename}.obj`)
         renderer.render(scene, camera)

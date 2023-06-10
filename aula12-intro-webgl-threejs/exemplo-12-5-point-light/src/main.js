@@ -23,8 +23,10 @@ camera.position.z = 40
 //Luz
 const light = new THREE.AmbientLight(0xffffff,5);
 scene.add(light);
-let p = 100
+
+
 //Ponto de Luz
+let p = 30
 const plight = new THREE.PointLight(0xffffff, 50);
 plight.position.set(p,5,5)
 scene.add(plight);
@@ -77,6 +79,7 @@ function handleObjectLoaded(object) {
 function animate() {
   renderer.render(scene, camera)
   p-=.2
+  if(p< -30) p = 30
   plight.position.set(p,5,25)
   sphere.position.set(p,5,25)
   requestAnimationFrame(animate)

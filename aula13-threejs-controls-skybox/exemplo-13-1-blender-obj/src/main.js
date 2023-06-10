@@ -16,15 +16,15 @@ const camera = new THREE.PerspectiveCamera(
   100//Plano distante
 );
 
-camera.position.z = 1.2
+camera.position.z = 4
 
-//Luz
+// //Luz
 var light = new THREE.AmbientLight(0xffffff, 10);
 scene.add(light);
 
 //Ponto de Luz
 var plight = new THREE.PointLight(0xffffff, 10);
-plight.position.set(1,-1,2)
+plight.position.set(1,3,0)
 plight.distance=10
 scene.add(plight);
 
@@ -53,11 +53,11 @@ objLoader.setPath(modelPath)
     // });
     monkey.model = object
     scene.add(object)
-    renderer.render(scene, camera)
     animate()
   })
 
 function animate() {
-  requestAnimationFrame(animate);
+  monkey.model.rotation.y+=.01
   renderer.render(scene, camera);
+  requestAnimationFrame(animate);
 }

@@ -33,13 +33,17 @@ const controls = new OrbitControls(camera, renderer.domElement);
 
 // const skyboxGeo = new THREE.BoxGeometry(10, 10, 10);
 const skyboxGeoCylinder = new THREE.CylinderGeometry(100, 100, 10, 64, 1, false, 0, 2 * Math.PI)
-//let skyColor = 0xa0cdfa
+// let skyColor = 0xa0cdfa
 // let skyColor = new THREE.Color( 'skyblue' );
 let skyColor = new THREE.Color("hsl(200, 70%, 75%)");
 let seaColor = new THREE.Color("hsl(200, 70%,20%)");
 
-// const skyMaterial = new THREE.MeshBasicMaterial({color:skyColor, side: THREE.BackSide })
-// const skyMaterial = [
+// const skyMaterial = new THREE.MeshBasicMaterial({
+//   color:skyColor,
+//   side: THREE.BackSide 
+//   })
+
+//   const skyMaterial = [
 //   new THREE.MeshBasicMaterial({color:skyColor, side: THREE.BackSide }), //FRONT
 //   new THREE.MeshBasicMaterial({color:skyColor, side: THREE.BackSide }), //BACK
 //   new THREE.MeshBasicMaterial({color:skyColor, side: THREE.BackSide }), //UP
