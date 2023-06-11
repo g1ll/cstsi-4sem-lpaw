@@ -158,7 +158,7 @@ function showEnemyHit(enemy){
   scene.add(newSphere)
   camera.position.copy(enemy.hit.center)
   camera.position.z-=5
-  camera.position.y+=2
+  camera.position.y+=1
   controls.object.position.copy(camera.position);
   controls.target = enemy.model.position
 }
