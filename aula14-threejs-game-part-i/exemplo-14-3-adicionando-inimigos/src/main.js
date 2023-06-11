@@ -74,7 +74,15 @@ enemyObjLoader.setMaterials(await enemyMtlLoader.loadAsync(enemyMtlFile))
 const enemy = await enemyObjLoader.loadAsync(objFile)
 enemy.scale.setScalar(.5)//redimensiona o objeto
 
+enemy.position.y = .4
+enemy.position.z = -(Math.random() * 100 + 10)
+enemy.position.x = Math.random() * (Math.random() > .5 ? 5 : -5);
+enemy.rotateY(3.14)
 
+const enemiesQtd = 10
+const enemies = Array.from({ length: enemiesQtd })
+enemies.map(() =>enemy.clone())
+enemies.forEach((e) =>scene.add(e.model))
 
 animate()
 
