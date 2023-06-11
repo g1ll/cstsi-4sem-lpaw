@@ -79,33 +79,37 @@ enemy.position.z = -(Math.random() * 100 + 10)
 enemy.position.x = Math.random() * (Math.random() > .5 ? 5 : -5);
 enemy.rotateY(3.14)
 
-const enemiesQtd = 10
-const enemies = Array.from({ length: enemiesQtd }).map(()=>enemy.clone())
-enemies.forEach(enemy =>scene.add(enemy))
-
-function moveEnemy(enemy) {
-  enemy.position.z += 0.5
-  if (enemy.position.z > 100) {
-    enemy.position.z = -(Math.random() * 500 + 100)
-    enemy.position.x = Math.random() * (Math.random() > .5 ? 5 : -5);
-  }
-}
-
 const hitRadius = .125;
-const sphere_geometry = new THREE.SphereGeometry(hitRadius/2, 64, 32);
+const sphere_geometry = new THREE.SphereGeometry(hitRadius / 2, 64, 32);
 const sphereColor = new THREE.MeshStandardMaterial({ color: 0xffff00 });
 const sphere = new THREE.Mesh(sphere_geometry, sphereColor);
 const hitSphere = new THREE.Sphere(new THREE.Vector3(0, 0, 0), hitRadius)
+
 jet.shots = new Array()
 
-function fire(){
+const enemiesQtd = 10
+const enemies = Array.from({ length: enemiesQtd }).map(() => ({
+  model: enemy.clone(),
+  hit: hitSphere.clone(),
+}))
+enemies.forEach(enemy => scene.add(enemy.model))
+
+function moveEnemy(enemy) {
+  enemy.model.position.z += 0.5
+  if (enemy.model.position.z > 100) {
+    enemy.model.position.z = -(Math.random() * 500 + 100)
+    enemy.model.position.x = Math.random() * (Math.random() > .5 ? 5 : -5);
+  }
+}
+
+function fire() {
   const shot = {
     rx: jet.rotation.z,
     ry: jet.rotation.x,
     model: sphere.clone(),
     hit: hitSphere.clone(),
   }
-  shot.hit.radius = hitRadius/2
+  shot.hit.radius = hitRadius / 2
   shot.model.material.transparent = true
   shot.model.material.opacity = .5
   shot.model.material.emissive = new THREE.Color(0xffff00)
@@ -123,7 +127,7 @@ function updateShots() {
   if (jet.shots.length > 0) {
     jet.shots.forEach((shot) => {
       shot.model.position.z -= 1
-      shot.model.position.x += -shot.rx /2 
+      shot.model.position.x += -shot.rx / 2
       shot.model.position.y += shot.ry / 5
       shot.hit.center.copy(shot.model.position)
     })
@@ -143,7 +147,7 @@ function animate() {
   controls.update();
   moveJet()
   updateShots()
-  enemies.forEach(e=>moveEnemy(e))
+  enemies.forEach(e => moveEnemy(e))
   renderer.render(scene, camera)
   requestAnimationFrame(animate)
 }
@@ -185,13 +189,13 @@ function moveJet() {
   }
 }
 
-window.addEventListener('click',evento=>{
+window.addEventListener('click', evento => {
   console.log(evento.clientX)
 });
 
 window.addEventListener('mousemove', updateJoystick)
 
-window.addEventListener('keydown',evento=>{
-  if(evento.key == ' ' || evento.key == 'Enter' )
+window.addEventListener('keydown', evento => {
+  if (evento.key == ' ' || evento.key == 'Enter')
     fire()
 });
