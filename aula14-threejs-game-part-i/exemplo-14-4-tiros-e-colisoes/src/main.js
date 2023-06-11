@@ -100,6 +100,7 @@ function moveEnemy(enemy) {
     enemy.model.position.z = -(Math.random() * 500 + 100)
     enemy.model.position.x = Math.random() * (Math.random() > .5 ? 5 : -5);
   }
+  enemy.hit.center.copy(enemy.model.position)
 }
 
 function fire() {
@@ -117,10 +118,8 @@ function fire() {
   shot.model.material.metalness = 1
   shot.model.position.set(...jet.position)
   shot.hit.center.copy(shot.model.position)
-  console.log(shot)
   scene.add(shot.model)
   jet.shots.push(shot)
-  console.log(jet.shots.length)
 }
 
 function updateShots() {
@@ -141,13 +140,47 @@ function updateShots() {
   }
 }
 
+let GAME_PAUSED = false
+
+
+function shootDown(enemy) {
+  if (jet.shots.length == 0) return false;
+  return jet.shots.find(shot => shot.hit.intersectsSphere(enemy.hit))
+}
+
+function showEnemyHit(enemy){
+  const sphere_geometry = new THREE.SphereGeometry(hitRadius, 64, 32);
+  const sphereColor = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+  const newSphere = new THREE.Mesh(sphere_geometry, sphereColor);
+  newSphere.material.transparent = true
+  newSphere.material.opacity = .25
+  newSphere.position.copy(enemy.hit.center)
+  scene.add(newSphere)
+  camera.position.copy(enemy.hit.center)
+  camera.position.z-=5
+  camera.position.y+=2
+  controls.object.position.copy(camera.position);
+  controls.target = enemy.model.position
+}
+
+controls.enabled = false 
 animate()
 
 function animate() {
-  controls.update();
-  moveJet()
-  updateShots()
-  enemies.forEach(e => moveEnemy(e))
+  controls.update()
+  if (!GAME_PAUSED) {
+    moveJet()
+    updateShots()
+    enemies.forEach(e => {
+      moveEnemy(e)
+      if (shootDown(e)) {
+        showEnemyHit(e)
+        GAME_PAUSED = true
+        controls.enabled = true
+        console.error('COLIDIU!!!')
+      }
+    })
+  }
   renderer.render(scene, camera)
   requestAnimationFrame(animate)
 }
@@ -156,7 +189,6 @@ function updateJoystick(event) {
   if (!event.buttons) {
     jetJoystick.x = event.clientX
     jetJoystick.y = event.clientY
-    console.log(jetJoystick)
   } else {
     jetJoystick.x = null
     jetJoystick.y = null
@@ -188,10 +220,6 @@ function moveJet() {
       jet.rotation.y = .5 * (jet.rotation.y / Math.abs(jet.rotation.y))
   }
 }
-
-window.addEventListener('click', evento => {
-  console.log(evento.clientX)
-});
 
 window.addEventListener('mousemove', updateJoystick)
 
