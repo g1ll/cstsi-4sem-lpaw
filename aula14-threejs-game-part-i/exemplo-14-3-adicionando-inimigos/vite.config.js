@@ -4,5 +4,4 @@ export default defineConfig({
   build: {
     target:'esnext'
   },
-  publicDir:'../assets'
 })

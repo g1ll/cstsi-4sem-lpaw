@@ -80,15 +80,23 @@ enemy.position.x = Math.random() * (Math.random() > .5 ? 5 : -5);
 enemy.rotateY(3.14)
 
 const enemiesQtd = 10
-const enemies = Array.from({ length: enemiesQtd })
-enemies.map(() =>enemy.clone())
-enemies.forEach((e) =>scene.add(e.model))
+const enemies = Array.from({ length: enemiesQtd }).map(()=>enemy.clone())
+enemies.forEach(enemy =>scene.add(enemy))
+
+function moveEnemy(enemy) {
+  enemy.position.z += 0.5
+  if (enemy.position.z > 100) {
+    enemy.position.z = -(Math.random() * 500 + 100)
+    enemy.position.x = Math.random() * (Math.random() > .5 ? 5 : -5);
+  }
+}
 
 animate()
 
 function animate() {
   controls.update();
   moveJet()
+  enemies.forEach(e=>moveEnemy(e))
   renderer.render(scene, camera)
   requestAnimationFrame(animate)
 }
