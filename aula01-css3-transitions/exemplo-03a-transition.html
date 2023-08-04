@@ -16,12 +16,13 @@
             transition-delay: 0.5s;
             transition-timing-function: ease-out;  */
            
-            transition: transform 1s 500ms steps(1,jump-end);
+            transition: transform 1s 500ms steps(4,jump-end),
+                        background-color 10s ease;
           }
           
           div:hover {
             transform: translate(200px, 0px);
-            border-radius: 100%;
+            border-radius: 50%;
             background-color: blue;
             box-shadow: 5px 5px 5px red;
           }
