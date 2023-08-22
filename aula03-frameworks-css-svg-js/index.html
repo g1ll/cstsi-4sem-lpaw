@@ -12,7 +12,7 @@
 	<link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
 	<style>
 		h1 a{
-			color:#92cc41;
+			color:#cc4141;
 		}
 		h1 a:hover{
 			color:#92cc41;
@@ -63,15 +63,16 @@
 			{ path: 'exemplo-03-svg-smil', title: 'Exemplo 03: SVG e SMIL' },
 			{ path: 'exemplo-04-smil-alt', title: 'Exemplo 04: Alternativas ao SMIL' },
 		]
+
 		const DOMlist = document.querySelector('ul')
-		links.forEach((item) => DOMlist.innerHTML += `
-			<li>
-				<a href="pages/${item.path}/">
-					<button type="button" class="nes-btn is-primary">>></button>
-					${item.title}
-				</a>
-			</li>
-		` )
+		links.forEach((item,index) => DOMlist.innerHTML += `
+		<li>
+			<a href="pages/${item.path}/">
+				<button type="button" class="nes-btn is-primary">>></button>
+				${index+1}-${item.title}
+			</a>
+		</li>
+	` )
 	</script>
 </body>
 

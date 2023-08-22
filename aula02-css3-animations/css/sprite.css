@@ -5,38 +5,36 @@ body{
     justify-content: center;
 }
 
-/* div{
+div{
     background-image: url('../img/goblin_big.png');
     background-size: 480px 730px;
-    width:160px;
+    width:  160px;
     height: 180px;
     background-repeat: no-repeat;
     background-clip: content-box;
     background-position: 0px 0px;
     
 	animation-name: div-sprite;
-    animation-duration:1000ms;
-    animation-iteration-count: infinite;
-    animation-timing-function: step-end;
-} */
+  animation-duration:.5ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: step-end;
+  animation-play-state: paused;
+
+}
 
 @keyframes div-sprite{
-     0%,100%{
-		background-position: 0px 0px;
-		/* transform: translateY(0px); */
-	}
-     25%{
+  0%{
 		background-position: -170px 0px;
 		/* transform: translateY(2px); */
 	}
-     50%{
+     100%{
 		background-position: -330px 0px;
 		/* transform: translateY(4px); */
 	}
-     75%{
-		background-position: -170px 0px;
-		/* transform: translateY(8px); */
-	}
+}
+
+div:hover{
+  animation-play-state: running;
 }
 
 img {

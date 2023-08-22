@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>CSTI-4SEM-LPAW-Aula 01 | CSS3 Animação: Exemplo 10</title>
+        <meta name="description" content="  ">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            img {
+                width: 160px;
+                height: 180px;
+                object-fit: none;
+                object-position: 40% 90%;
+                animation-name: img-sprite;
+                animation-duration:1s;
+                animation-iteration-count: infinite;
+                animation-timing-function: step-end;
+              }
+              
+              @keyframes img-sprite{
+                  0%,100%{
+					object-position: 0% 67%;
+					transform: translateX(0px);
+				 }
+                  25%{object-position: 50% 67%;transform: translateX(50px);}
+                  50%{object-position: 100% 67%;transform: translateX(100px);}
+              } 
+        </style>
+    </head>
+    <body>
+        <img src="img/goblin_big.png" alt="Globin">
+    </body>
+</html>

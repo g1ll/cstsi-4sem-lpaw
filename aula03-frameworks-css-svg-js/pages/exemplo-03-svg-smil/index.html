@@ -36,7 +36,12 @@
 	<div class="nes-container with-title examples-containers">
 		<span class="title">Exemplo 3.1</span>
 		<svg width="500" height="100">
-			<circle id="blue-circle" r="30" cx="50" cy="50" fill="#209cee" />
+			<circle 
+				id="blue-circle"
+				r="30"
+				cx="50"
+				cy="50" fill="#209cee" />
+
 			<animate 
 				xlink:href="#blue-circle"
 				attributeName="cx"
@@ -48,9 +53,14 @@
 	</div>
 	<div class="nes-container with-title examples-containers">
 		<span class="title">Exemplo 3.2</span>
-		<svg width="500" height="350" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<svg width="500" height="350" 
+				xmlns:xlink="http://www.w3.org/1999/xlink"
+			>
 			<circle id="orange-circle" r="30" cx="50" cy="50" fill="orange" />
-			<rect id="blue-rectangle" width="50" height="50" x="25" y="200" fill="#0099cc"></rect>
+			<rect 
+				id="blue-rectangle" 
+				width="50" height="50" 
+				x="25" y="200" fill="#0099cc"></rect>
 
 			<animate 
 				xlink:href="#orange-circle" 
@@ -61,7 +71,7 @@
 			<animate xlink:href="#blue-rectangle" 
 				attributeName="x" from="50" to="425" 
 				dur="1s"
-				begin="orange-circle.click + .01s"
+				begin="orange-circle.click + 1s"
 				fill="freeze" id="rect-anim" />
 
 		</svg>
@@ -73,7 +83,7 @@
 			 fill="none" xmlns="http://www.w3.org/2000/svg"
 			  xmlns:xlink="http://www.w3.org/1999/xlink">
 			<g id="AnimationButton">
-				<g id="first" fill="#717171" fill-opacity="1" >
+				<g id="first" fill="#FF0000" fill-opacity="1" >
 					<rect id="rect2" x="5" y="6" width="30" height="5"  />
 					<rect id="rect3" x="5" y="14" width="30" height="5"  />
 					<rect id="rect4" x="5" y="22" width="30" height="5"  />
@@ -89,7 +99,7 @@
 			<animate xlink:href="#first" 
 				attributeName="fill-opacity" 	
 				from="1" to="0" 
-				dur="1s" begin="click"
+				dur=".5s" begin="click"
 				fill="freeze" id="first-anim" />
 
 			<animate xlink:href="#second" 
@@ -178,13 +188,13 @@
 					attributeName="fill"
 					dur="1440ms"
 					repeatCount="indefinite"
-					 keyTimes="0; 0.5; 1"
+					keyTimes="0; 0.5; 1"
 					calcMode="spline" 
 					keySplines="0.25, 0.1, 0.25, 1.0;
 						 		0.42, 0.0, 1.0, 1.0" 
-					values="#FF0F0F;
-						 	#00FF38;
-							#2C3099;" />
+					values="#FF0000;
+						 	#00FF00;
+							#0000FF;" />
 			</path>
 		</svg>
 	</div>
@@ -192,34 +202,41 @@
 		<span class="title">Exemplo 3.6</span>
 		<svg>
 			<path fill="#1EB287">
-				<animate attributeName="d" dur="1440ms" repeatCount="indefinite" keyTimes="0;
-								   .0625;
-								   .208333333;
-								   .3125;
-								   .395833333;
-								   .645833333;
-								   .833333333;
-								   1" calcMode="spline" keySplines="0,0,1,1;
-									 .42,0,.58,1;
-									 .42,0,1,1;
-									 0,0,.58,1;
-									 .42,0,.58,1;
-									 .42,0,.58,1;
-									 .42,0,.58,1" values="M 0,0 
-								 C 50,0 50,0 100,0
-								 100,50 100,50 100,100
-								 50,100 50,100 0,100
-								 0,50 0,50 0,0
-								 Z;
+				<animate 
+					attributeName="d" 
+					dur="1440ms" 
+					repeatCount="indefinite"
+					 keyTimes="0;
+								.0625;
+								.208333333;
+								.3125;
+								.395833333;
+								.645833333;
+								.833333333;
+								1"
+					 calcMode="spline"
+					keySplines="0,0,1,1;
+								.42,0,.58,1;
+								.42,0,1,1;
+								0,0,.58,1;
+								.42,0,.58,1;
+								.42,0,.58,1;
+								.42,0,.58,1"
+					values="M 0,0 
+							C 50,0 50,0 100,0
+							100,50 100,50 100,100
+							50,100 50,100 0,100
+							0,50 0,50 0,0
+							Z;
 			
-								 M 0,0 
-								 C 50,0 50,0 100,0
-								 100,50 100,50 100,100
-								 50,100 50,100 0,100
-								 0,50 0,50 0,0
-								 Z;
+							M 0,0 
+							C 50,0 50,0 100,0
+							100,50 100,50 100,100
+							50,100 50,100 0,100
+							0,50 0,50 0,0
+							Z;
 			
-								 M 50,0 
+							M 50,0 
 								 C 75,25 75,25 100,50 
 								 75,75 75,75 50,100
 								 25,75 25,75 0,50
@@ -260,6 +277,7 @@
 								 0,50 0,50 0,0
 								 50,0 50,0 100,0
 								 Z;" />
+
 				<animate attributeName="fill" dur="1440ms" repeatCount="indefinite" keyTimes="0;
 								   .0625;
 								   .208333333;
@@ -289,7 +307,12 @@
 		<svg height="250px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
 			xmlns:xlink="http://www.w3.org/2000/svg" viewBox="800 0 800 800" xml:space="preserve">
 
-			<path id="motionPath" fill="none" stroke="#000000" stroke-miterlimit="10" stroke-width="0" d="M0 0H1000" />
+			<path id="motionPath" 
+				fill="#000000" 
+				stroke="#000000" 
+				stroke-miterlimit="10" 
+				stroke-width="0" 
+				d="M0 0H1000" />
 			<!-- <path id="motionPath" fill="none" stroke="#000000" stroke-miterlimit="10" stroke-width="0"
 				d="M20 20.7555C7.11831 14.0377 9.48556 5.75552 18.3333 5.75552C29.326 5.75552 40.8335 7.04851 51.3889 10.3111C66.7475 15.0583 82.0737 26.4676 98.6667 26.3111C109.713 26.2069 120.347 20.0627 129.444 14.4222C141.139 7.17182 153.898 4.38758 167.444 2.75552C182.843 0.900257 198.102 2.46409 212.778 7.42219C225.207 11.6213 236.794 15.6024 249.889 16.8111C266.044 18.3023 280.306 20.5558 296.556 17.2C304.463 15.5669 311.602 11.7669 319.333 9.5333C340.251 3.49029 364.893 -1.10865 386.111 5.0333C409.248 11.7309 428.629 33.4904 454.222 27.5333C464.873 25.0543 472.682 18.8838 482.444 14.7C501.457 6.55186 524.711 7.75552 545 7.75552" /> -->
 
@@ -347,7 +370,11 @@
 				<polygon style="fill:#171A1C;" points="318.259,122.092 185.864,122.092 252.062,188.282 " />
 			</g>
 
-			<animateMotion xlink:href="#blue-ranger" dur="3s" begin="click" fill="freeze" repeatCount="indefinite">
+			<animateMotion xlink:href="#blue-ranger" 
+				dur="3s" 
+				begin="click" 
+				fill="freeze" 
+				repeatCount="indefinite">
 				<mpath xlink:href="#motionPath" />
 			</animateMotion>
 		</svg>
