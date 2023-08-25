@@ -96,9 +96,9 @@
           animeLoading.play()
           interval = setInterval(()=>{
             count++
-            if(animeLoading.progress < count)
-              animeLoading.play()
-            else animeLoading.pause()
+            animeLoading.play()
+            if(animeLoading.progress > count)
+               animeLoading.pause()
             console.log({c:count,ap:animeLoading.progress});
           },100)
         }

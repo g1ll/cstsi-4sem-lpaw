@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/assets/img/favkart.ico" />
+  <!-- Google Font Press Start 2P -->
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />
+  <!-- latest -->
+  <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <title>CSTSI-LPAW Aula 04: Biblioteca AnimateCSS</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn {
+      margin: 15px;
+      width: 200px;
+    }
+
+    .examples-containers {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 5%;
+      width: 75%;
+    }
+
+    .container {
+      margin-top: 1%;
+      width: 95%;
+      display: flex;
+      flex-direction: row;
+      column-gap: 2%;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .skeleton {
+      width: 200px;
+      height: 200px;
+      background-image: linear-gradient(90deg, lightgrey, white, grey);
+      background-size: 600%;
+      background-repeat: no-repeat;
+      background-position: 0px 0px;
+      border-radius: 30px;
+    }
+
+    .cssanimated {
+      animation: skeletonLoder 1s ease-in 1s infinite;
+    }
+
+    @keyframes skeletonLoder {
+
+      0%,
+      100% {
+        background-position: 0px 0px;
+      }
+
+      50% {
+        background-position: -600px 0px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nes-container with-title examples-containers">
+    <span class="title">Exemplo 10.1 <a href="https://animate.style/">Animate.css<a></span>
+    <div class="container">
+      <div class="skeleton cssanimated"></div>
+      <div class="skeleton animate__animated animate__slow animate__flash animate__infinite infinite "></div>
+    </div>
+  </div>
+  <div>
+    <a href="/">
+      <button type="button" title="Voltar ao início!" class="nes-btn is-error btn">Voltar</button>
+    </a>
+  </div>
+</body>
+
+</html>
