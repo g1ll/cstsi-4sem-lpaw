@@ -160,7 +160,7 @@
       img.src = imgUrls[index].src
       item.appendChild(img)
       img.onload = ()=>{
-        console.info('LOAD: '+img.src)
+        console.error('LOAD: '+img.src)
         countLoaded++
       }
     })
@@ -171,7 +171,7 @@
       duration: 1000,
       autoplay: false,
       easing: "linear",
-      update: function (anim) {
+      update:  function (anim){
         if (loadingBar)
           loadingBar.style.width = anim.progress + "%"
 

@@ -95,7 +95,8 @@
         loadingBar.parentElement.onclick = () => {
           animeLoading.play()
           interval = setInterval(()=>{
-            count++
+            count+=.1
+    
             animeLoading.play()
             if(animeLoading.progress > count)
                animeLoading.pause()
@@ -106,5 +107,4 @@
     </div>
   </div>
 </body>
-
 </html>

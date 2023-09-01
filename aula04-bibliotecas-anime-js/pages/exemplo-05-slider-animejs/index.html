@@ -41,10 +41,10 @@
       flex-direction: row;
       column-gap: 2%;
       align-items: center;
-     
+
     }
 
-    .slider{
+    .slider {
       width: 90%;
       min-height: 300px;
     }
@@ -59,13 +59,14 @@
       list-style-type: none;
     }
 
-    .slider-element{
+    .slider-element {
       display: flex;
       justify-content: center;
-      width:100%;
+      width: 100%;
       height: 100%;
-     
+
     }
+
     .slider-element img {
       width: 100%;
     }
@@ -82,7 +83,7 @@
 
 <body>
   <h2 class="nes-text is-primary">
-    Slider de Imagens com 
+    Slider de Imagens com
     <a href="https://animejs.com/documentation/" target="_blank">AnimeJS</a>
   </h2>
   <div class="nes-container with-title examples-containers">
@@ -90,27 +91,24 @@
     <div class="slider-container">
       <div class="slider-prev">
         <a href="#">
-          <button type="button" class="nes-btn is-primary">&nbsp<<&nbsp</button>
+          <button type="button" class="nes-btn is-primary"> &nbsp<<&nbsp </button>
         </a>
       </div>
       <div class="slider">
         <ul class="slider-list">
           <li class="slider-item item-active">
             <div class="slider-element">
-              <img alt='img01'
-                src="../../assets/img/slider/princess.jpg" />
+              <img alt='img01' src="../../assets/img/slider/princess.jpg" />
             </div>
           </li>
           <li class="slider-item">
             <div class="slider-element">
-              <img alt='img02'
-                src="../../assets/img/slider/all_small.jpg" />
+              <img alt='img02' src="../../assets/img/slider/all_small.jpg" />
             </div>
           </li>
           <li class="slider-item">
             <div class="slider-element">
-              <img alt='img03'
-                src="../../assets/img/slider/luigi_small.jpg" />
+              <img alt='img03' src="../../assets/img/slider/luigi_small.jpg" />
             </div>
           </li>
         </ul>
@@ -131,10 +129,15 @@
   </div>
 
   <script>
-    const sliderItens = Array.from(document.querySelectorAll('.slider-item'))
+    const sliderElements = document.querySelectorAll('.slider-item')
+    console.log(sliderElements)
+    const sliderItens = Array.from(sliderElements)
+    console.log(sliderItens)
     const btnPrev = document.querySelector('.slider-prev')
     const btnNext = document.querySelector('.slider-next')
+
     let itemIndex = 0
+
     const deactivateItens = () => {
       sliderItens.forEach((element, index) => {
         if (index != itemIndex)
@@ -147,13 +150,13 @@
       console.log(element.querySelector('img'))
       anime({
         targets: element.querySelector('img'),
-        borderRadius:['30%', '5%'],
-        width:['75%','100%'],
+        borderRadius: ['30%', '5%'],
+        width: ['75%', '100%'],
         opacity: ['0%', '100%'],
         delay: 100,
-        duration: 100,
+        duration: 1000,
         loop: 1,
-        easing: "linear",
+        easing: "easeInQuad",
       })
       deactivateItens()
     }
@@ -164,8 +167,15 @@
     }
 
     btnNext.onclick = () => {
-      if (itemIndex < sliderItens.length - 1) 
+      if (itemIndex < sliderItens.length - 1) {
         showItem(sliderItens[++itemIndex])
+      }
+      else {
+        if (itemIndex == sliderItens.length - 1) {
+          itemIndex = 0
+          showItem(sliderItens[itemIndex])
+        }
+      }
     }
 
     showItem(sliderItens[itemIndex]);
