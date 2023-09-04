@@ -16,6 +16,17 @@
 		@import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
 		@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P');
 
+		@font-face {
+			font-family: "game";
+			src: url('../assets/fonts/gameplay.ttf');
+		}
+
+		@font-face {
+			font-family: "alien";
+			src: url('../assets/fonts/alien_encounters/Alien-Encounters-Regular.ttf');
+		}
+
+
 		body {
 			display: flex;
 			flex-direction: column;
@@ -39,12 +50,15 @@
 			font-family: 'Press Start 2P';
 			border: 3px dashed blue;
 		}
+		
 		.loadFont{
-			font-family: 'Poor Story';
+			font-family: 'alien';
 		}
+		
 		div {
 			flex-direction: column;
 			justify-items: center;
+			
 		}
 
 		p {
@@ -73,16 +87,17 @@
 			<button type="button" title='Voltar ao início!' class="nes-btn is-error btn">Voltar</button>
 		</a>
 	</div>
-	<p class="loadFont">&nbsp;</p>
+	<p class="loadFont">&nbsp;Carregar fonte...</p>
 	<script>
 		const canvas = document.querySelector('canvas')
 		const ctx = canvas.getContext('2d');
-		let textSize = 42;
-		let font = 'Poor Story';
+		let textSize = 48;
+		//let font = 'Poor Story';
 		//let font = 'Press Start 2P'
-		ctx.font = `bold ${textSize}px ${font}`;
+		let font = 'alien';
+		ctx.font = `${textSize}px ${font}`;
 		ctx.textBaseline = "top";
-		let texto = "Fontes Externas no Canvas HTML5!";
+		let texto = "Fontes Externas!";
 		let textMetric = ctx.measureText(texto)
 		console.log(textMetric);
 		ctx.fillStyle = "#f00";

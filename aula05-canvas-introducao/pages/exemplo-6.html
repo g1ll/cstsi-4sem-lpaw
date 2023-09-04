@@ -56,19 +56,29 @@
 			const ctx = canvas.getContext('2d');
 			ctx.lineWidth = 3;
 			ctx.beginPath();
-			ctx.arc(35,35,20,0,2*Math.PI)
+			ctx.arc(350,150,100,
+				Math.PI/180*90,
+				Math.PI*2)
+			ctx.lineTo(350,150)
+			ctx.lineTo(350,250)
 			ctx.fillStyle = 'blue';
 			ctx.strokeStyle = '#000';
 			ctx.fill();
 			ctx.stroke();
-
-			/*
+		
+			ctx.beginPath();
+			ctx.arc(35,35,20,
+				0,Math.PI/180*360)
+			ctx.fillStyle = 'orange';
+			ctx.strokeStyle = 'orange';
+			ctx.fill();
+			ctx.stroke()
+			
 			ctx.beginPath();
 			ctx.arc(35,11,5,Math.PI/180*110,Math.PI/180*300)
 			ctx.fillStyle = '#080';
-			ctx.strokeStyle = 'orange';
 			ctx.fill();
-			*/
+			
 		}
 	</script>
 </head>

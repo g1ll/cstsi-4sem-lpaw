@@ -78,16 +78,19 @@
 		window.addEventListener("load", canvasApp, false)
 
 		function canvasApp() {
+			
 			const canvas = document.querySelector('canvas')
 			const ctx = canvas.getContext('2d');
+
 			ctx.fillStyle = "#003";
 			ctx.fillRect(0,0,canvas.width, canvas.height)
+
 			ctx.shadowColor = "yellow";
+			let textSize = 64;
 			ctx.shadowOffsetX = 0;
 			ctx.shadowOffsetY = 0;
 			ctx.shadowBlur = 10;
 
-			let textSize = 64;
 			ctx.font = `bold ${textSize}px 'Poor Story', cursive`;
 			ctx.textBaseline = "top";
 			let texto = "Olá Canvas!";
@@ -98,7 +101,6 @@
 				canvas.width / 2 - textMetric.width / 2,
 				canvas.height / 2 - textSize)
 			
-		
 			ctx.shadowOffsetX = 0;
 			ctx.shadowOffsetY = 0;
 			ctx.shadowBlur = 0;

@@ -55,14 +55,16 @@
 			const canvas = document.querySelector('canvas')
 			const ctx = canvas.getContext('2d');
 			ctx.lineWidth = 5;
-			ctx.fillStyle = 'red';
+			ctx.strokeStyle = '#00f';
 			ctx.beginPath();
 			ctx.moveTo(10,20);
-			ctx.lineTo(80,50);//top line
-			ctx.lineTo(70,100);//right line
-			ctx.lineTo(5,70);//bottom line
-			ctx.lineTo(10,20);//left line
-			ctx.fill();
+			ctx.lineTo(50,20);//top line
+			ctx.lineTo(50,70);//right line
+			ctx.lineTo(10,70);//bottom line
+			ctx.lineTo(10,18);//left line
+			ctx.stroke();
+			ctx.strokeStyle = '#f00';
+			ctx.strokeRect(60,20,40,50)
 
 			let rw = 100;
 			let rh = rw;
@@ -76,13 +78,16 @@
 			ctx.lineTo(rx,ry+rh);
 			ctx.lineTo(rx,ry-2.1);
 			ctx.stroke();
+			//ctx.closePath();
 
 			ctx.strokeStyle = "#00F";
 			ctx.beginPath();
-			ctx.rect(300,220,100,100)
-			ctx.stroke(); //strokeStyle
-
-			ctx.strokeRect(450,220,100,100)
+			ctx.rect(300,180,100,100)
+			//ctx.stroke(); //strokeStyle
+			//ctx.strokeRect(450,220,100,100)
+			ctx.fillStyle = "#0F0";
+			ctx.fill()
+			//ctx.fillRect(300,180,100,100)
 		}
 	</script>
 </head>

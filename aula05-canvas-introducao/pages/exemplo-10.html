@@ -92,7 +92,7 @@
 
 			let textSize = 24;
 			ctx.font = `bold ${textSize}px sans`;
-			ctx.textBaseline = "top";
+			ctx.textBaseline = "bottom";
 			let texto = "Xavante";
 			let textMetric = ctx.measureText(texto)
 
@@ -100,19 +100,29 @@
 			let y0 = canvas.height / 2 - textSize;
 			let x1 = canvas.width / 2 + textMetric.width / 2;
 			let y1 = y0;
-			// let gradiente = ctx.createLinearGradient(x0, y0, x1, y1)
 			let gradiente = ctx.createLinearGradient(
-				0,0,
-				canvas.width,canvas.height)
-			gradiente.addColorStop(0, "#000")
-			gradiente.addColorStop(.5, "#f00")
+				x0, y0, x1, y1)
+			//let gradiente = ctx.createLinearGradient(
+			//	0,0,
+			//	canvas.width,canvas.height)
+			gradiente.addColorStop(0, "#f00")
+			gradiente.addColorStop(.5, "white")
 			gradiente.addColorStop(1, "#000")
 			ctx.fillStyle = gradiente;
 
-			// ctx.fillText(texto,
-			// 	canvas.width / 2 - textMetric.width / 2,
-			// 	canvas.height / 2 - textSize)
-			ctx.fillRect(0,0,canvas.width,canvas.height)
+			ctx.beginPath()
+			ctx.moveTo(x0,y0)
+			ctx.lineTo(x1,y1)
+			ctx.lineWidth = 4
+			ctx.strokeStyle = "magenta"
+			ctx.stroke()
+
+
+
+		 	ctx.fillText(texto,
+			 	canvas.width / 2 - textMetric.width / 2,
+			 	canvas.height / 2 - textSize)
+			//ctx.fillRect(0,0,canvas.width,canvas.height)
 		}
 	</script>
 </body>

@@ -83,11 +83,13 @@
 
 			let x = canvas.width / 2
 			let y = canvas.height / 2
-			let r1 = 400
-			let r2 = 4
-			let fundoRadial = ctx.createRadialGradient(x, y, r1, x, y, r2)
-			fundoRadial.addColorStop(.1, "yellow")
-			fundoRadial.addColorStop(.9, "blue")
+			let r1 = 4
+			let r2 = 400
+			let fundoRadial = 
+			ctx.createRadialGradient(x, y, r1, x, y, r2)
+			fundoRadial.addColorStop(.9, "yellow")
+			fundoRadial.addColorStop(.1, "blue")
+			
 			ctx.fillStyle = fundoRadial;
 			ctx.fillRect(0, 0, canvas.width, canvas.height)
 
