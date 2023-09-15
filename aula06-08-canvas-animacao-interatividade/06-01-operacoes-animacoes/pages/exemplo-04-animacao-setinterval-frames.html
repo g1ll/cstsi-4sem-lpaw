@@ -56,14 +56,18 @@
 			
 			let x = canvas.width/2
 			let y = canvas.height/2
-			let frames = 20
+			let frames = 60
 			let interval = 1000/frames
-			let c_vel=5;
+			let c_vel=10;
 			let loop = setInterval(() => {
+				clearScreen(ctx,canvas)
 				circ(ctx,x+=c_vel,y,25,5,"#0f0","#00f")
 				x=x>canvas.width+25 ? 0:x;
 			}, interval);
+		}
 
+		function clearScreen(ctx,canvas){
+			ctx.clearRect(0,0,canvas.width, canvas.height)
 		}
 
 		function circ(ctx,x,y,r,l,color,fill=false){

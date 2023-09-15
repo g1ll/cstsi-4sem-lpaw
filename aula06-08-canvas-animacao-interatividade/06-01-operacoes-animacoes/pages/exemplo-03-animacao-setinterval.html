@@ -51,18 +51,18 @@
 		window.addEventListener("load", canvasApp, false)
 
 		function canvasApp() {
+			//this.test = "asdfasd"
 			const canvas = document.querySelector('canvas')
 			const ctx = canvas.getContext('2d');
 			
 			let x = canvas.width/2
 			let y = canvas.height/2
-			let interval = 1000
+			let interval = 100
 			let cx=x;
 			setInterval(() => {
 				circ(ctx,--cx,y,25,5,"#0f0","#00f")
 				quad(ctx,++x,y,50,5,'blue','red')	
 			}, interval);
-
 		}
 
 		function quad(ctx,x,y,s,l,color,fill=false)

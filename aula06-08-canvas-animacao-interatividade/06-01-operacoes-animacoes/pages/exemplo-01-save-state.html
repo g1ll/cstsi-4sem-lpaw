@@ -59,9 +59,13 @@
 			let width = 50
 			let height = width
 
+			ctx.strokeStyle="#f00"
+			ctx.fillStyle="green"
+			ctx.save()
 			quad(ctx,x,y,width,5,'black','blue')	
 			ctx.save()
 			quad(ctx,x+width*1.5,y,width,5,'blue','black')
+			ctx.restore()
 			ctx.restore()
 			quad(ctx,x+width*3,y,width,5,
 				ctx.strokeStyle,ctx.fillStyle)

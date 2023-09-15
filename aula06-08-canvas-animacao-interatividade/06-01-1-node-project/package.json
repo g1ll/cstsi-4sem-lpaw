@@ -1,0 +1,15 @@
+{
+  "name": "06-01-1-node-project",
+  "version": "1.0.0",
+  "description": "Exemplo Node Project Aula 06",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx browser-sync -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.29.3"
+  }
+}

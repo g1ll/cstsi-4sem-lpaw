@@ -1,6 +1,6 @@
-import log from './log'             
+import logging from './log'             
 import canvas from './canvas'
 
-log('Olá RollUp!!!')
+logging('Olá RollUp!!!')
 window.addEventListener('load',canvas, false)
 
