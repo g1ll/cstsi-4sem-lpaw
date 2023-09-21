@@ -2,6 +2,7 @@ import Enemy from "./Enemy"
 import Smile from "./Smile"
 import { keyPress, key } from "./keyboard"
 import Hero from "./Hero"
+import redCircle from "./geometries/redCirc"
 
 let CTX
 let CANVAS
@@ -43,6 +44,8 @@ const loop = () => {
 	setTimeout(() => {
 
 		CTX.clearRect(0, 0, CANVAS.width, CANVAS.height)
+
+		redCircle(CTX)
 		
 		smile.move(boundaries, key)
 		smile.draw(CTX)

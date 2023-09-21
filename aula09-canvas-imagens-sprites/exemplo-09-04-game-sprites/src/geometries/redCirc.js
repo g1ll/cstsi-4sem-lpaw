@@ -1,4 +1,4 @@
-export default (ctx) => {
+export default function redCircle(ctx){
 	ctx.lineWidth = 10;
 	ctx.beginPath();
 	ctx.arc(100, 100, 20, 0, Math.PI / 180 * 360)
