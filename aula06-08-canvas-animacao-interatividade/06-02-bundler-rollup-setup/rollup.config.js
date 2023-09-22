@@ -4,7 +4,7 @@ export default {
 	input: 'src/main.js',
 	output: {
 	  compact: true,
-	  file: 'public/js/bundle.min.js',
+	  file: 'public/js/bundler.min.js',
 	  plugins:[terser()]
 	}
   };

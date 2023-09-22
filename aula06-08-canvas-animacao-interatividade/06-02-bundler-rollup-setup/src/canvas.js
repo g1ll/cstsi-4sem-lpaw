@@ -5,6 +5,6 @@ export default startCanvas = () => {
 	console.log(canvas);
 	print(
 		canvas.getContext('2d'),
-		"Exemplo RollUp!"
+		"Ola Canvas!"
 	)
 }
