@@ -56,6 +56,7 @@ mtlLoader.setPath(modelPath)
         object.traverse(obj => {
           obj?.material?.color &&
            originalColors.push({
+              id: obj.id, 
              uuid: obj.uuid, 
              color: obj.material.color.clone() 
             })
@@ -80,7 +81,7 @@ function detectIntersections(){
 
     let object = originalColors.find(obj => obj.uuid === intersected.object.uuid)
     if (object) {
-      console.log(object.uuid)
+      console.log(object)
       setTimeout(() => {
         intersected.object.material.color = object.color.clone()
       }, 500)
