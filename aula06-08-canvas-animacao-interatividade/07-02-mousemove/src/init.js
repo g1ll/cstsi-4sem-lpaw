@@ -1,15 +1,9 @@
 import circle from "./circle"
-<<<<<<< HEAD:aula06-canvas-animacao-interatividade/06-07-mousemove/src/init.js
-import { getMouse, mouseClick, mouseMove } from "./mouse"
-=======
-import { getClick, getHover, mouseClick, mouseMove } from "./mouse"
->>>>>>> aula-06-atualizacao-20231:aula06-08-canvas-animacao-interatividade/07-02-mousemove/src/init.js
-
+import { getClick, mouseClick, mouseMove,getHover } from "./mouse"
 
 let CTX
 let CANVAS
 const FRAMES = 15
-
 
 const init = () => {
 	console.log("Initialize Canvas")
@@ -23,21 +17,15 @@ const init = () => {
 const loop = () => {
 	setTimeout(() => {
 		CTX.fillStyle = 'rgba(255,255,255,0.3)'
-		CTX.fillRect(0, 0,
-			CANVAS.width, CANVAS.height)
+		CTX.fillRect(0, 0,CANVAS.width, CANVAS.height)
 
 		let canvasRect = CANVAS.getBoundingClientRect()
-<<<<<<< HEAD:aula06-canvas-animacao-interatividade/06-07-mousemove/src/init.js
-		let mouse = getMouse()
-		let clk = {
+		let mouse = getHover()
+		let hover = {
 				x:mouse.x-canvasRect.x,
 				y:mouse.y-canvasRect.y,
-=======
-		let hover = {
-			x: getHover().x - canvasRect.x,
-			y: getHover().y - canvasRect.y,
->>>>>>> aula-06-atualizacao-20231:aula06-08-canvas-animacao-interatividade/07-02-mousemove/src/init.js
 		}
+		console.log(mouse)	
 		circle(CTX, hover.x, hover.y)
 		console.log(getClick().x);
 		circle(CTX,
