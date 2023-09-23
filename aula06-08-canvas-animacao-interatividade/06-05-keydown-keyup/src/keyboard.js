@@ -6,7 +6,7 @@ function keyDownUp(element){
     element.addEventListener('keyup',removeKey)
 }
 
-const hasKey = (searchKey)=>keys.find(key=>searchKey===key)
+const hasKey = (searchKey)=>keys.find(key=>key===searchKey)
 //Argel: https://www.brunobrito.net.br/configurar-firacode-vscode/
 
 function addKey(event){

@@ -22,11 +22,12 @@ const callback = () => {
 	CTX.clearRect(0, 0, CANVAS.width, CANVAS.height)
 	// CTX.fillStyle = 'rgba(255,255,255,.05)'
 	// CTX.fillRect(0, 0, CANVAS.width, CANVAS.height)
-	let key='';
-	getKeys().forEach(k=>key+=' '+k)
+	let stringKeys='';
+	// getKeys().forEach(k=>stringKeys+=' '+k)
+	stringKeys = getKeys.join(' ')
 	console.log(key)
 	writeCenterXY(CTX,CANVAS.width,	CANVAS.height,
-		`Apertou: ${key}`,'red',30, 'sans','bold','top')
+		`Apertou: ${stringKeys}`,'red',30, 'sans','bold','top')
 
 	requestAnimationFrame(loop)
 }
