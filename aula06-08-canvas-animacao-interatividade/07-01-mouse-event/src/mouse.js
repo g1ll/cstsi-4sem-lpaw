@@ -1,21 +1,21 @@
 
 function mouseClick(element){
-//element.addEventListener('click',setClick)
-	element.onclick = setClick
+	//element.addEventListener('click',setClick)
+	element.onclick = setMouse
 }
 
-let click = {x:null,y:null}
+let mouse = {x:null,y:null}
 
-function setClick(event){
-	click.x = event.clientX
-	click.y = event.clientY
-	console.log(click)
+function setMouse(event){
+	mouse.x = event.clientX
+	mouse.y = event.clientY
+	console.log(mouse)
 }
 
-const getClick=()=>click
+const getMousePosition=()=>mouse
 
 function mouseMoving(element){
-	element.addEventListener('mousemove',setClick)
+	element.addEventListener('mousemove',setMouse)
 }
 
-export {mouseClick,getClick,mouseMoving}
+export {mouseClick,getMousePosition,mouseMoving}

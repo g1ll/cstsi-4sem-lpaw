@@ -1,4 +1,4 @@
-import { getClick, mouseMoving } from "./mouse"
+import { getMousePosition, mouseClick, mouseMoving } from "./mouse"
 import writeCenterXY from "./text"
 
 let CTX
@@ -11,7 +11,7 @@ const init = () => {
 	CANVAS = document.querySelector('canvas')
 	console.log(CANVAS.getBoundingClientRect())
 	CTX = CANVAS.getContext('2d')
-	mouseMoving(window)
+	mouseClick(window)
 	loop()
 }
 
@@ -19,12 +19,13 @@ const loop = () => {
 	setTimeout(() => {
 		CTX.clearRect(0, 0, CANVAS.width, CANVAS.height)
 		
-		let canvasRect = CANVAS.getBoundingClientRect()
-		let clk = {
-				x:getClick().x-canvasRect.x,
-				y:getClick().y-canvasRect.y,
+		let {x,y} = CANVAS.getBoundingClientRect()
+		
+		let position = {
+				x:getMousePosition().x-Math.round(x),
+				y:getMousePosition().y-Math.round(y),
 		}
-		let msg = `Clicou em x:${clk.x}, y:${clk.y}`
+		let msg = `Clicou em x:${position.x}, y:${position.y}`
 		writeCenterXY(CTX,CANVAS.width,	CANVAS.height,msg,
 						'blue',30, 'sans','bold','top')
 		
