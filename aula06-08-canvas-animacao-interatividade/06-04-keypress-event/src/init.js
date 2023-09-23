@@ -27,4 +27,4 @@ const loop = () => {
 	}, 1000 / FRAMES)
 }
 
-export { init }
+export { init, FRAMES, CANVAS }

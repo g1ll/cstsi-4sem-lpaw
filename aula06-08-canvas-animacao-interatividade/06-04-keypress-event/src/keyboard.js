@@ -2,7 +2,7 @@
 let key = '';
 
 function keyPress(element){
-    element.addEventListener('keydown',evento=>{
+    element.addEventListener('keypress',evento=>{
         key = evento.key
         console.log(key)
     })
