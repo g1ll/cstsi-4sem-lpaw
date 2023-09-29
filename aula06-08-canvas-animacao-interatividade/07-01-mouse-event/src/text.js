@@ -1,4 +1,4 @@
-export default function writeCenterXY(ctx, cwidth, cheight, text,
+export default function (ctx, cwidth, cheight, text,
 	color = 'black', size = 12, family = 'serif',
 	style = 'normal', base = 'alphabetic', stroke = false)
 {

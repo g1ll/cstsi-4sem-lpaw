@@ -52,17 +52,22 @@ export default class Quad {
 		let movements = {
 			'ArrowDown': { x: this.x, y: this.y + this.speed },
 			'ArrowRight': { x: this.x + this.speed, y: this.y },
-			'ArrowLeft': { x: this.x - this.speed, y: this.y }
+			'ArrowLeft': { x: this.x - this.speed, y: this.y },
+			'ArrowUp':{x: this.x ,y: this.y-this.speed}
 		}
 
 		this.status = movements[key] ? key : this.status
 
 		this.x = movements[this.status].x
 		this.y = movements[this.status].y
+
 		console.log(this.status);
 		//var = (teste)? verdade : falso; 
 		//teste?true:false;
 		this.x = this.x > limits.width ? -this.size : this.x
 		this.x = this.x + this.size < 0 ? limits.width - this.size : this.x
+
+		this.y = this.y < -this.size ? limits.height: this.y
+		this.y = this.y > limits.height ? -this.size: this.y 
 	};
 }

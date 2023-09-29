@@ -6,11 +6,11 @@ let CTX
 let CANVAS
 const FRAMES = 15
 
-const qtdEnemies = 1
+const qtdEnemies = 5
 
 let enemies = Array.from({length:qtdEnemies});
 
-const smile = new Smile(300, 100, 20, 5,'yellow')
+const smile = new Smile(300, 100, 20, 10)
 
 let gameover = false
 let animeReqReference;
@@ -56,7 +56,7 @@ const init = ()=>{
 	enemies = enemies.map(i=>new Enemy(
 			Math.random()*CANVAS.width,
 			Math.random()*CANVAS.height,
-			10, 5, 'red'
+			10, 25, 'red'
 		))
 	
 	keyPress(window)

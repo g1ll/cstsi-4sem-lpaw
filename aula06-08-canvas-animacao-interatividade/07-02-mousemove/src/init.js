@@ -1,5 +1,8 @@
 import circle from "./circle"
-import { getClick, mouseClick, mouseMove,getHover } from "./mouse"
+import { getClick,
+	mouseClick,
+	mouseMove,
+	getHover } from "./mouse"
 
 let CTX
 let CANVAS
@@ -16,7 +19,7 @@ const init = () => {
 
 const loop = () => {
 	setTimeout(() => {
-		CTX.fillStyle = 'rgba(255,255,255,0.3)'
+		CTX.fillStyle = 'rgba(0,0,0,0.25)'
 		CTX.fillRect(0, 0,CANVAS.width, CANVAS.height)
 
 		let canvasRect = CANVAS.getBoundingClientRect()
@@ -26,7 +29,7 @@ const loop = () => {
 				y:mouse.y-canvasRect.y,
 		}
 		console.log(mouse)	
-		circle(CTX, hover.x, hover.y)
+		circle(CTX, hover.x, hover.y,'#0f0')
 		console.log(getClick().x);
 		circle(CTX,
 			getClick().x - canvasRect.x,
@@ -38,4 +41,4 @@ const loop = () => {
 	}, 1000 / FRAMES)
 }
 
-export { init }
+export default init

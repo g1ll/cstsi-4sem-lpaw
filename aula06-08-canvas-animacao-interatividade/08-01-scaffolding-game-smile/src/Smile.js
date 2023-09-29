@@ -2,13 +2,12 @@ import Circle from './geometries/Circle';
 
 export default class Smile extends Circle {
 
-	constructor(x, y, size, speed = 10, color = "#00f") {
+	constructor(x, y, size, speed = 10, color = "yellow") {
 		super(x, y, size, speed, color)
-		this.status = 'ArrowRight';
+		this.status = 'ArrowLeft';
 	}
 
 	paint(ctx) {
-		ctx.fillStyle = "#fff";
 
 		this.draw(ctx)
 
@@ -24,11 +23,14 @@ export default class Smile extends Circle {
 
 		ctx.beginPath()
 		ctx.lineWidth = 2
-		ctx.arc(this.x, this.y + this.size / 4, this.size / 2, 0, Math.PI)
+		ctx.arc(this.x, this.y + this.size / 4,
+				this.size / 2,
+				0, Math.PI)
 		ctx.strokeStyle = "#000"
 		ctx.stroke()
 
-		this.circ(ctx, this.x, this.y, this.size, 2, 'black')
+		this.circ(ctx, this.x, this.y,
+			 this.size, 2, 'black')
 
 	}
 

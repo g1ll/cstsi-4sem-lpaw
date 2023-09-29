@@ -18,4 +18,8 @@ function mouseMoving(element){
 	element.addEventListener('mousemove',setMouse)
 }
 
-export {mouseClick,getMousePosition,mouseMoving}
+export {
+	mouseClick,
+	getMousePosition,
+	mouseMoving
+}

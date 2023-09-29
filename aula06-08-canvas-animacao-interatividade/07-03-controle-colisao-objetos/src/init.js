@@ -7,7 +7,7 @@ let CTX
 let CANVAS
 const FRAMES = 15
 
-const quad = new Quad(0,45,30,5)
+const quad = new Quad(0,45,60,5,"#0f0")
 const rect = new Rect(130,75,50,0,'red')
 
 const init = () => {

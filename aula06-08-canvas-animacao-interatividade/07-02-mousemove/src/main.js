@@ -1,4 +1,4 @@
 import './styles/style.css'
-import {init} from "./init.js"
+import start from "./init.js"
 
-window.addEventListener("load", init, false)
+window.addEventListener("load", start, false)
