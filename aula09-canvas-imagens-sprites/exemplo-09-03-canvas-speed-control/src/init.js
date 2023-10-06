@@ -13,11 +13,7 @@ let y = 0
 let cellWidth = 165		//largura da celular de recorte
 let cellHeight = 177	//altura da celula de recorte
 let totalSprites = 3	//Total de sprites
-<<<<<<< HEAD:aula09-canvas-imagens-sprites/exemplo-09-03-canvas-speed-control/src/init.js
-let spriteSpeed =  1	//Velocidade de troca de sprites (anime)
-=======
 let goblinSpeed =  1	//Velocidade de troca de sprites (anime)
->>>>>>> aula-09-atualizacao-exemplos:aula09-canvas-imagens/exemplo-9-3-canvas-speed-control/src/init.js
 
 const init = async () => {
 	console.log("Initialize Canvas")
