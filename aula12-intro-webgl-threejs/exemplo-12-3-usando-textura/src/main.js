@@ -16,7 +16,6 @@ const camera = new THREE.PerspectiveCamera(
 );
 camera.position.z = 100
 
-
 const geometry = new THREE.BoxGeometry(20, 20, 20)
 const texture = new THREE.TextureLoader()
 	.load('img/crate.jpg', () => {
@@ -44,8 +43,9 @@ function animate() {
 	cube.rotation.x += .01
 	cube.rotation.z += .01
 
-	// move()
+	move()
 
 	requestAnimationFrame(animate)
 }
+
 console.log('terminou script')

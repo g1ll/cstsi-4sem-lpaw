@@ -15,7 +15,7 @@ const camera = new THREE.PerspectiveCamera(
   0.1, //Plano proximo
   100//Plano distante
 );
-camera.position.z = 1.5
+camera.position.z = 10
 
 //Luz
 var light = new THREE.AmbientLight(0xffffff, 5);
@@ -52,13 +52,13 @@ function handleMaterialLoaded(materials) {
 
 function handleObjectLoaded(object) {
   jet = object
-  jet.position.x = -.5
-  jet.position.y = .25
-  jet.position.z = .5
+  jet.position.x = 0
+  jet.position.y = .05
+  jet.position.z = 5
   jet.rotation.y = .78
   jet.rotateZ(.78)
-  jet.rotateX(.78)
-  jet.scale.setScalar(.5)
+  jet.rotateX(.45)
+  jet.scale.setScalar(1)
   scene.add(jet)
   animate()
 }

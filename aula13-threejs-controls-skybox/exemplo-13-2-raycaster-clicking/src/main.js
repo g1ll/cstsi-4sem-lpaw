@@ -23,11 +23,11 @@ camera.position.z = 1.2
 const controls = new OrbitControls(camera, renderer.domElement);
 
 //Luz
-var light = new THREE.AmbientLight(0xffffff, 10);
+const light = new THREE.AmbientLight(0xffffff, 10);
 scene.add(light);
 
 //Ponto de Luz
-var plight = new THREE.PointLight(0xffffff, 10);
+const plight = new THREE.PointLight(0xffffff, 10);
 plight.position.set(10, 10, 0);
 scene.add(plight);
 
@@ -45,26 +45,49 @@ const objLoader = new OBJLoader();
 let intersects = [];
 let originalColors = [];
 
+// mtlLoader.setPath(modelPath)
+//   .load(mtlFile, (materials) => {
+//     objLoader.setMaterials(materials)
+//     objLoader.setPath(modelPath)
+//       .load(objFile, (object) => {
+//         object.rotation.x = 0
+//         object.rotation.y = 1.5
+//         scene.add(object)
+//         object.traverse(obj => {
+//           obj?.material?.color &&
+//            originalColors.push({
+//               id: obj.id, 
+//              uuid: obj.uuid, 
+//              color: obj.material.color.clone() 
+//             })
+//         })
+//         renderer.render(scene, camera)
+//         animate()
+//       })
+//   })
+
+
 mtlLoader.setPath(modelPath)
-  .load(mtlFile, (materials) => {
-    objLoader.setMaterials(materials)
-    objLoader.setPath(modelPath)
-      .load(objFile, (object) => {
-        object.rotation.x = 0
-        object.rotation.y = 1.5
-        scene.add(object)
-        object.traverse(obj => {
-          obj?.material?.color &&
-           originalColors.push({
-              id: obj.id, 
-             uuid: obj.uuid, 
-             color: obj.material.color.clone() 
-            })
-        })
-        renderer.render(scene, camera)
-        animate()
-      })
-  })
+const material = await mtlLoader.loadAsync(mtlFile)
+material.preload(material)
+objLoader.setMaterials(material)
+
+objLoader.setPath(modelPath)
+const object = await objLoader.loadAsync(objFile)
+object.rotation.x = 0
+object.rotation.y = 1.5
+scene.add(object)
+object.traverse(obj => {
+  obj?.material?.color &&
+    originalColors.push({
+      id: obj.id,
+      uuid: obj.uuid,
+      color: obj.material.color.clone()
+    })
+})
+
+animate()
+
 
 function animate() {
   controls.update();
@@ -73,7 +96,7 @@ function animate() {
   requestAnimationFrame(animate);
 }
 
-function detectIntersections(){
+function detectIntersections() {
   intersects = raycaster.intersectObjects(scene.children);
 
   intersects.forEach(intersected => {

@@ -31,7 +31,7 @@ window.addEventListener('resize', ()=>{
   //   camera.position.z = 2
   // }
   //z inversamente proporcional ao tamanho de tela mais o z inicial
-  camera.position.z = 1000/window.innerWidth+zi //melhor solução até o momento
+  // camera.position.z = 1000/window.innerWidth+zi //melhor solução até o momento
   renderer.setSize(window.innerWidth, window.innerHeight)
 }, false)
 
@@ -59,7 +59,7 @@ let jet
 let anglo = 0
 
 function moveJet(){
-  let vel = 5
+  let vel = 10
   anglo = anglo > 360 ? 0 : anglo + vel
   jet.rotation.z = Math.sin((anglo * Math.PI/180))/2
 }

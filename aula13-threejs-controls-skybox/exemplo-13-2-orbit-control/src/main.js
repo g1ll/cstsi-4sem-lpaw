@@ -21,11 +21,11 @@ camera.position.z = 1.2
 const controls = new OrbitControls(camera, renderer.domElement);
 
 //Luz
-var light = new THREE.AmbientLight(0xffffff, 10);
+const light = new THREE.AmbientLight(0xffffff, 10);
 scene.add(light);
 
 //Ponto de Luz
-var plight = new THREE.PointLight(0xffffff, 10);
+const plight = new THREE.PointLight(0xffffff, 10);
 plight.position.set(10, 10, 0);
 scene.add(plight);
 
@@ -41,19 +41,29 @@ manager.onProgress = function (item, loaded, total) {
 const mtlLoader = new MTLLoader(manager);
 const objLoader = new OBJLoader();
 
-mtlLoader.setPath(modelPath)
-  .load(mtlFile, (materials) => {
-    materials.preload()
-    objLoader.setMaterials(materials)
-    objLoader.setPath(modelPath)
-      .load(objFile, (object) => {
-        object.rotation.x = 0
-        object.rotation.y = 1.5
-        scene.add(object)
-        renderer.render(scene, camera)
-        animate()
-      })
-  })
+// mtlLoader.setPath(modelPath)
+//   .load(mtlFile, (materials) => {
+//     materials.preload()
+//     objLoader.setMaterials(materials)
+//     objLoader.setPath(modelPath)
+//       .load(objFile, (object) => {
+//         object.rotation.x = 0
+//         object.rotation.y = 1.5
+//         scene.add(object)
+//         animate()
+//       })
+//   })
+
+const material = await mtlLoader.setPath(modelPath).loadAsync(mtlFile)
+material.preload(material)
+objLoader.setMaterials(material)
+const object = await objLoader.setPath(modelPath).loadAsync(objFile)
+object.rotation.x = 0
+object.rotation.y = 1.5
+scene.add(object)
+
+animate()
+
 
 function animate() {
   controls.update();

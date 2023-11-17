@@ -22,21 +22,34 @@ const init = async () => {
 	CANVAS = document.querySelector('canvas')
 	CTX = CANVAS.getContext('2d')
 	goblinImage = await loadImage('img/goblin.png')
-	sound = await loadAudio('sounds/retrogame.ogg')
-	sound.volume = .5
-	theme = await loadAudio('sounds/illusory.mp3')
-	theme.volume = .3
-	theme.loop = true
+
+	try {
+		sound = await loadAudio('sounds/retrogame.ogg')
+		sound.volume = .5
+	} catch (error) {
+		console.log(sound)
+		sound = null
+		console.error(error)
+	}
+
+	try {
+		theme = await loadAudio('sounds/illusory.mp3')
+		theme.volume = .3
+		theme.loop = true
+	} catch (error) {
+		console.error(error)
+	}
+
 	keyDown(CANVAS)
 	keyPress(CANVAS)
 	loop()
 	animeSprite()
 }
 
-const animeSprite = ()=>{ //Controla a animacao do sprite
+const animeSprite = () => { //Controla a animacao do sprite
 	setInterval(() => {
 		x = x < totalSprites - 1 ? x + 1 : 0;
-	}, 1000 / (FRAMES*spriteSpeed/10))
+	}, 1000 / (FRAMES * spriteSpeed / 10))
 }
 
 const loop = () => {
@@ -53,14 +66,20 @@ const loop = () => {
 			200, 50, 165, 174 //draw
 		)
 
-		key == 'ArrowUp' && sound.play();
+		key == 'ArrowUp' && sound && sound.play();
 		key == 'Enter' && theme.paused && theme.play()
-	
-		if(hasKey('r')){
-			theme.currentTime = 0 
+
+		if (hasKey('r')) {
+			theme.currentTime = 0
 		}
 
-		hasKey('p') && theme.pause()
+		if (hasKey('p')) {
+			if (theme.paused) {
+				theme.play()
+			} else {
+				theme.pause()
+			}
+		}
 
 		requestAnimationFrame(loop)
 	}, 1000 / FRAMES)

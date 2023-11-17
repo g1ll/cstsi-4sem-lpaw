@@ -11,11 +11,11 @@ const createPathStrings = (filename) => {
 	const baseFilename = basePath + filename;
 	const fileType = ".png";
 	const sides = ["ft", "bk", "up", "dw", "lf","rt"];
-	const pathStings = sides.map(side => {
+	const pathStrings = sides.map(side => {
 		return baseFilename + "/" + side + fileType;
 	});
-	console.log(pathStings)
-	return pathStings;
+	console.log(pathStrings)
+	return pathStrings;
 }
 
 const createSkyBoxMaterial = async (filename) => {

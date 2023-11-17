@@ -76,11 +76,15 @@ function handleObjectLoaded(object) {
   animate()
 }
 
-function animate() {
-  renderer.render(scene, camera)
+function movePointLight(){
   p-=.2
   if(p< -30) p = 30
   plight.position.set(p,5,25)
   sphere.position.set(p,5,25)
+}
+
+function animate() {
+  renderer.render(scene, camera)
+  movePointLight()
   requestAnimationFrame(animate)
 }

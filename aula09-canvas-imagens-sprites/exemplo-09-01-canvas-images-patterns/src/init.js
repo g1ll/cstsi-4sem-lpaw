@@ -13,39 +13,45 @@ const init = async () => {
 	CANVAS = document.querySelector('canvas')
 	CTX = CANVAS.getContext('2d')
 	
+	console.log("carregando imagem...")
+	
 	// backgroundImage = await ((url)=>new Promise(resolve=>{
 	// 	const img = new Image();
 	// 	img.src = url;
 	// 	img.addEventListener("load",()=>resolve(img));
 	// }))('img/bg/rock-grass-1.jpg');
-	
+
 	backgroundImage = await loadImage('img/bg/patterns/dunnes-small.jpg')
+
+	console.log(backgroundImage)
+
 	pattern = CTX.createPattern(backgroundImage,'repeat')
 	
 	goblinImage = await loadImage('img/goblin.png')
 
 	// console.log([goblinImage,backgroundImage])
+	
 	loop()
 }
 
 const loop = () => {
 	setTimeout(() => {
-		// CTX.drawImage(backgroundImage,0,0,CANVAS.width,CANVAS.height)
+		//CTX.drawImage(backgroundImage,0,0,CANVAS.width,CANVAS.height)
 		
 		CTX.fillStyle = pattern;
 		CTX.fillRect(0,0,CANVAS.width,CANVAS.height)
 
-		// CTX.drawImage( //Desenha toda a imagem no tamanho 165x200
-		// 	goblinImage,
-		// 	200,30,165,200,
-		// )
+		CTX.drawImage( //Desenha toda a imagem no tamanho 165x200
+			goblinImage,
+			0,0,82.5,100,
+		)
 
 		// Denha parte da imagem, 
 		// recortando uma célula de 165*174
 		CTX.drawImage(
 			goblinImage,
-			2*165,3*174,165,174, //source
-			200,10,165/2,174/2 //draw (destination)
+			0,2*175,165,174, //source
+			200,100,165,174 //draw (destination)
 		)
 
 		requestAnimationFrame(loop)

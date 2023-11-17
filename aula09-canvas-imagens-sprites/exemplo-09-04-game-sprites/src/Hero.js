@@ -7,8 +7,7 @@ export default class Hero extends Circle{
 	constructor(x, y, size, speed = 10, width, height,imgUrl,FRAMES) {
 		super(x, y, size, speed)
 		this.imgUrl = imgUrl
-		loadImage(this.imgUrl)
-		.then(img=>{
+		loadImage(this.imgUrl).then(img=>{
 			this.img = img
 			this.cellWidth = img.naturalWidth/this.totalSprites+3.5
 			console.log('W:'+this.cellWidth)
@@ -53,7 +52,7 @@ export default class Hero extends Circle{
 			this.height
 		)
 		//descomentar para ver a area de hit
-		// this.hit.draw(CTX)
+		this.hit.draw(CTX)
 	}
 
 	animeSprite(FRAMES){ //Controla a animacao do sprite

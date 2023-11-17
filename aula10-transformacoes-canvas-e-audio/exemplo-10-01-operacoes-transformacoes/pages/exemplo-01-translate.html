@@ -37,7 +37,9 @@
 			for (let i = 0; i < 6; i++)
 				for (let j = 0; j < 6; j++) {
 					ctx.save();
-					ctx.translate(25 + i * 95,15 + j * 60);
+					ctx.translate(
+						-150 + i * 100,//x
+						15 + j * 100)//y;
 					let color = `rgb(${45 * i}, 255, ${255 - 90 * i})`
 					circ(ctx,15,15,30,0,color,color)
 					ctx.restore();

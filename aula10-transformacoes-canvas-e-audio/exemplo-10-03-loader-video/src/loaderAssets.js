@@ -21,6 +21,7 @@ const loadAudio = async(path)=>new Promise(resolve=>{
 
 const loadVideo = async(path)=>new Promise(resolve=>{
     const video = document.createElement('video')
+    console.log(video)
     video.src = path;
     console.log('loading video...')
     return video.addEventListener("canplaythrough",()=>{

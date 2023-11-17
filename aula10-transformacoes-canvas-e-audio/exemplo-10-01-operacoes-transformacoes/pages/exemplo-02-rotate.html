@@ -42,14 +42,16 @@
 			
 			ctx.fillStyle = 'rgba(255,255,255,.5)'
 			ctx.fillRect(0, 0, canvas.width, canvas.height)
-			smile(ctx, 150, 50, 25)
+			
+			
+			smile(ctx, 150, 50, 25,'green')
 			ctx.save()
 			ctx.translate(150, 50)
 			ctx.rotate(Math.PI / 180 * 45)
-			smile(ctx, 0, 0, 25)
-
+			smile(ctx, 0, 0, 25,'blue')
+			
 			//ctx.reset()//chrome e edge
-			// ctx.fillStyle = 'white'
+			//ctx.fillStyle = 'white'
 			//ctx.clearRect(0, 0, canvas.width, canvas.height)
 			
 		}
@@ -74,8 +76,8 @@
 			}
 		}
 
-		function smile(ctx, x, y, size) {
-			circ(ctx, x, y, size, 3, 'black', 'yellow')
+		function smile(ctx, x, y, size,color='yellow') {
+			circ(ctx, x, y, size, 3, 'black', color)
 			circ(ctx, x - size / 2.5, y - size / 4, size * .1, 1, 'black', 'black')
 			circ(ctx, x + size / 2.5, y - size / 4, size * .1, 1, 'black', 'black')
 			ctx.beginPath()

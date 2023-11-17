@@ -46,28 +46,49 @@ manager.onProgress = (item, loaded, total) => {
 
 const mtlLoader = new MTLLoader(manager);
 const objLoader = new OBJLoader();
+//callback hell
+// mtlLoader.setPath(modelPath)
+//   .load(mtlFile, (materials) => {
+//     materials.preload()
+//     objLoader.setMaterials(materials)
+//     objLoader.setPath(modelPath).load(objFile, (object) => {
+//       model = object
+//       model.scale.setScalar(.5)//redimensiona o objeto
+//       model.position.x = .05
+//       model.rotation.z = .5
+//       scene.add(model)
+//       createSkyBox('bluesky', 200)
+//         .then(sky=> {
+//           sky.position.y = 1
+//           console.log('sky created')
+//           console.log(sky)
+//           scene.add(sky)
+//           animate()
+//         })
+//         .catch(error => console.log(error));
+//     })
+//   })
 
+//refator async/await
 mtlLoader.setPath(modelPath)
-  .load(mtlFile, (materials) => {
-    materials.preload()
-    objLoader.setMaterials(materials)
-    objLoader.setPath(modelPath).load(objFile, (object) => {
-      model = object
-      model.scale.setScalar(.5)//redimensiona o objeto
-      model.position.x = .05
-      model.rotation.z = .5
-      scene.add(model)
-      createSkyBox('bluesky', 200)
-        .then(sky=> {
-          sky.position.y = 1
-          console.log('sky created')
-          console.log(sky)
-          scene.add(sky)
-          animate()
-        })
-        .catch(error => console.log(error));
-    })
-  })
+const materials = await mtlLoader.loadAsync(mtlFile)
+materials.preload()
+objLoader.setMaterials(materials)
+objLoader.setPath(modelPath)
+
+model = await objLoader.loadAsync(objFile)
+model.scale.setScalar(.5)//redimensiona o objeto
+model.position.x = .05
+model.rotation.z = .5
+scene.add(model)
+
+let sky = await createSkyBox('bluesky',200)
+sky.position.y = 1
+console.log('sky created')
+console.log(sky)
+scene.add(sky)
+animate()
+
 
 function animate() {
   controls.update();

@@ -16,15 +16,15 @@ const camera = new THREE.PerspectiveCamera(
   100//Plano distante
 );
 
-camera.position.z = 4
+camera.position.z = 2
 
 // //Luz
 var light = new THREE.AmbientLight(0xffffff, 10);
 scene.add(light);
 
 //Ponto de Luz
-var plight = new THREE.PointLight(0xffffff, 10);
-plight.position.set(1,3,0)
+const plight = new THREE.PointLight(0xffffff, 10);
+plight.position.set(10,1,0)
 plight.distance=10
 scene.add(plight);
 
@@ -46,9 +46,9 @@ const monkey = {};
 
 objLoader.setPath(modelPath)
   .load(objFile, (object) => {
-    object.traverse(child =>child.material?.color.setHex(0xff0011));
+    // object.traverse(child =>child.material?.color.setHex(0x0000ff));
     // object.traverse(child =>{
-    //   child.material = new THREE.MeshStandardMaterial({color: 0xff0011 })
+    //   child.material = new THREE.MeshStandardMaterial({color: 0x00ff00 })
     //   return child
     // });
     monkey.model = object
@@ -57,6 +57,7 @@ objLoader.setPath(modelPath)
   })
 
 function animate() {
+  plight.position.x-=.1
   monkey.model.rotation.y+=.01
   renderer.render(scene, camera);
   requestAnimationFrame(animate);
