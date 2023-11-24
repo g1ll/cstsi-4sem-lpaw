@@ -17,34 +17,48 @@ let spriteSpeed = 1	//Velocidade de troca de sprites (anime)
 let sound
 let theme
 let video
+let progress = {
+	count: 0,
+	total: 3,
+	percent:0
+}
 
 const init = async () => {
 	console.log("Initialize Canvas")
 	CANVAS = document.querySelector('canvas')
 	CTX = CANVAS.getContext('2d')
-	goblinImage = await loadImage('img/goblin.png')
-	sound = await loadAudio('sounds/retrogame.ogg')
+	let loadProgress=setInterval(() => {
+		progress.percent = progress.count / progress.total *100
+		console.log(
+			progress,
+			progress.percent + '%'
+		)
+		if(progress.percent >= 100) 
+			clearInterval(loadProgress)
+	}, 100);
+	goblinImage = await loadImage('img/goblin.png', progress)
+	sound = await loadAudio('sounds/retrogame.ogg', progress)
 	sound.volume = .5
-	theme = await loadAudio('sounds/illusory.mp3')
+	theme = await loadAudio('sounds/illusory.mp3', progress)
 	theme.volume = .3
 	theme.loop = true
-	video  = await loadVideo('video/exemplos_atividade-03.mp4')
+	video = await loadVideo('video/exemplos_atividade-03.mp4')
 	video.volume = 0
 	keyPress(CANVAS)
-	CANVAS.onclick=()=>video && video.play()
+	CANVAS.onclick = () => video && video.play()
 	loop()
 	animeSprite()
 }
 
-const animeSprite = ()=>{ //Controla a animacao do sprite
+const animeSprite = () => { //Controla a animacao do sprite
 	setInterval(() => {
 		x = x < totalSprites - 1 ? x + 1 : 0;
-	}, 1000 / (FRAMES*spriteSpeed/10))
+	}, 1000 / (FRAMES * spriteSpeed / 10))
 }
 
 const loop = () => {
 	setTimeout(() => {
-		if(video.paused)
+		if (video.paused)
 			CTX.clearRect(0, 0, CANVAS.width, CANVAS.height)
 		else
 			CTX.drawImage(video, 0, 0, CANVAS.width, CANVAS.height);

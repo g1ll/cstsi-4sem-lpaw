@@ -1,8 +1,9 @@
-const loadImage = async (url) => 
+const loadImage = async (url,progress) => 
     new Promise(resolve=>{
     const img = new Image();
     img.addEventListener("load",
      () => {
+        progress.count++
         console.log('loaded: '+url);
         return resolve(img);
     });
@@ -10,11 +11,12 @@ const loadImage = async (url) =>
     console.log('loading img: '+url)
 });
 
-const loadAudio = async(path)=>new Promise(resolve=>{
+const loadAudio = async(path,progress)=>new Promise(resolve=>{
     const audio = new Audio(path)
     console.log('loading audio...')
     return audio.addEventListener("canplaythrough",()=>{
         console.log('Audio loaded: '+path)
+        progress.count++
         return resolve(audio)
     });
 });
