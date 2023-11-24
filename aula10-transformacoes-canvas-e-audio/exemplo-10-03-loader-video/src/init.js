@@ -19,30 +19,32 @@ let theme
 let video
 let progress = {
 	count: 0,
-	total: 3,
-	percent:0
+	percent:0,
+	total: 2,
 }
+
+let loadProgress=setInterval(() => {
+	progress.percent = progress.count / progress.total *100
+	progress.percent = Math.floor(progress.percent)
+	console.log(
+		progress,
+		progress.percent + '%'
+	)
+	if(progress.percent >= 100) 
+		clearInterval(loadProgress)
+}, 100);
 
 const init = async () => {
 	console.log("Initialize Canvas")
 	CANVAS = document.querySelector('canvas')
 	CTX = CANVAS.getContext('2d')
-	let loadProgress=setInterval(() => {
-		progress.percent = progress.count / progress.total *100
-		console.log(
-			progress,
-			progress.percent + '%'
-		)
-		if(progress.percent >= 100) 
-			clearInterval(loadProgress)
-	}, 100);
 	goblinImage = await loadImage('img/goblin.png', progress)
-	sound = await loadAudio('sounds/retrogame.ogg', progress)
+	sound = await loadAudio('sounds/retrogame.ogg')
 	sound.volume = .5
 	theme = await loadAudio('sounds/illusory.mp3', progress)
 	theme.volume = .3
 	theme.loop = true
-	video = await loadVideo('video/exemplos_atividade-03.mp4')
+	video = await loadVideo('video/exemplos_atividade-03.mp4',progress)
 	video.volume = 0
 	keyPress(CANVAS)
 	CANVAS.onclick = () => video && video.play()

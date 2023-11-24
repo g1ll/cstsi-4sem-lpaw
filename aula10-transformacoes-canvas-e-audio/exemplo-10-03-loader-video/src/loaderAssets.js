@@ -1,4 +1,4 @@
-const loadImage = async (url,progress) => 
+const loadImage = async (url,progress={}) => 
     new Promise(resolve=>{
     const img = new Image();
     img.addEventListener("load",
@@ -11,7 +11,7 @@ const loadImage = async (url,progress) =>
     console.log('loading img: '+url)
 });
 
-const loadAudio = async(path,progress)=>new Promise(resolve=>{
+const loadAudio = async(path,progress={})=>new Promise(resolve=>{
     const audio = new Audio(path)
     console.log('loading audio...')
     return audio.addEventListener("canplaythrough",()=>{
@@ -21,12 +21,13 @@ const loadAudio = async(path,progress)=>new Promise(resolve=>{
     });
 });
 
-const loadVideo = async(path)=>new Promise(resolve=>{
+const loadVideo = async(path,progress={})=>new Promise(resolve=>{
     const video = document.createElement('video')
     console.log(video)
     video.src = path;
     console.log('loading video...')
     return video.addEventListener("canplaythrough",()=>{
+        progress.count++
         console.log('Video loaded: '+path)
         return resolve(video)
     });
