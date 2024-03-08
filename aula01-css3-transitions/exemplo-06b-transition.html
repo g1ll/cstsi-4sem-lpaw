@@ -106,10 +106,13 @@
             opacity: 1;
         }
 
-        .row:has(input:focus) label{
+        /* .row:has(input:focus) label{ */ /* +atual e +preciso*/
+       .row:focus-within label { /*+compatível mas -preciso*/
             font-style: bolder;
             padding: 0px;
+            font-size:20px;
             opacity: 1;
+            color: blue;
             transition: all 1s ease-out;
         }
 
