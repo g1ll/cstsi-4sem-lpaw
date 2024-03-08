@@ -70,7 +70,7 @@ img {
 	}
 }
 
-.walk:hover img {
+.walk:hover {
 	animation-play-state: running;
 }
 
