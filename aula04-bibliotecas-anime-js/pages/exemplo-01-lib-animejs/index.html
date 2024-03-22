@@ -130,7 +130,7 @@
 		  
 
 		  document.querySelector('#sgv-anime3 path')
-		  	.addEventListener('click',()=>{
+		  	.addEventListener('mouseenter',()=>{
 				// anime3.duration = 1000;
 				//anime3.autoplay = true;
 				anime3.play();
@@ -140,6 +140,11 @@
 						 play:anime3.autoplay
 				})
 		  	})
+
+			document.querySelector('#sgv-anime3 path')
+		  		.addEventListener('mouseleave',()=>{
+					anime3.pause();
+		  		})
 	</script>
 </body>
 </html>

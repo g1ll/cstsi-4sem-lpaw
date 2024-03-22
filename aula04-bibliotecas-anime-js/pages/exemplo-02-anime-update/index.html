@@ -84,7 +84,7 @@
           update: (anim) => {
             if (loadingBar) {
               loadingBar.style.width = anim.progress + "%"
-              console.log(loadingBar.style.width)
+              console.log(anim.progress,loadingBar.style.width)
             }
             if (anim.progress == 100) {
               console.log("Loading Complete!")
