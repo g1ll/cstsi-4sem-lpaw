@@ -22,6 +22,11 @@
 		}
 
 		@font-face {
+			font-family: "west";
+			src: url('../assets/fonts/west.ttf');
+		}
+
+		@font-face {
 			font-family: "alien";
 			src: url('../assets/fonts/alien_encounters/Alien-Encounters-Regular.ttf');
 		}
@@ -46,19 +51,23 @@
 		}
 
 		canvas {
-			/*font-family: 'Poor Story';*/
-			font-family: 'Press Start 2P';
+			font-family: 'west';
 			border: 3px dashed blue;
+
 		}
-		
-		.loadFont{
-			font-family: 'alien';
+
+		.loadFont {
+			/* font-family: 'alien'; */
+			/* font-family: 'Poor Story'; */
+			/* font-family: 'Press Start 2P'; */
+			/* font-family: 'game'; */
+			font-family: 'west';
 		}
-		
+
 		div {
 			flex-direction: column;
 			justify-items: center;
-			
+
 		}
 
 		p {
@@ -89,21 +98,25 @@
 	</div>
 	<p class="loadFont">&nbsp;Carregar fonte...</p>
 	<script>
-		const canvas = document.querySelector('canvas')
-		const ctx = canvas.getContext('2d');
-		let textSize = 48;
-		//let font = 'Poor Story';
-		//let font = 'Press Start 2P'
-		let font = 'alien';
-		ctx.font = `${textSize}px ${font}`;
-		ctx.textBaseline = "top";
-		let texto = "Fontes Externas!";
-		let textMetric = ctx.measureText(texto)
-		console.log(textMetric);
-		ctx.fillStyle = "#f00";
-		ctx.fillText(texto,
-			canvas.width / 2 - textMetric.width / 2,
-			canvas.height / 2 - textSize)
+		setTimeout(() => {
+			const canvas = document.querySelector('canvas')
+			const ctx = canvas.getContext('2d');
+			let textSize = 48;
+			// let font = 'Poor Story';
+			// let font = 'Press Start 2P'
+			// let font = 'alien';
+			// let font = 'game';
+			let font = 'west';
+			ctx.font = `${textSize}px ${font}`;
+			ctx.textBaseline = "top";
+			let texto = "Fontes Externas!";
+			let textMetric = ctx.measureText(texto)
+			console.log(textMetric);
+			ctx.fillStyle = "#f00";
+			ctx.fillText(texto,
+				canvas.width / 2 - textMetric.width / 2,
+				canvas.height / 2 - textSize)
+		}, 2000);//Aguardar o carregamento da fonte
 	</script>
 </body>
 
