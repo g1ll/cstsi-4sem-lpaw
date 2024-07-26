@@ -74,12 +74,13 @@
 		anime({
 				targets: '#circle',			//alvo da animação, pode ser mais de um
 				translateX: 250,			//propriedade a ser modificada (camelCase)
-				borderRadius:50,			//propriedade css em camelCase
+				// borderRadius:50,			//propriedade css em camelCase
 				backgroundColor: '#00ff00',	//propriedade css em camelCase
 				duration:500,				//duração em  milisegundos (ms)
 				direction: 'alternate',		//direção da animação (animation) 
 				loop: true,					//numero de iterações (animation-iteration-count)
-				easing: 'easeInBounce'		//função de tempo (animation-timing-function)
+				// easing: 'easeInBounce'		//função de tempo (animation-timing-function)
+				easing: 'easeInOutCirc'		//função de tempo (animation-timing-function)
 			  });
 		//   })
 		
@@ -104,7 +105,7 @@
 			easing: 'easeInQuad'	//função de tempo  (animation-timing-function)
 		  });
 		
-		  svgTarget.onclick = ()=>anima.play() 
+		  svgTarget.onclick = ()=>anima.play()
 
 		//Animação 1.3
 		const anime3 = anime({

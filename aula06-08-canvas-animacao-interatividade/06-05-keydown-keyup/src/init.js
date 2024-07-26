@@ -1,4 +1,4 @@
-import { getKeys, keyDownUp } from "./keyboard"
+import { getKeys, keyDownUp, hasKey } from "./keyboard"
 import writeCenterXY from "./text"
 
 let CTX
@@ -23,9 +23,11 @@ const callback = () => {
 	// CTX.fillStyle = 'rgba(255,255,255,.05)'
 	// CTX.fillRect(0, 0, CANVAS.width, CANVAS.height)
 	let stringKeys='';
-	// getKeys().forEach(k=>stringKeys+=' '+k)
-	stringKeys = getKeys.join(' ')
-	console.log(key)
+	
+	getKeys().forEach(k=>stringKeys+=' '+k)
+	 
+	// stringKeys = hasKey?getKeys.join(' '):' ';
+
 	writeCenterXY(CTX,CANVAS.width,	CANVAS.height,
 		`Apertou: ${stringKeys}`,'red',30, 'sans','bold','top')
 

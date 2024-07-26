@@ -47,7 +47,6 @@ export default class Smile extends Circle {
 		
 		// console.log(key)
 		this.status = movements[key] ? key : this.status
-		
 
 		const { sx, sy } = movements[this.status]
 		

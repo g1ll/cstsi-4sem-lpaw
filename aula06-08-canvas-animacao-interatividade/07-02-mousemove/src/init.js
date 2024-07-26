@@ -19,8 +19,9 @@ const init = () => {
 
 const loop = () => {
 	setTimeout(() => {
-		CTX.fillStyle = 'rgba(0,0,0,0.25)'
+		CTX.fillStyle = 'rgba(255,255,255,0.125)'
 		CTX.fillRect(0, 0,CANVAS.width, CANVAS.height)
+		// CTX.clearRect(0, 0,CANVAS.width, CANVAS.height)
 
 		let canvasRect = CANVAS.getBoundingClientRect()
 		let mouse = getHover()
@@ -28,8 +29,8 @@ const loop = () => {
 				x:mouse.x-canvasRect.x,
 				y:mouse.y-canvasRect.y,
 		}
-		console.log(mouse)	
-		circle(CTX, hover.x, hover.y,'#0f0')
+		// console.log(mouse)	
+		circle(CTX, hover.x, hover.y,'#00f')
 		console.log(getClick().x);
 		circle(CTX,
 			getClick().x - canvasRect.x,

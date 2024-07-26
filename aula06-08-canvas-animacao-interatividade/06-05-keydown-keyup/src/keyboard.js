@@ -24,6 +24,4 @@ function removeKey(event){
 
 const getKeys = ()=>keys
 
-
-
 export {keyDownUp, hasKey, getKeys}

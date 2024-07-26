@@ -1,3 +1,9 @@
+let hover = {x:null,y:null}
+let click = {x:null,y:null}
+
+function mouseMove(element){
+	element.addEventListener('mousemove',setHover)
+}
 
 function mouseClick(element){
 	console.log('click')
@@ -5,14 +11,12 @@ function mouseClick(element){
 	// element.addEventListener('click',setClick)
 }
 
-let click = {x:null,y:null}
-let hover = {x:null,y:null}
-function setClick(event){
+const setClick=(event)=>{
 	click.x = event.clientX
 	click.y = event.clientY
 }
 
-function setHover(event){
+const setHover=(event)=>{
 	console.log('hover')
 	hover.x = event.clientX
 	hover.y = event.clientY
@@ -21,9 +25,5 @@ function setHover(event){
 
 const getClick=()=>click
 const getHover=()=>hover
-
-function mouseMove(element){
-	element.addEventListener('mousemove',setHover)
-}
 
 export {mouseClick,getClick,mouseMove,getHover}

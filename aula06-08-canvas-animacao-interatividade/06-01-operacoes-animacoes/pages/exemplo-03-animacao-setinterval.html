@@ -60,12 +60,13 @@
 			let interval = 100
 			let cx=x;
 			setInterval(() => {
+				ctx.clearRect(0,0,600,300)
 				circ(ctx,--cx,y,25,5,"#0f0","#00f")
 				quad(ctx,++x,y,50,5,'blue','red')	
 			}, interval);
 		}
 
-		function quad(ctx,x,y,s,l,color,fill=false)
+		function quad(ctx,x,y,s,l,color=false,fill=false)
 		{
 			ctx.lineWidth = l;
 			ctx.strokeStyle = color;
