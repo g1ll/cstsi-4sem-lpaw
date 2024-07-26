@@ -2,7 +2,7 @@ import { loadImage } from "./loaderAssets"
 
 let CTX
 let CANVAS
-const FRAMES = 30
+const FRAMES = 7
 
 let goblinImage = null
 let bgImage = null
@@ -25,7 +25,7 @@ const init = async () => {
 	CTX = CANVAS.getContext('2d')
 	//goblin sprites png
 	try {
-		goblinImage = await loadImage('img/goblin.png')
+		goblinImage = await loadImage('img/goblin.png')//Promises
 
 		//bg pattern
 		bgImage = await loadImage('img/bg/dust.png')
@@ -50,7 +50,7 @@ const loop = () => {
 		x = x < totalSpritesX - 1 && !gameover ? x + 1 : 0;
 		//var = (Teste)?verdade:falso;
 		
-		// if(x < totalSpritesX - 1)
+		// if(x < totalSpritesX - 1 && !gameover)
 		// 	x+=1
 		// else x = 0
 
