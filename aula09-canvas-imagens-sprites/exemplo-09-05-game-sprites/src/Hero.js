@@ -3,6 +3,8 @@ import Circle from "./geometries/Circle";
 import { loadImage } from "./loaderAssets";
 
 export default class Hero extends Circle{
+	//ASSISTIR O VIDEO https://www.youtube.com/watch?v=K-J_OByuEZM
+
 
 	constructor(x, y, size, speed = 10, width, height,imgUrl,FRAMES) {
 		super(x, y, size, speed)
