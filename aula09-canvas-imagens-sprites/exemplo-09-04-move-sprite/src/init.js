@@ -46,6 +46,9 @@ const loop = () => {
 		
 		if(hasKey('ArrowDown'))
 			goblinPositionY = goblinPositionY + goblinVelocity
+		
+		if(hasKey('ArrowRight'))
+			goblinPositionX = goblinPositionX + goblinVelocity
 
 
 
