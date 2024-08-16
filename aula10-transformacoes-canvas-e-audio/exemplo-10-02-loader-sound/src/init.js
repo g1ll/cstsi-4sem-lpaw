@@ -21,14 +21,17 @@ const init = async () => {
 	console.log("Initialize Canvas")
 	CANVAS = document.querySelector('canvas')
 	CTX = CANVAS.getContext('2d')
-	goblinImage = await loadImage('img/goblin.png')
+	goblinImage =  await loadImage('img/goblin.png')
 
 	try {
 		sound = await loadAudio('sounds/retrogame.ogg')
-		sound.volume = .5
+		if(sound?.volume){
+			sound.volume = .5
+		}else{
+			throw new Error(`Problemas com o Audio!!`);
+		}
 	} catch (error) {
 		console.log(sound)
-		sound = null
 		console.error(error)
 	}
 
@@ -67,7 +70,12 @@ const loop = () => {
 		)
 
 		key == 'ArrowUp' && sound && sound.play();
-		key == 'Enter' && theme.paused && theme.play()
+		// if(key == 'ArrowUp')
+		// 	if(sound)
+		// 		sound.play();
+
+
+		key == 'Enter' && theme?.paused && theme.play()
 
 		if (hasKey('r')) {
 			theme.currentTime = 0
