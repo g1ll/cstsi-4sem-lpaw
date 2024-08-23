@@ -12,7 +12,7 @@ const camera = new THREE.PerspectiveCamera(
 	75, //campo de visao vertical
 	aspecto, //aspecto da imagem (Largura/Altura)
 	0.1, //Plano proximo
-	100//Plano distante
+	500//Plano distante
 );
 camera.position.z = 100
 
@@ -33,8 +33,8 @@ function move() {
 	cube.position.z += indo ? -.5 : .5
 	if (!indo && cube.position.z > 75)
 		indo = true
-	if (indo && cube.position.z < 1)
-		indo = false
+	if (indo && cube.position.z < -100)
+		indo = false//vindo
 }
 
 function animate() {

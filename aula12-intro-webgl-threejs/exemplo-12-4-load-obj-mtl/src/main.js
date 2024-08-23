@@ -18,7 +18,7 @@ const camera = new THREE.PerspectiveCamera(
 camera.position.z = 10
 
 //Luz
-var light = new THREE.AmbientLight(0xffffff, 5);
+var light = new THREE.AmbientLight(0xffffff, 20);
 scene.add(light);
 
 //Ponto de Luz
